@@ -1,7 +1,7 @@
 <h1>Smart promise</h1>
-<p><bold>Epic:</bold>Smart Promise - because you don’t want to lose your pinky <br>
+<p><b>Epic: </b>Smart Promise - because you don’t want to lose your pinky <br>
 Pinky-promise smart contract.</p>
-<p><bold>Story:</bold>Överenskommelser mellan två parter. 
+<p><b>Story: </b>Överenskommelser mellan två parter. 
 Bra för äktenskapsförord, nyårslöften, vadslagning, projektanställningar/uppdragsbaserade anställningar, hyreskontrakt, gig-economy,  etc. 
 <br>
 Kan skalas upp hela vägen till stora affärer i B2B.
