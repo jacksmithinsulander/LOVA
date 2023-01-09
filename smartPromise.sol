@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0
 
-pragma solidity ^0.8.0;
-
-//import "https://github.com/safe-global/safe-contracts/blob/main/contracts/GnosisSafe.sol";
+pragma solidity ^0.8.3;
 
 contract smartPromiseContract {
     
@@ -17,8 +15,6 @@ contract smartPromiseContract {
 
     promiseData[] public smartPromises;
 
-    event NewPromise(uint promiseIdentifier);
-
     function createSmartPromise(string memory _promiseTitle) public payable {
         promiseData memory newPromise;
         newPromise.initialDepositor = msg.sender;
@@ -28,19 +24,18 @@ contract smartPromiseContract {
             block.difficulty, block.timestamp, block.coinbase))) % 2**160; 
             //generates a random number to use as a identifier
         newPromise.promiseAcceptDeadline = block.timestamp + 10 minutes;
-        //address[] storage tempArray; // = [msg.sender];
-        //tempArray = [msg.sender];
-        //newPromise.promiseParticipators.push(msg.sender);
-        emit NewPromise(newPromise.promiseIdentifier);
+        newPromise.promiseParticipators = new address[](1);
+        newPromise.promiseParticipators[0] = msg.sender; // want to add addresses to array promiseParticipator
         smartPromises.push(newPromise);
     }
+
 
     function joinPromise(uint _promiseUID) public payable {
         for (uint i = 0; i < smartPromises.length; i++) {
             if (smartPromises[i].promiseIdentifier == _promiseUID &&
             smartPromises[i].promiseAcceptDeadline > block.timestamp &&
             smartPromises[i].promiseCollateral == msg.value) {
-                smartPromises[i].promiseParticipators.push(msg.sender);
+                smartPromises[i].promiseParticipators.push(msg.sender); 
             } else {
                 revert("Error: Invalid promise UID or deadline has passed or collateral does not match");
             }
