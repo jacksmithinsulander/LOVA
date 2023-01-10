@@ -1,0 +1,40 @@
+# Sammanfattning av vecka 2
+
+## Sprint planning
+Vi tar till oss 5 uppgifter till veckan:
+
+1. Research fortsätter kontinuerligt - Uint. (0)
+2. Deploya smart contract på testnet - (0.05)
+
+3. Integrera JS med smart contract(ether.js / web3.js) - Behöver NodeJs. (totalt: 3.2)
+
+3.1 Välja en node (infura, moralis) - (0.2)
+3.2 Rikta ethers.js mot vårt kontrakt(‘0x4B9678d7fa125c5Dffb553F787F918De4CcFBD34’), ABI. - (1)
+3.3 Importera våra Solidity-funktioner med hjälp av JavaScript till vår hemsida. - (2)
+
+4. Skapa utkast index för UI - (2)
+
+5. Outline PowerPowerpoint (Mirelle) - (0.5)
+
+
+## Daily standup
+### måndag 9 Jan
+Vi fick gjort:
+Vi har fördjupat oss inom Solidity och JS.
+Tittat på tutorials
+Börjat titta på presentation i sin helhet (PechaKucha)
+Kommit fram till en bra mall för koden vi kan fortsätta använda och bygga på.
+
+Vi fick inte gjort:
+Helgen har varit skön!
+
+### tisdag
+- Vi fick gjort x, y, z
+- Vi har inte gjort å, ä, ö
+
+## Sprint review & demo
+- Vi hittade 3 buggar när vi körde demon
+- Vi kom överens om att prioritera ner feature X; tidsbrist
+- Vi kom överens om att ta in feature Y; mer relevant
+- Vi har uppskattat uppgifterna för enkla; tar mer tid att genomföra
+- Andra insikter…
