@@ -33,18 +33,29 @@ let createPromiseBtn = document.createElement("button")
 let uidInput = document.createElement("input")
 let joinPromiseBtn = document.createElement("button")
 
-createPromiseBtn.innerText = "Button"
-joinPromiseBtn.innerText = "join"
-contentWrapper.append(titleInput, valueInput, createPromiseBtn, uidInput, joinPromiseBtn)
+titleInput.id = "titleInput";
+valueInput.id = "valueInput";
+createPromiseBtn.id = "createPromiseBtn";
+uidInput.id = "uidInput";
+joinPromiseBtn.id = "joinPromiseBtn";
+
+titleInput.placeholder = "Title for promise";
+valueInput.placeholder = "ETH amount";
+uidInput.placeholder = "Promise I";
+
+createPromiseBtn.innerText = "Create SmartPromise";
+joinPromiseBtn.innerText = "Join";
+contentWrapper.append(titleInput, valueInput, createPromiseBtn, uidInput, joinPromiseBtn);
 
 async function createSmartPromiseJS () {
-	// initialDepositor
-	// promiseCollateral
-	// promiseTitle
-	// promiseIdentifier (random index)
-	// let promiseTitle = titleInput.value
-	// await smartPromiseAddress.createSmartPromise(${promiseTitle})
+	let smartPromiseTitle = titleInput.value;
+	await smartPromiseContract.createSmartPromise(smartPromiseTitle);
+
 }
+createPromiseBtn.addEventListener("click", () => {
+	createSmartPromiseJS();
+});
+
 
 async function joinPromiseJS () {
 	
@@ -54,4 +65,3 @@ async function endPromiseJS () {
 	
 }
 
-/* await kontrakt.funtkion(ingående värde) */
