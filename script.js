@@ -25,3 +25,33 @@ const smartPromiseAbi = [
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
 
 const smartContractInteraction = document.createElement("form");
+
+
+let titleInput = document.createElement("input")
+let valueInput = document.createElement("input")
+let createPromiseBtn = document.createElement("button")
+let uidInput = document.createElement("input")
+let joinPromiseBtn = document.createElement("button")
+
+createPromiseBtn.innerText = "Button"
+joinPromiseBtn.innerText = "join"
+contentWrapper.append(titleInput, valueInput, createPromiseBtn, uidInput, joinPromiseBtn)
+
+async function createSmartPromiseJS () {
+	// initialDepositor
+	// promiseCollateral
+	// promiseTitle
+	// promiseIdentifier (random index)
+	// let promiseTitle = titleInput.value
+	// await smartPromiseAddress.createSmartPromise(${promiseTitle})
+}
+
+async function joinPromiseJS () {
+	
+}
+
+async function endPromiseJS () {
+	
+}
+
+/* await kontrakt.funtkion(ingående värde) */
