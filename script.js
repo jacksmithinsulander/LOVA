@@ -10,8 +10,9 @@ let signer;
 
 async function connectMetamask() {
 	await provider.send("eth_requestAccounts", []);
-	const signer = provider.getSigner();
-}
+	signer = provider.getSigner();
+	smartPromiseContract.connect(signer);
+  }
 
 walletConnectBtn.addEventListener ("click", () => {
 	connectMetamask();
@@ -33,37 +34,52 @@ let titleInput = document.createElement("input")
 let valueInput = document.createElement("input")
 let createPromiseBtn = document.createElement("button")
 let uidInput = document.createElement("input")
+let joinPromiseValue = document.createElement("input")
 let joinPromiseBtn = document.createElement("button")
+
 
 titleInput.id = "titleInput";
 valueInput.id = "valueInput";
 createPromiseBtn.id = "createPromiseBtn";
 uidInput.id = "uidInput";
+joinPromiseValue.id = "joinPromiseValue"
 joinPromiseBtn.id = "joinPromiseBtn";
+
 
 titleInput.placeholder = "Title for promise";
 valueInput.placeholder = "ETH amount";
-uidInput.placeholder = "Promise I";
+uidInput.placeholder = "Promise ID";
+joinPromiseValue.placeholder = "ETH amount (join)";
 
 createPromiseBtn.innerText = "Create SmartPromise";
 joinPromiseBtn.innerText = "Join";
-contentWrapper.append(titleInput, valueInput, createPromiseBtn, uidInput, joinPromiseBtn);
+contentWrapper.append(titleInput, valueInput, createPromiseBtn, uidInput, joinPromiseValue, joinPromiseBtn);
 
 async function createSmartPromiseJS () {
-	let smartPromiseTitle = titleInput.value;
-	let smartPromiseValue = valueInput.value;
-	const payableValue = {value: ethers.utils.parseEther(smartPromiseValue)}
-	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(payableValue, smartPromiseTitle);
-	await txResponse.wait()
-}
+	await connectMetamask();
+	  let smartPromiseTitle = titleInput.value;
+	  let smartPromiseValue = valueInput.value;
+	  const payableValue = {value: ethers.utils.parseEther(smartPromiseValue)}
+	  const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle,payableValue);
+	  await txResponse.wait()
+  }
 createPromiseBtn.addEventListener("click", () => {
 	createSmartPromiseJS();
 });
 
 
 async function joinPromiseJS () {
-	
+	await connectMetamask();
+	let uidInputValue = uidInput.value;
+	let joinValue = joinPromiseValue.value;
+	const payableValue = {value: ethers.utils.parseEther(joinValue)}
+	const txResponse = await smartPromiseContract.connect(signer).joinPromise(uidInputValue,payableValue);
+	await txResponse.wait()
 }
+
+joinPromiseBtn.addEventListener("click", () => {
+	joinPromiseJS();
+});
 
 async function endPromiseJS () {
 	
