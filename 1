@@ -18,7 +18,7 @@ walletConnectBtn.addEventListener ("click", () => {
 	connectMetamask();
 });
 
-const smartPromiseAddress = "0xccec26e3640a0F70808F78118863d045669e271D";
+const smartPromiseAddress = "0x4B9678d7fa125c5Dffb553F787F918De4CcFBD34";
 
 const smartPromiseAbi = [
 	"function createSmartPromise(string memory _promiseTitle) public payable",
@@ -66,6 +66,7 @@ async function createSmartPromiseJS () {
 	let smartPromiseTitle = titleInput.value;
 	let smartPromiseValue = valueInput.value;
 	const payableValue = {value: ethers.utils.parseEther(smartPromiseValue)}
+	console.log(payableValue)
 	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle,payableValue);
 	await txResponse.wait()
   }
@@ -90,7 +91,7 @@ joinPromiseBtn.addEventListener("click", () => {
 async function endPromiseJS () {
 	await connectMetamask();
 	let endValueID = endPromiseUidValue.value;
-	const payableValue = {value: ethers.utils.parseEther("0")};
+	const payableValue = {value: 0};
 	const txResponse = await smartPromiseContract.connect(signer).endSmartPromise(endValueID,payableValue);
 	await txResponse.wait()
 }
