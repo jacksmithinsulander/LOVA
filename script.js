@@ -18,7 +18,7 @@ walletConnectBtn.addEventListener ("click", () => {
 	connectMetamask();
 });
 
-const smartPromiseAddress = "0x4B9678d7fa125c5Dffb553F787F918De4CcFBD34";
+const smartPromiseAddress = "0xccec26e3640a0F70808F78118863d045669e271D";
 
 const smartPromiseAbi = [
 	"function createSmartPromise(string memory _promiseTitle) public payable",
