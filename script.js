@@ -6,6 +6,8 @@ contentWrapper.appendChild(walletConnectBtn);
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
+let signer;
+
 async function connectMetamask() {
 	await provider.send("eth_requestAccounts", []);
 	const signer = provider.getSigner();
@@ -49,8 +51,10 @@ contentWrapper.append(titleInput, valueInput, createPromiseBtn, uidInput, joinPr
 
 async function createSmartPromiseJS () {
 	let smartPromiseTitle = titleInput.value;
-	await smartPromiseContract.createSmartPromise(smartPromiseTitle);
-
+	let smartPromiseValue = valueInput.value;
+	const payableValue = {value: ethers.utils.parseEther(smartPromiseValue)}
+	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(payableValue, smartPromiseTitle);
+	await txResponse.wait()
 }
 createPromiseBtn.addEventListener("click", () => {
 	createSmartPromiseJS();
