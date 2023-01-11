@@ -3,12 +3,13 @@
 pragma solidity ^0.8.3;
 
 contract smartPromiseContract {
+    
     struct promiseData {
         address initialDepositor;
         uint256 promiseCollateral;
         string promiseTitle;
-        uint256 promiseIdentifier;
-        uint256 promiseAcceptDeadline;
+        uint promiseIdentifier;
+        uint promiseAcceptDeadline;
         address[] promiseParticipators;
     }
 
@@ -19,50 +20,44 @@ contract smartPromiseContract {
         newPromise.initialDepositor = msg.sender;
         newPromise.promiseCollateral = msg.value;
         newPromise.promiseTitle = _promiseTitle;
-        newPromise.promiseIdentifier =
-            uint256(
-                keccak256(
-                    abi.encodePacked(
-                        block.difficulty,
-                        block.timestamp,
-                        block.coinbase
-                    )
-                )
-            ) %
-            2**160;
-        //generates a random number to use as a identifier
+        newPromise.promiseIdentifier = uint(keccak256(abi.encodePacked(
+            block.difficulty, block.timestamp, block.coinbase))) % 2**160; 
+            //generates a random number to use as a identifier
         newPromise.promiseAcceptDeadline = block.timestamp + 10 minutes;
         newPromise.promiseParticipators = new address[](1);
         newPromise.promiseParticipators[0] = msg.sender; // want to add addresses to array promiseParticipator
         smartPromises.push(newPromise);
     }
 
-    function joinPromise(uint256 _promiseUID) public payable {
-        for (uint256 i = 0; i < smartPromises.length; i++) {
-            if (
-                smartPromises[i].promiseIdentifier == _promiseUID &&
-                smartPromises[i].promiseAcceptDeadline > block.timestamp &&
-                smartPromises[i].promiseCollateral == msg.value
-            ) {
-                smartPromises[i].promiseParticipators.push(msg.sender);
-            } else {
-                revert(
-                    "Error: Invalid promise UID or deadline has passed or collateral does not match"
-                );
+
+    function joinPromise(uint _promiseUID) public payable {
+        bool ableToJoin;
+        for (uint i = 0; i < smartPromises.length; i++) {
+            if (smartPromises[i].promiseIdentifier == _promiseUID &&
+            smartPromises[i].promiseAcceptDeadline > block.timestamp &&
+            smartPromises[i].promiseCollateral == msg.value) {
+                ableToJoin = true;
+                smartPromises[i].promiseParticipators.push(msg.sender); 
+                break;
             }
         }
+        require(ableToJoin, "Error: Invalid promise UID or deadline has passed or collateral does not match");
     }
 
-    function endSmartPromise(uint256 _promiseUID) public payable {
-        require(address(this).balance > 0, "contract is empty");
-        for (uint256 i = 0; i < smartPromises.length; i++) {
-            if (smartPromises[i].promiseIdentifier == _promiseUID) {
-                payable(msg.sender).transfer(
-                    smartPromises[i].promiseCollateral
-                );
-            } else {
-                revert("Invalid promise identifier");
+    function endSmartPromise(uint _promiseUID) public payable {
+        bool ableToWithdraw;
+        for (uint i = 0; i < smartPromises.length; i++) {
+            if (smartPromises[i].promiseIdentifier == _promiseUID &&
+            smartPromises[i].promiseCollateral > 0) {
+                ableToWithdraw = true;
+                payable(msg.sender).transfer(smartPromises[i].promiseCollateral);
+                break;
             }
         }
+        require(ableToWithdraw, "Invalid promise identifier");
+    }
+
+    function emptyPromiseData() public {
+        delete smartPromises;
     }
 }

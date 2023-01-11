@@ -66,6 +66,7 @@ async function createSmartPromiseJS () {
 	let smartPromiseTitle = titleInput.value;
 	let smartPromiseValue = valueInput.value;
 	const payableValue = {value: ethers.utils.parseEther(smartPromiseValue)}
+	console.log(payableValue)
 	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle,payableValue);
 	await txResponse.wait()
   }
@@ -90,7 +91,7 @@ joinPromiseBtn.addEventListener("click", () => {
 async function endPromiseJS () {
 	await connectMetamask();
 	let endValueID = endPromiseUidValue.value;
-	const payableValue = {value: ethers.utils.parseEther("0")};
+	const payableValue = {value: 0};
 	const txResponse = await smartPromiseContract.connect(signer).endSmartPromise(endValueID,payableValue);
 	await txResponse.wait()
 }
