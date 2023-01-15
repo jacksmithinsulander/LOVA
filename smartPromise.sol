@@ -19,7 +19,7 @@ contract smartPromiseContract {
 
     promiseData[] public smartPromises;
 
-    mapping(promiseData.promiseIdentifier => bool) signed;
+    // mapping(promiseData.promiseIdentifier => bool) signed;
 
     function createSmartPromise(string memory _promiseTitle) public payable {
         promiseData memory newPromise;
