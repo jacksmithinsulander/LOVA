@@ -1,7 +1,7 @@
 # Sammanfattning av vecka 2
 
 ## Sprint planning
-Vi tar till oss 5 uppgifter till veckan:
+Vi tar till oss 5 uppgifter under veckan:
 
 1. Research fortsätter kontinuerligt - Uint. (0)
 2. Deploya smart contract på testnet - (0.05)
@@ -16,11 +16,21 @@ Vi tar till oss 5 uppgifter till veckan:
 
 5. Outline PowerPowerpoint (Mirelle) - (0.5)
 
-## Sprint planning 2.0
+## Sprint planning 2.1
+Då vi nådde alla mål tidigare än väntat tog vi på oss 3 punkter till:
+
+1. Skriva Javascript-funktioner för att integrera dem med smarta kontrakt på sidan.
+
+1.1 Delmoment av att fixa smartkontrakt:
+promiseParticipants array.
+
+1.2 fixa join promise funktion loop.
+
+1.3 fixa multisig för withdrawals.
 
 
+## Daily standups
 
-## Daily standup
 ### måndag 9 Jan
 Vi fick gjort:
 Vi har fördjupat oss inom Solidity och JS.
@@ -29,6 +39,9 @@ Börjat titta på presentation i sin helhet (PechaKucha)
 Kommit fram till en bra mall för koden vi kan fortsätta använda och bygga på.
 
 Vi fick inte gjort:
+-
+
+Insikter:
 Helgen har varit skön!
 
 ### tisdag 10 jan
@@ -41,20 +54,41 @@ Vi fick inte gjort:
 - Inte skrivit Solidity-funktioner för att interagera med smarta kontrakt på vår hemsida.
 - Uppnått presentabla resultat med Index för UI.
 
+Insikter:
+
 ## onsdag 11 Jan
 Vi fick gjort:
 
 Vi fick inte gjort:
 
-## torsdag 12 Jan
-Vi fick gjort:
+Insikter:
 
-Vi fick inte gjort:
+## torsdag 12 Jan
+Vi fick gjort: 
+Nätverkande med andra framtida blockkedje-utvecklare.
+Deltagande på lektionen.
+Påbörjade PowerPoint.
+Blev klara med en funktion i koden.
+Laserdome.
+Barhäng.
+
+Vi fick inte gjort: 
+-
+Insikter: 
+Vi kanske jobbar för effektivt?
+
 
 ## fredag 13 Jan
 Vi fick gjort:
+Genomlidande av bakfylla och/eller sömnbrist.
+Deltagande på lektionen.
+Avslutade PowerPoint.
 
-Vi fick inte gjort:
+Vi fick inte gjort: 
+Blockkedje-utveckling.
+
+Insikter:
+Måste verkligen börja dricka mindre.
 
 
 
