@@ -1,6 +1,3 @@
-// import api from './api.js'
-// import design from './design.js'
-
 //----------- DESIGN -----------------//
 //----------- BUTTONS ----------------//
 const walletConnectBtn = document.createElement("button");
@@ -10,9 +7,6 @@ let endPromiseBtn = document.createElement("button")
 let navCreateBtn = document.createElement("button");
 let navJoinBtn = document.createElement("button");
 let navEndBtn = document.createElement("button");
-let createPromiseDivExitBtn = document.createElement("button");
-let joinPromiseDivExitBtn = document.createElement("button");
-let endPromiseDivExitBtn = document.createElement("button");
 
 //----------- INPUTS ----------------//
 let titleInput = document.createElement("input")
@@ -27,7 +21,6 @@ let createPromiseDiv = document.createElement("div")
 let joinPromiseDiv = document.createElement("div")
 let endPromiseDiv = document.createElement("div")
 let navigationMenu = document.createElement("div");
-let currencyDiv = document.createElement("div");
 
 //------------- MISC ----------------//
 let navCreateParagraf = document.createElement("p")
@@ -49,18 +42,15 @@ endPromiseUidValue.id = "endPromiseUidValue";
 endPromiseBtn.id = "endPromiseBtn";
 joinPromiseDiv.id = "joinPromiseDiv"
 createPromiseDiv.id = "createPromiseDiv";
-endPromiseDiv.id = "endPromiseDiv";
-navigationMenu.id = "navigationMenu";
-navCreateBtn.id = "navCreateBtn";
-navJoinBtn.id = "navJoinBtn";
-navEndBtn.id = "navEndBtn";
-navCreateParagraf.id = "navCreateParagraf";
-navJoinParagraf.id = "navJoinParagraf";
-navEndParagraf.id = "navEndParagraf";
-createPromiseDivExitBtn.id = "createPromiseDivExitBtn";
-joinPromiseDivExitBtn.id = "joinPromiseDivExitBtn";
-endPromiseDivExitBtn.id = "endPromiseDivExitBtn";
-currencyDiv.id = "currencyDiv";
+endPromiseDiv.id = "endPromiseDiv"
+navigationMenu.id = "navigationMenu"
+navCreateBtn.id = "navCreateBtn"
+navJoinBtn.id = "navJoinBtn"
+navEndBtn.id = "navEndBtn"
+navCreateParagraf.id = "navCreateParagraf"
+navJoinParagraf.id = "navJoinParagraf"
+navEndParagraf.id = "navEndParagraf"
+
 
 //sets placeholder
 titleInput.placeholder = "Title for promise";
@@ -71,13 +61,13 @@ endPromiseUidValue.placeholder = "ID of promise you want to end";
 
 
 //Sets class to all elements
-joinPromiseDiv.classList += "formHidden";
-createPromiseDiv.classList += "formHidden";
-endPromiseDiv.classList += "formHidden";
-walletConnectBtn.classList = "walletConnectBtn";
-navCreateParagraf.classList = "textStyle";
-navJoinParagraf.classList = "textStyle";
-navEndParagraf.classList = "textStyle";
+joinPromiseDiv.classList += "formHidden"
+createPromiseDiv.classList += "formHidden"
+endPromiseDiv.classList += "formHidden"
+walletConnectBtn.classList = "walletConnectBtn"
+navCreateParagraf.classList = "textStyle"
+navJoinParagraf.classList = "textStyle"
+navEndParagraf.classList = "textStyle"
 
 
 // sets innerText
@@ -91,23 +81,22 @@ navJoinBtn.innerText = "Join a promise"
 navJoinParagraf.innerText = "Click above to join already created promise"
 navEndBtn.innerText = "End a promise"
 navEndParagraf.innerText = "Click above to end already created promise. This will require both participants agreement"
-createPromiseDivExitBtn.innerText = "X"
-joinPromiseDivExitBtn.innerText = "X"
-endPromiseDivExitBtn.innerText = "X"
+
 
 
 // Appends
 document.body.appendChild(otherContentWrapper)
 
-otherContentWrapper.append(walletConnectBtn, navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, currencyDiv);
+otherContentWrapper.append(walletConnectBtn, navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv,);
 navigationMenu.append(navCreateBtn, navCreateParagraf, navJoinBtn, navJoinParagraf, navEndBtn, navEndParagraf)
 
-createPromiseDiv.append(titleInput, valueInput, createPromiseBtn, createPromiseDivExitBtn)
-joinPromiseDiv.append(uidInput, joinPromiseValue, joinPromiseBtn, joinPromiseDivExitBtn)
-endPromiseDiv.append(endPromiseUidValue, endPromiseBtn, endPromiseDivExitBtn)
+createPromiseDiv.append(titleInput, valueInput, createPromiseBtn)
+joinPromiseDiv.append(uidInput, joinPromiseValue, joinPromiseBtn)
+endPromiseDiv.append(endPromiseUidValue, endPromiseBtn)
 
 
 //---------SLUT PÅ DESIGN ----------------//
+
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -171,78 +160,3 @@ async function endPromiseJS() {
 endPromiseBtn.addEventListener("click", () => {
 	endPromiseJS();
 });
-
-
-//----------EVENTLISTENERS TYP---------//
-
-navCreateBtn.addEventListener("click", () => {
-	console.log("click");
-	let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "block";
-	if (document.getElementById("joinPromiseDiv").style.display == 'block' || document.getElementById("endPromiseDiv").style.display == 'block') {
-		let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "none";
-		let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "none";
-	}
-})
-
-navJoinBtn.addEventListener("click", () => {
-	console.log("click 2");
-	let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "block";
-	if (document.getElementById("createPromiseDiv").style.display == 'block' || document.getElementById("endPromiseDiv").style.display == 'block') {
-		let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "none";
-		let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "none";
-
-	}
-})
-
-navEndBtn.addEventListener("click", () => {
-	let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "block";
-	if (document.getElementById("createPromiseDiv").style.display == 'block' || document.getElementById("joinPromiseDiv").style.display == 'block') {
-		let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "none";
-		let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "none";
-	}
-})
-
-createPromiseDivExitBtn.addEventListener("click", () => {
-	let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "none";
-})
-joinPromiseDivExitBtn.addEventListener("click", () => {
-	let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "none";
-})
-endPromiseDivExitBtn.addEventListener("click", () => {
-	let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "none";
-})
-
-
-
-
-
-/*
-const connectButton = document.getElementById("connect-button");
-const restOfPage = document.getElementById("rest-of-page");
-
-window.onload = () => {
-	// Hide the rest of the page by default
-	restOfPage.style.display = "none";
-	// Show the "Connect" button
-	connectButton.style.display = "block";
-}
-
-connectButton.onclick = async () => {
-	// Connect to MetaMask
-	await connectMetamask();
-	// Get the user's account
-	const account = await provider.getSigner().getAddress();
-	// Check if the user's account is valid
-	if (account) {
-		// If the account is valid, hide the "Connect" button and show the rest of the page
-		connectButton.style.display = "none";
-		restOfPage.style.display = "block";
-	}
-}
-
-
- */
-
-
-//----------- API REQUEST -----------//
-
