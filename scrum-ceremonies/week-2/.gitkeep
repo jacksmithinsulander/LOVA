@@ -16,6 +16,9 @@ Vi tar till oss 5 uppgifter till veckan:
 
 5. Outline PowerPowerpoint (Mirelle) - (0.5)
 
+## Sprint planning 2.0
+
+
 
 ## Daily standup
 ### måndag 9 Jan
@@ -28,13 +31,36 @@ Kommit fram till en bra mall för koden vi kan fortsätta använda och bygga på
 Vi fick inte gjort:
 Helgen har varit skön!
 
-### tisdag
-- Vi fick gjort x, y, z
-- Vi har inte gjort å, ä, ö
+### tisdag 10 jan
+Vi fick gjort:
+- Lyckades med att rikta ethers.js mot vårt kontrakt.
+- Påbörjade pyttelite med index för UI.
+- Importerat Solidity-funktioner med hjälp av JavaScript till vår hemsida.
+
+Vi fick inte gjort:
+- Inte skrivit Solidity-funktioner för att interagera med smarta kontrakt på vår hemsida.
+- Uppnått presentabla resultat med Index för UI.
+
+## onsdag 11 Jan
+Vi fick gjort:
+
+Vi fick inte gjort:
+
+## torsdag 12 Jan
+Vi fick gjort:
+
+Vi fick inte gjort:
+
+## fredag 13 Jan
+Vi fick gjort:
+
+Vi fick inte gjort:
+
+
 
 ## Sprint review & demo
 - Vi hittade 3 buggar när vi körde demon
 - Vi kom överens om att prioritera ner feature X; tidsbrist
 - Vi kom överens om att ta in feature Y; mer relevant
-- Vi har uppskattat uppgifterna för enkla; tar mer tid att genomföra
+- Vi har uppskattat uppgifterna för enkla; tar mer tid att genomföra.
 - Andra insikter…
