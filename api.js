@@ -1,4 +1,4 @@
-export default { getBalance, getTransactions };
+/* export default { getBalance, getTransactions };
 
 
 const YOUR_API_KEY = '6M66CW4F48TDS1AVR3U2DRDD1PAIGJ8QRK';
@@ -29,4 +29,4 @@ async function getTransactions() {
     }
 }
 
-getTransactions();
+getTransactions(); */

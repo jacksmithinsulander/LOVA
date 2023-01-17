@@ -97,9 +97,9 @@ endPromiseDivExitBtn.innerText = "X"
 
 
 // Appends
-document.body.appendChild(otherContentWrapper)
+document.body.append(otherContentWrapper, walletConnectBtn)
 
-otherContentWrapper.append(walletConnectBtn, navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, currencyDiv);
+otherContentWrapper.append(/*walletConnectBtn, */navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, currencyDiv);
 navigationMenu.append(navCreateBtn, navCreateParagraf, navJoinBtn, navJoinParagraf, navEndBtn, navEndParagraf)
 
 createPromiseDiv.append(titleInput, valueInput, createPromiseBtn, createPromiseDivExitBtn)
@@ -114,14 +114,22 @@ const provider = new ethers.providers.Web3Provider(window.ethereum);
 let signer;
 
 async function connectMetamask() {
+
 	await provider.send("eth_requestAccounts", []);
 	signer = provider.getSigner();
 	smartPromiseContract.connect(signer);
+	//console.log(signer.getAddress());
 }
 
-walletConnectBtn.addEventListener("click", () => {
-	connectMetamask();
+walletConnectBtn.addEventListener("click", async () => {
+    await connectMetamask();
+    if (signer.getAddress()) {
+        console.log("Signer has successfully signed in!");
+    } else {
+        console.log("Signer is not connected or has not granted access.");
+    }
 });
+
 
 const smartPromiseAddress = "0xccec26e3640a0F70808F78118863d045669e271D";
 
@@ -213,35 +221,49 @@ endPromiseDivExitBtn.addEventListener("click", () => {
 })
 
 
+window.onload = function() {
+	createLandingPage();
+	checkSigner();
+ }
 
+ function checkSigner() {
+    signer = provider.getSigner();
+	if (signer.getAddress()) {
+		console.log("Signer is already signed in!");
+	
 
-
-/*
-const connectButton = document.getElementById("connect-button");
-const restOfPage = document.getElementById("rest-of-page");
-
-window.onload = () => {
-	// Hide the rest of the page by default
-	restOfPage.style.display = "none";
-	// Show the "Connect" button
-	connectButton.style.display = "block";
-}
-
-connectButton.onclick = async () => {
-	// Connect to MetaMask
-	await connectMetamask();
-	// Get the user's account
-	const account = await provider.getSigner().getAddress();
-	// Check if the user's account is valid
-	if (account) {
-		// If the account is valid, hide the "Connect" button and show the rest of the page
-		connectButton.style.display = "none";
-		restOfPage.style.display = "block";
 	}
+ }
+
+async function createLandingPage() {
+	// code to create your landing page
+	//const connectButton = document.getElementById("walletConnectBtn");
+    const restOfPage = document.getElementById("otherContentWrapper");
+    // Hide the rest of the page by default
+    restOfPage.style.filter = "blur(0.8rem)";
+	// Gör sidan oklickbar mohahahah
+	restOfPage.style.pointerEvents = "none";
+    // Show the "Connect" button
+    walletConnectBtn.style.filter = "blur(0)";
+	walletConnectBtn.addEventListener("click", async () => {
+        await connectMetamask();
+        if (signer.getAddress()) {
+			localStorage.setItem("signer signed", signer.getAddress())
+            console.log("Signer has successfully signed in!");
+            const restOfPage = document.getElementById("otherContentWrapper");
+            restOfPage.style.filter = "blur(0)";
+            restOfPage.style.pointerEvents = "auto";
+            walletConnectBtn.style.right = "0";
+            walletConnectBtn.style.top = "0";
+            walletConnectBtn.innerText = "Wallet Connected";
+        } else {
+            console.log("Signer is not connected or has not granted access.");
+        }
+    });
 }
 
 
- */
+ 
 
 
 //----------- API REQUEST -----------//
