@@ -1,17 +1,31 @@
 # Sammanfattning av veckan
 
 ## Sprint planning
-- Vi tog 3 uppgifter denna vecka
-- Vår burndown chart var inte så bra; vi behöver prioritera om
+- Vi tog 5 uppgifter denna vecka (totalt 5 poäng)
+- Funktion för countdown efter förfrågan från user 1 till user 2 - (klar?)
+- UI/UX/CSS - (2)
+- Multisign solidity. - (0.5)
+- Öva på och sätta ihop det sista på presentationen - (2)
+- Presentera - (0.5)
+
 
 ## Daily standup
-### måndag
-- Vi fick gjort x, y, z
-- Vi har inte gjort å, ä, ö
+### måndag 16 Jan
+- La allt år sidan för att fokusera på tentan.
+- Allt.
 
-### tisdag
-- Vi fick gjort x, y, z
-- Vi har inte gjort å, ä, ö
+### tisdag 17 Jan
+- Styrt upp och organiserat agila loggar och admoinistration.
+- Sprint Planning och Poker.
+- Några timmar av mobbprogrammering.
+
+### onsdag 18 Jan
+- Vad fick vi gjort
+- vad fick vi inte
+
+### torsdag 19 Jan
+
+### fredag 20 Jan
 
 ## Sprint review & demo
 - Vi hittade 3 buggar när vi körde demon
