@@ -15,9 +15,15 @@
 - Allt.
 
 ### tisdag 17 Jan
+Vad fick vi gjort:
 - Styrt upp och organiserat agila loggar och admoinistration.
 - Sprint Planning och Poker.
 - Några timmar av mobbprogrammering.
+- Städa upp kod i repo
+
+Vad fick vi inte gjort:
+- Få ut promiseIdentifier på frontenden (ID när du skapar ett promise)
+- Skapa en 'div' där man kan mata in en promiseIdentifier och se titel / värde.
 
 ### onsdag 18 Jan
 - Vad fick vi gjort

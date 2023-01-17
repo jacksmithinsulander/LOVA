@@ -1,4 +1,4 @@
-// import api from './api.js'
+import api from './api.js'
 // import design from './design.js'
 
 //----------- DESIGN -----------------//
@@ -131,7 +131,7 @@ walletConnectBtn.addEventListener("click", async () => {
 });
 
 
-const smartPromiseAddress = "0x4B9678d7fa125c5Dffb553F787F918De4CcFBD34";
+const smartPromiseAddress = "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
 
 const smartPromiseAbi = [
 	"function createSmartPromise(string memory _promiseTitle) public payable",
@@ -143,17 +143,44 @@ const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromi
 const smartContractInteraction = document.createElement("form");
 
 
+// async function createSmartPromiseJS() {
+// 	await connectMetamask();
+// 	let smartPromiseTitle = titleInput.value;
+// 	let smartPromiseValue = valueInput.value;
+// 	const payableValue = { value: ethers.utils.parseEther(smartPromiseValue) }
+// 	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle, payableValue).then(function(transaction) {
+// 		console.log(transaction.hash); 
+// 		smartPromiseContract.provider.waitForTransaction(transaction.hash).then(function(transactionReceipt) {
+// 			console.log(transactionReceipt.logs[0].data); 
+// 		});
+// 	});
+
+// 	 await txResponse()
+// }
+
+
 async function createSmartPromiseJS() {
+
+
 	await connectMetamask();
+
 	let smartPromiseTitle = titleInput.value;
-	let smartPromiseValue = valueInput.value;
-	const payableValue = { value: ethers.utils.parseEther(smartPromiseValue) }
-	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle, payableValue);
-	await txResponse.wait()
+    let smartPromiseValue = valueInput.value;
+    const payableValue = { value: ethers.utils.parseEther(smartPromiseValue) }
+    const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle, payableValue);
+    await txResponse.wait();
+    console.log("Transaction hash: ", txResponse.hash);
+	// smartPromiseContract.on("SmartPromiseCreated", (promiseIdentifier) => {
+	// 	console.log("Promise Identifier: ", promiseIdentifier);
+	// });
 }
 createPromiseBtn.addEventListener("click", () => {
-	createSmartPromiseJS();
+    createSmartPromiseJS();
 });
+
+//createPromiseBtn.addEventListener("click", () => {
+	//createSmartPromiseJS();
+//});
 
 
 async function joinPromiseJS() {
@@ -219,6 +246,7 @@ joinPromiseDivExitBtn.addEventListener("click", () => {
 endPromiseDivExitBtn.addEventListener("click", () => {
 	let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "none";
 })
+
 
 
 window.onload = function() {

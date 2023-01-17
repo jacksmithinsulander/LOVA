@@ -1,6 +1,12 @@
-/* export default { getBalance, getTransactions };
+export default { getBalance, getTransactions };
+
+
 const YOUR_API_KEY = '6M66CW4F48TDS1AVR3U2DRDD1PAIGJ8QRK';
-const ADDRESS = '0xccec26e3640a0F70808F78118863d045669e271D';
+const ADDRESS = '0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620';
+
+
+
+
 async function getBalance() {
     const url = `https://api-goerli.etherscan.io/api?module=account&action=balance&address=${ADDRESS}&tag=latest&apikey=${YOUR_API_KEY}`;
     try {
@@ -22,4 +28,4 @@ async function getTransactions() {
         console.error(error);
     }
 }
-getTransactions(); */
+getTransactions(); 
