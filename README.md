@@ -16,3 +16,4 @@ Motiverar verkligen folk till att lösa konflikter, hålla löften och vara på 
 <li>Max</li>
 <li>Jack</li>
 </ul>
+Länk till gruppkontraktet: <a>https://docs.google.com/document/d/1gOwIHsEdVt5BAu9LOWIplE8r5DXiTJhm-kgBpwfMHbM/edit?usp=sharing<a>
