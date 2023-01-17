@@ -267,4 +267,3 @@ async function createLandingPage() {
 
 
 //----------- API REQUEST -----------//
-
