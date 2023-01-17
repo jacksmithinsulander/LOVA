@@ -3,8 +3,35 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #4E148C;
+  background-image: url(/imgs/fractalsouter.png);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 150s ease infinite;
+          animation: gradient 150s ease infinite;
 }
 
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .formHidden {
   display: none;
   outline: 5px solid white;
@@ -21,7 +48,7 @@ body {
   -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
   background-color: #9A83D8;
   border-radius: 20px;
-  background-image: url(/imgs/smartpromise1-removebg-preview.png);
+  background-image: url(/imgs/fractalsfirstbox.png);
   background-repeat: no-repeat;
   background-position: center top;
 }
@@ -72,29 +99,31 @@ body {
 
 #navigationMenu {
   outline: 1px solid black;
-  height: 420px;
-  width: 230px;
-  left: 70px;
-  top: 10px;
+  height: 33rem;
+  width: 38rem;
+  left: 425px;
+  top: 126px;
   position: absolute;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  flex-direction: row;
   background-color: #2C0735;
   border-radius: 20px;
   box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 button {
-  background-color: #F3A712;
+  background-color: #7c6d93;
   color: rgb(255, 255, 255);
   font-family: "Ubuntu", sans-serif;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  padding: 0.5rem 3rem;
+  border-radius: 20px;
+  margin-bottom: 27rem;
 }
 button:hover {
   background-color: #350e5f;

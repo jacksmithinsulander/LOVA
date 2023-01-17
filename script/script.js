@@ -29,10 +29,7 @@ let endPromiseDiv = document.createElement("div")
 let navigationMenu = document.createElement("div");
 let currencyDiv = document.createElement("div");
 
-//------------- MISC ----------------//
-let navCreateParagraf = document.createElement("p")
-let navJoinParagraf = document.createElement("p")
-let navEndParagraf = document.createElement("p")
+
 
 
 
@@ -54,9 +51,7 @@ navigationMenu.id = "navigationMenu";
 navCreateBtn.id = "navCreateBtn";
 navJoinBtn.id = "navJoinBtn";
 navEndBtn.id = "navEndBtn";
-navCreateParagraf.id = "navCreateParagraf";
-navJoinParagraf.id = "navJoinParagraf";
-navEndParagraf.id = "navEndParagraf";
+
 createPromiseDivExitBtn.id = "createPromiseDivExitBtn";
 joinPromiseDivExitBtn.id = "joinPromiseDivExitBtn";
 endPromiseDivExitBtn.id = "endPromiseDivExitBtn";
@@ -75,9 +70,6 @@ joinPromiseDiv.classList += "formHidden";
 createPromiseDiv.classList += "formHidden";
 endPromiseDiv.classList += "formHidden";
 walletConnectBtn.classList = "walletConnectBtn";
-navCreateParagraf.classList = "textStyle";
-navJoinParagraf.classList = "textStyle";
-navEndParagraf.classList = "textStyle";
 
 
 // sets innerText
@@ -86,11 +78,10 @@ createPromiseBtn.innerText = "Create SmartPromise";
 joinPromiseBtn.innerText = "Join SmartPromise";
 endPromiseBtn.innerText = "End SmartPromise";
 navCreateBtn.innerText = "Create a promise"
-navCreateParagraf.innerText = "Click above to start creating your promise"
+
 navJoinBtn.innerText = "Join a promise"
-navJoinParagraf.innerText = "Click above to join already created promise"
+
 navEndBtn.innerText = "End a promise"
-navEndParagraf.innerText = "Click above to end already created promise. This will require both participants agreement"
 createPromiseDivExitBtn.innerText = "X"
 joinPromiseDivExitBtn.innerText = "X"
 endPromiseDivExitBtn.innerText = "X"
@@ -100,7 +91,7 @@ endPromiseDivExitBtn.innerText = "X"
 document.body.append(otherContentWrapper, walletConnectBtn)
 
 otherContentWrapper.append(/*walletConnectBtn, */navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, currencyDiv);
-navigationMenu.append(navCreateBtn, navCreateParagraf, navJoinBtn, navJoinParagraf, navEndBtn, navEndParagraf)
+navigationMenu.append(navCreateBtn, navJoinBtn, navEndBtn )
 
 createPromiseDiv.append(titleInput, valueInput, createPromiseBtn, createPromiseDivExitBtn)
 joinPromiseDiv.append(uidInput, joinPromiseValue, joinPromiseBtn, joinPromiseDivExitBtn)
@@ -159,6 +150,29 @@ const smartContractInteraction = document.createElement("form");
 // }
 
 
+//---------READING CONTRACT---------//
+
+// // Replace YOUR_CONTRACT_ADDRESS with the address of your deployed contract
+// // = smartPromiseContract
+
+// // Replace YOUR_ABI with the ABI of your contract
+// // smartPromiseContract
+
+// // Replace YOUR_PROMISE_TITLE with the title you want to use for the promise
+// var promiseTitle = titleInput.value;
+// // Create a new contract object
+// var smartPromiseContract = new web3.eth.Contract(abi, contractAddress);
+
+// // Call the createSmartPromise function and pass in the promise title
+// smartPromiseContract.methods.createSmartPromise(promiseTitle).send({from: 'YOUR_ACCOUNT_ADDRESS', value: web3.utils.toWei('1', 'ether')}, function(error, result){
+//     if(!error){
+//         // The result will contain the promise identifier returned from the function
+//         console.log(result);
+//     } else {
+//         console.log(error);
+//     }
+// });
+
 async function createSmartPromiseJS() {
 
 
@@ -169,10 +183,21 @@ async function createSmartPromiseJS() {
     const payableValue = { value: ethers.utils.parseEther(smartPromiseValue) }
     const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle, payableValue);
     await txResponse.wait();
-    console.log("Transaction hash: ", txResponse.hash);
+    console.log("Transaction hash: ", txResponse);
 	// smartPromiseContract.on("SmartPromiseCreated", (promiseIdentifier) => {
 	// 	console.log("Promise Identifier: ", promiseIdentifier);
 	// });
+		if (txResponse) {
+			let completedPromiseDiv = document.createElement("div");
+			let completedPromisePara = document.createElement("p");
+
+
+			completedPromisePara.innerText = "finished transac"
+			completedPromiseDiv.appendChild(completedPromisePara)
+
+
+		}
+
 }
 createPromiseBtn.addEventListener("click", () => {
     createSmartPromiseJS();
@@ -250,8 +275,9 @@ endPromiseDivExitBtn.addEventListener("click", () => {
 
 
 window.onload = function() {
-	createLandingPage();
 	checkSigner();
+	createLandingPage();
+	
  }
 
  function checkSigner() {
