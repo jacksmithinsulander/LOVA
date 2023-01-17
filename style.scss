@@ -10,7 +10,7 @@ body {
     overflow: hidden;
     width: 100vw;
     height: 100vh;
-    background-color: $primary-color-light;
+    background-color: $primary-color;
 }
 
 .formHidden {
@@ -24,13 +24,13 @@ body {
     width: 90vw;
     height: 87vh;
     outline: 1px solid black;
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
     margin-top: 50px;
     margin-left: 80px;
     box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
-    background-color: #4E148C;
+    background-color: $primary-color-light;
     border-radius: 20px;
     background-image: url(/imgs/smartpromise1-removebg-preview.png);
     background-repeat: no-repeat;
@@ -51,33 +51,21 @@ body {
 
 #joinPromiseDiv {
     outline: 1px solid black;
-    width: 619px;
+    width: 586px;
     height: 243px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    align-content: space-around;
-    flex-wrap: wrap;
     position: absolute;
-    left: 1080px;
-    top: 374px;
+    left: 379px;
+    top: 372px;
     display: none;
 }
 
 #endPromiseDiv {
     outline: 1px solid black;
-    width: 281px;
+    width: 586px;
     height: 243px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    align-content: space-around;
-    flex-wrap: wrap;
     position: absolute;
-    top: 100px;
-    right: 195px;
+    left: 379px;
+    top: 372px;
     display: none;
 }
 
@@ -106,7 +94,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: #2C0735;
+    background-color: $primary-color-dark;
     border-radius: 20px;
     box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
