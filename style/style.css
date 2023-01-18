@@ -3,7 +3,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: #4E148C;
-  background-image: url(/imgs/fractalsouter.png);
+  background-image: url(../imgs/fractalsouter.png);
   background-size: 400% 400%;
   -webkit-animation: gradient 150s ease infinite;
           animation: gradient 150s ease infinite;
@@ -43,7 +43,7 @@ body {
   -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
   background-color: #9A83D8;
   border-radius: 20px;
-  background-image: url(/imgs/fractalsfirstbox.png);
+  background-image: url(../imgs/fractalsfirstbox.png);
   background-repeat: cover;
   background-position: center top;
 }
