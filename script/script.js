@@ -1,4 +1,4 @@
-import api from './api.js'
+// import api from './api.js'
 // import design from './design.js'
 
 //----------- DESIGN -----------------//
@@ -28,11 +28,6 @@ let joinPromiseDiv = document.createElement("div")
 let endPromiseDiv = document.createElement("div")
 let navigationMenu = document.createElement("div");
 let currencyDiv = document.createElement("div");
-
-
-
-
-
 
 //Sets ID to all elements
 otherContentWrapper.id = "otherContentWrapper";
@@ -64,13 +59,11 @@ uidInput.placeholder = "Promise ID";
 joinPromiseValue.placeholder = "ETH amount (join)";
 endPromiseUidValue.placeholder = "ID of promise you want to end";
 
-
 //Sets class to all elements
 joinPromiseDiv.classList += "formHidden";
 createPromiseDiv.classList += "formHidden";
 endPromiseDiv.classList += "formHidden";
 walletConnectBtn.classList = "walletConnectBtn";
-
 
 // sets innerText
 walletConnectBtn.innerText = "Connect Wallet";
@@ -78,105 +71,79 @@ createPromiseBtn.innerText = "Create SmartPromise";
 joinPromiseBtn.innerText = "Join SmartPromise";
 endPromiseBtn.innerText = "End SmartPromise";
 navCreateBtn.innerText = "Create a promise"
-
 navJoinBtn.innerText = "Join a promise"
-
 navEndBtn.innerText = "End a promise"
 createPromiseDivExitBtn.innerText = "X"
 joinPromiseDivExitBtn.innerText = "X"
 endPromiseDivExitBtn.innerText = "X"
 
-
 // Appends
 document.body.append(otherContentWrapper, walletConnectBtn)
-
-otherContentWrapper.append(/*walletConnectBtn, */navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, currencyDiv);
+otherContentWrapper.append(navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, currencyDiv);
 navigationMenu.append(navCreateBtn, navJoinBtn, navEndBtn )
-
 createPromiseDiv.append(titleInput, valueInput, createPromiseBtn, createPromiseDivExitBtn)
 joinPromiseDiv.append(uidInput, joinPromiseValue, joinPromiseBtn, joinPromiseDivExitBtn)
 endPromiseDiv.append(endPromiseUidValue, endPromiseBtn, endPromiseDivExitBtn)
 
+//---------------SLUT PÅ DESIGN ----------------//
 
-//---------SLUT PÅ DESIGN ----------------//
-
-const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-let signer;
-
-async function connectMetamask() {
-
-	await provider.send("eth_requestAccounts", []);
-	signer = provider.getSigner();
-	smartPromiseContract.connect(signer);
-	//console.log(signer.getAddress());
-}
-
-walletConnectBtn.addEventListener("click", async () => {
-    await connectMetamask();
-    if (signer.getAddress()) {
-        console.log("Signer has successfully signed in!");
-    } else {
-        console.log("Signer is not connected or has not granted access.");
-    }
-});
-
-
-const smartPromiseAddress = "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
-
-const smartPromiseAbi = [
-	"function createSmartPromise(string memory _promiseTitle) public payable",
-	"function joinPromise(uint _promiseUID) public payable",
-	"function endSmartPromise(uint _promiseUID) public payable"];
-
-const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
+//----------- RIKTAR JS -> SMART CONTRACT ----------------//
 
 const smartContractInteraction = document.createElement("form");
 
+const smartPromiseAddress = "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
 
-// async function createSmartPromiseJS() {
-// 	await connectMetamask();
-// 	let smartPromiseTitle = titleInput.value;
-// 	let smartPromiseValue = valueInput.value;
-// 	const payableValue = { value: ethers.utils.parseEther(smartPromiseValue) }
-// 	const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle, payableValue).then(function(transaction) {
-// 		console.log(transaction.hash); 
-// 		smartPromiseContract.provider.waitForTransaction(transaction.hash).then(function(transactionReceipt) {
-// 			console.log(transactionReceipt.logs[0].data); 
-// 		});
-// 	});
-
-// 	 await txResponse()
-// }
+const smartPromiseAbi = [{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"promiseIdentifier","type":"uint256"}],"name":"SmartPromiseCreated","type":"event"},{"inputs":[{"internalType":"string","name":"_promiseTitle","type":"string"}],"name":"createSmartPromise","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"emptyPromiseData","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_promiseUID","type":"uint256"}],"name":"endSmartPromise","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_promiseUID","type":"uint256"}],"name":"joinPromise","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_promiseUID","type":"uint256"}],"name":"showPromiseParticipants","outputs":[{"internalType":"address[]","name":"","type":"address[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_promiseUID","type":"uint256"}],"name":"signFullfilledPromise","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"smartPromises","outputs":[{"internalType":"address","name":"initialDepositor","type":"address"},{"internalType":"uint256","name":"promiseCollateral","type":"uint256"},{"internalType":"string","name":"promiseTitle","type":"string"},{"internalType":"uint256","name":"promiseIdentifier","type":"uint256"},{"internalType":"uint256","name":"promiseAcceptDeadline","type":"uint256"}],"stateMutability":"view","type":"function"}]
 
 
-//---------READING CONTRACT---------//
+const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-// // Replace YOUR_CONTRACT_ADDRESS with the address of your deployed contract
-// // = smartPromiseContract
+const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
 
-// // Replace YOUR_ABI with the ABI of your contract
-// // smartPromiseContract
+const filter = smartPromiseContract.filters.SmartPromiseCreated(null);
 
-// // Replace YOUR_PROMISE_TITLE with the title you want to use for the promise
-// var promiseTitle = titleInput.value;
-// // Create a new contract object
-// var smartPromiseContract = new web3.eth.Contract(abi, contractAddress);
+const results = await smartPromiseContract.queryFilter(filter, 8327570, 8328820)
 
-// // Call the createSmartPromise function and pass in the promise title
-// smartPromiseContract.methods.createSmartPromise(promiseTitle).send({from: 'YOUR_ACCOUNT_ADDRESS', value: web3.utils.toWei('1', 'ether')}, function(error, result){
-//     if(!error){
-//         // The result will contain the promise identifier returned from the function
-//         console.log(result);
-//     } else {
-//         console.log(error);
-//     }
-// });
+let signer;
+
+const listenToEvent = () => {
+	const contract = new ethers.Contract(
+		smartPromiseAddress,
+		smartPromiseAbi,
+		signer
+	);
+	contract.on("SmartPromiseCreated", (promiseIdentifier) => {
+		let data = {
+			promiseIdentifier: promiseIdentifier.toString()
+		};
+		console.log("listenToEvent",data);
+	});
+}
+
+const connect = async () => {
+	if (typeof window.ethereum !== "undefined") {
+		await window.ethereum.request({
+			method: "eth_requestAccounts",
+		});
+		signer = provider.getSigner();
+		smartPromiseContract.connect(signer);
+		listenToEvent();
+	} else {
+		console.log("No metamask");
+	}
+};
+
+walletConnectBtn.addEventListener("click", async () => {
+	await connect();
+
+})
+
+console.log("senast log", results);
+
+//----------FUNKTIONER TILL KEDJAN-----------//
 
 async function createSmartPromiseJS() {
-
-
-	await connectMetamask();
+	await connect();
 
 	let smartPromiseTitle = titleInput.value;
     let smartPromiseValue = valueInput.value;
@@ -184,9 +151,6 @@ async function createSmartPromiseJS() {
     const txResponse = await smartPromiseContract.connect(signer).createSmartPromise(smartPromiseTitle, payableValue);
     await txResponse.wait();
     console.log("Transaction hash: ", txResponse);
-	// smartPromiseContract.on("SmartPromiseCreated", (promiseIdentifier) => {
-	// 	console.log("Promise Identifier: ", promiseIdentifier);
-	// });
 		if (txResponse) {
 			let completedPromiseDiv = document.createElement("div");
 			let completedPromisePara = document.createElement("p");
@@ -203,13 +167,8 @@ createPromiseBtn.addEventListener("click", () => {
     createSmartPromiseJS();
 });
 
-//createPromiseBtn.addEventListener("click", () => {
-	//createSmartPromiseJS();
-//});
-
-
 async function joinPromiseJS() {
-	await connectMetamask();
+	await connect();
 	let uidInputValue = uidInput.value;
 	let joinValue = joinPromiseValue.value;
 	const payableValue = { value: ethers.utils.parseEther(joinValue) }
@@ -222,7 +181,7 @@ joinPromiseBtn.addEventListener("click", () => {
 });
 
 async function endPromiseJS() {
-	await connectMetamask();
+	await connect();
 	let endValueID = endPromiseUidValue.value;
 	const payableValue = { value: ethers.utils.parseEther("0") };
 	const txResponse = await smartPromiseContract.connect(signer).endSmartPromise(endValueID, payableValue);
@@ -232,11 +191,10 @@ endPromiseBtn.addEventListener("click", () => {
 	endPromiseJS();
 });
 
-
 //----------EVENTLISTENERS TYP---------//
 
 navCreateBtn.addEventListener("click", () => {
-	console.log("click");
+	
 	let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "block";
 	if (document.getElementById("joinPromiseDiv").style.display == 'block' || document.getElementById("endPromiseDiv").style.display == 'block') {
 		let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "none";
@@ -245,7 +203,7 @@ navCreateBtn.addEventListener("click", () => {
 })
 
 navJoinBtn.addEventListener("click", () => {
-	console.log("click 2");
+	
 	let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "block";
 	if (document.getElementById("createPromiseDiv").style.display == 'block' || document.getElementById("endPromiseDiv").style.display == 'block') {
 		let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "none";
@@ -300,7 +258,7 @@ async function createLandingPage() {
     // Show the "Connect" button
     walletConnectBtn.style.filter = "blur(0)";
 	walletConnectBtn.addEventListener("click", async () => {
-        await connectMetamask();
+        await connect();
         if (signer.getAddress()) {
 			localStorage.setItem("signer signed", signer.getAddress())
             console.log("Signer has successfully signed in!");
@@ -315,9 +273,3 @@ async function createLandingPage() {
         }
     });
 }
-
-
- 
-
-
-//----------- API REQUEST -----------//
