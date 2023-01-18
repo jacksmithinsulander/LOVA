@@ -1,6 +1,7 @@
 # Sammanfattning av veckan
 
 ## Sprint planning
+
 - Vi tog 5 uppgifter denna vecka (totalt 5 poäng)
 - Funktion för countdown efter förfrågan från user 1 till user 2 - (klar?)
 - UI/UX/CSS - (2)
@@ -8,19 +9,32 @@
 - Öva på och sätta ihop det sista på presentationen - (2)
 - Presentera - (0.5)
 
-
 ## Daily standup
+
 ### måndag 16 Jan
+
 - La allt år sidan för att fokusera på tentan.
 - Allt.
 
 ### tisdag 17 Jan
+
+Vad fick vi gjort:
+
 - Styrt upp och organiserat agila loggar och admoinistration.
 - Sprint Planning och Poker.
 - Några timmar av mobbprogrammering.
+- Städa upp kod i repo
+
+Vad fick vi inte gjort:
+
+- Få ut promiseIdentifier på frontenden (ID när du skapar ett promise)
+- Skapa en 'div' där man kan mata in en promiseIdentifier och se titel / värde.
 
 ### onsdag 18 Jan
+
 - Vad fick vi gjort
+- FINALLY fick vi ut promiseIdentifier!!!!!!!
+- Presentationen
 - vad fick vi inte
 
 ### torsdag 19 Jan
@@ -28,8 +42,19 @@
 ### fredag 20 Jan
 
 ## Sprint review & demo
+
 - Vi hittade 3 buggar när vi körde demon
 - Vi kom överens om att prioritera ner feature X; tidsbrist
 - Vi kom överens om att ta in feature Y; mer relevant
 - Vi har uppskattat uppgifterna för enkla; tar mer tid att genomföra
 - Andra insikter…
+
+Tjenixen allihopa
+
+x knappen ska bli mindre
+
+ett meddelande ska dyka upp när man har skapat en promise
+
+create, join och end promise ska finnas i navrutan
+
+gradient backgrund som rör på sig

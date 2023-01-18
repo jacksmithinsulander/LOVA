@@ -15,10 +15,11 @@ contract smartPromiseContract {
 
     promiseData[] public smartPromises;
     mapping(uint => mapping(address => bool)) signed;
+    event SmartPromiseCreated(uint promiseIdentifier);
 
     // mapping(promiseData.promiseIdentifier => bool) signed;
 
-    function createSmartPromise(string memory _promiseTitle) public payable returns (uint promiseIdentifier) {
+    function createSmartPromise(string memory _promiseTitle) public payable { //returns (uint promiseIdentifier) {
         promiseData memory newPromise;
         newPromise.initialDepositor = msg.sender;
         newPromise.promiseCollateral = msg.value;
@@ -31,7 +32,8 @@ contract smartPromiseContract {
         smartPromises.push(newPromise);
         promiseData storage arrPushPromise = smartPromises[smartPromises.length - 1];
         arrPushPromise.promiseParticipators.push(msg.sender);
-        return newPromise.promiseIdentifier;
+        //return newPromise.promiseIdentifier;
+        emit SmartPromiseCreated(newPromise.promiseIdentifier);
     }
 
 
