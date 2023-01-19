@@ -26,7 +26,7 @@ The site should be simple and easy to understand and orient around.
 The site should have an appealing, clean design.
 
 
-<b>User stories:</b>
+<b>User stories:</b> <br>
 As a user living in the modern day and digital age, I want to create trustless contracts with people I’m not sure I trust without having to worry about it. 
 
 As someone who’s about to get married, I want my prenup set in stone on the blockchain, so there can’t be any backtracking when it finally comes to the divorce. 
