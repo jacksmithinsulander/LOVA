@@ -1,8 +1,6 @@
 // import api from './api.js'
 // import design from './design.js'
 
-//----------- DESIGN -----------------//
-//----------- BUTTONS ----------------//
 const walletConnectBtn = document.createElement("button");
 let createPromiseBtn = document.createElement("button")
 let joinPromiseBtn = document.createElement("button")
@@ -10,11 +8,7 @@ let endPromiseBtn = document.createElement("button")
 let navCreateBtn = document.createElement("button");
 let navJoinBtn = document.createElement("button");
 let navEndBtn = document.createElement("button");
-/* let createPromiseDivExitBtn = document.createElement("button");
-let joinPromiseDivExitBtn = document.createElement("button");
-let endPromiseDivExitBtn = document.createElement("button");
- */
-//----------- INPUTS ----------------//
+
 let titleInput = document.createElement("input")
 let valueInput = document.createElement("input")
 let uidInput = document.createElement("input")
@@ -32,8 +26,6 @@ let line2 = document.createElement("div")
 let circle = document.createElement("div")
 let circle2 = document.createElement("div")
 
-
-//Sets ID to all elements
 otherContentWrapper.id = "otherContentWrapper";
 titleInput.id = "titleInput";
 valueInput.id = "valueInput";
@@ -55,20 +47,13 @@ line2.id = "line2"
 circle.id = "circle"
 circle2.id = "circle2"
 
-//sets placeholder
 titleInput.placeholder = "Title for promise";
 valueInput.placeholder = "ETH amount";
 uidInput.placeholder = "Promise ID";
 joinPromiseValue.placeholder = "ETH amount (join)";
 endPromiseUidValue.placeholder = "ID of promise you want to end";
 
-//Sets class to all elements
-joinPromiseDiv.classList += "formHidden";
-createPromiseDiv.classList += "formHidden";
-endPromiseDiv.classList += "formHidden";
 walletConnectBtn.classList = "walletConnectBtn";
-
-// sets innerText
 
 createPromiseBtn.innerText = "Create SmartPromise";
 joinPromiseBtn.innerText = "Join SmartPromise";
@@ -76,22 +61,13 @@ endPromiseBtn.innerText = "End SmartPromise";
 navCreateBtn.innerText = "Create a promise"
 navJoinBtn.innerText = "Join a promise"
 navEndBtn.innerText = "End a promise"
-/* createPromiseDivExitBtn.innerText = "X"
-joinPromiseDivExitBtn.innerText = "X"
-endPromiseDivExitBtn.innerText = "X"
- */
-// Appends
+
 document.body.append(otherContentWrapper, walletConnectBtn)
 otherContentWrapper.append(navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, line, line2, circle, circle2);
 navigationMenu.append(navCreateBtn, navJoinBtn, navEndBtn)
 createPromiseDiv.append(titleInput, valueInput, createPromiseBtn)
 joinPromiseDiv.append(uidInput, joinPromiseValue, joinPromiseBtn)
 endPromiseDiv.append(endPromiseUidValue, endPromiseBtn)
-
-//---------------SLUT PÅ DESIGN ----------------//
-
-
-
 
 //----------- RIKTAR JS -> SMART CONTRACT ----------------//
 
