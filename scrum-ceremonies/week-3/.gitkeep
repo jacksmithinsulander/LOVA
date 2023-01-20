@@ -3,7 +3,7 @@
 ## Sprint planning
 
 - Vi tog 5 uppgifter denna vecka (totalt 5 poäng)
-- Funktion för countdown efter förfrågan från user 1 till user 2 - (klar?)
+- Funktion för countdown efter förfrågan från user 1 till user 2 - (0)
 - UI/UX/CSS - (2)
 - Multisign solidity. - (0.5)
 - Öva på och sätta ihop det sista på presentationen - (2)
@@ -55,18 +55,15 @@ Vad fick vi inte gjort?
 
 ## Sprint review & demo
 
-- Vi hittade 3 buggar när vi körde demon
-- Vi kom överens om att prioritera ner feature X; tidsbrist
-- Vi kom överens om att ta in feature Y; mer relevant
-- Vi har uppskattat uppgifterna för enkla; tar mer tid att genomföra
-- Andra insikter…
+- Vi fick ihop allt med UX/UI/CSS - sidan är snygg!
+- Knäckte problemet med Multisign!!
+- Snygg räddning av tekniskt strul under redovisningen.
+- Implementerade Jennis feedback till PowerPointen (blev top tier).
+- BRA JOBBAT ALLA!
+
 
 Tjenixen allihopa
-
 x knappen ska bli mindre
-
 ett meddelande ska dyka upp när man har skapat en promise
-
 create, join och end promise ska finnas i navrutan
-
 gradient backgrund som rör på sig
