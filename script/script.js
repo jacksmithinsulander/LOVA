@@ -1,51 +1,127 @@
 // import api from './api.js'
 // import design from './design.js'
 
+
+// (Landing Page)
+// Saker vi behöver:
+// <Body>
+//	 <Header>
+//	  Nav
+//	  Ul (Med )
+//	 </Header>
+//<Main>
+//		<section 1>
+//		h1, p, (informativ, slogan, etc)
+//		<section 2>
+//		how to, visuellt step-by-step
+//		<section 3>
+//		''vi är open source''
+//		läs våra docs
+//</Main>
+//<Footer>
+// 	container div
+
+//thx for coming
+
+
+
+
+let header = document.createElement("header")
+let headerImg = document.createElement("a")
+	header.id = "header"
+	headerImg.id = "headerImg"
+	headerImg.innerHTML = `<img src="/imgs/Untitled(1).webp" class="imageClass">`;
+
+	const walletConnectBtn = document.createElement("button");
+	walletConnectBtn.id = "walletConnectBtn";
+	walletConnectBtn.innerText = "Launch dApp"
+
+let main = document.createElement("main")
+main.id = "main"
+
+let sectionOne = document.createElement("section")
+let sectionTwo = document.createElement("section")
+let sectionThree = document.createElement("section")
+sectionOne.id = " sectionOne"
+sectionTwo.id = " sectionTwo"
+sectionThree.id =  " sectionThree"
+sectionOne.classList = "section"
+sectionTwo.classList = "section"
+sectionThree.classList = "section"
+
+let sectionOneDiv = document.createElement("div")
+let sectionOneTitle = document.createElement("h1")
+let sectionOneSmallText = document.createElement("h3")
+sectionOneTitle.classList = "sectionTitles"
+sectionOneDiv.id = "sectionOneDiv"
+sectionOneTitle.id = "sectionOneTitle"
+sectionOneSmallText.id = "sectionOneSmallText"
+sectionOneTitle.innerHTML = "Setting a new standard for promises."
+sectionOneSmallText.innerHTML = "We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance."
+
+let sectionTwoDiv = document.createElement("div")
+let sectionTwoTitle = document.createElement("h1")
+sectionTwoTitle.classList = ("sectionTitles")
+sectionTwoDiv.id = "sectionTwoDiv"
+sectionTwoTitle.id = "sectionTwoTitle"
+sectionTwoTitle.innerHTML = "Two"
+
+
+let sectionThreeDiv = document.createElement("div")
+let sectionThreeTitle = document.createElement("h1")
+sectionThreeTitle.classList = ("sectionTitles")
+sectionThreeDiv.id = "sectionThreeDiv"
+sectionThreeTitle.id = "sectionThreeTitle"
+sectionThreeTitle.innerHTML = "Check one Three"
+
+let footer = document.createElement("footer")
+let footerInfo = document.createElement("h1")
+footer.id = "footer"
+footerInfo.id = "footerInfo"
+footerInfo.innerText = "this is the footer"
+	
+document.body.append(header, main, footer)
+header.append(walletConnectBtn, headerImg)
+main.append(sectionOne, sectionTwo, sectionThree)
+
+sectionOne.append(sectionOneDiv)
+sectionOneDiv.append(sectionOneTitle,sectionOneSmallText)
+
+sectionTwo.append(sectionTwoDiv)
+sectionTwoDiv.append(sectionTwoTitle)
+
+sectionThree.append(sectionThreeDiv)
+sectionThreeDiv.append(sectionThreeTitle)
+
+footer.append(footerInfo)
+
+
+
+// document.body.append(footer)
+
+// Appen
+/* 
 const walletConnectBtn = document.createElement("button");
-let createPromiseBtn = document.createElement("button")
-let joinPromiseBtn = document.createElement("button")
-let endPromiseBtn = document.createElement("button")
-let navCreateBtn = document.createElement("button");
-let navJoinBtn = document.createElement("button");
-let navEndBtn = document.createElement("button");
+let createPromiseBtn = document.createElement("button");
+let joinPromiseBtn = document.createElement("button");
+let endPromiseBtn = document.createElement("button");
 
-let titleInput = document.createElement("input")
-let valueInput = document.createElement("input")
-let uidInput = document.createElement("input")
-let joinPromiseValue = document.createElement("input")
-let endPromiseUidValue = document.createElement("input")
 
-//------------- DIVS ----------------//
-let otherContentWrapper = document.createElement("div")
-let createPromiseDiv = document.createElement("div")
-let joinPromiseDiv = document.createElement("div")
-let endPromiseDiv = document.createElement("div")
-let navigationMenu = document.createElement("div");
-let line = document.createElement("div")
-let line2 = document.createElement("div")
-let circle = document.createElement("div")
-let circle2 = document.createElement("div")
+let titleInput = document.createElement("input");
+let valueInput = document.createElement("input");
+let uidInput = document.createElement("input");
+let joinPromiseValue = document.createElement("input");
+let endPromiseUidValue = document.createElement("input");
 
-otherContentWrapper.id = "otherContentWrapper";
 titleInput.id = "titleInput";
 valueInput.id = "valueInput";
-createPromiseBtn.id = "createPromiseBtn";
 uidInput.id = "uidInput";
-joinPromiseValue.id = "joinPromiseValue"
-joinPromiseBtn.id = "joinPromiseBtn";
 endPromiseUidValue.id = "endPromiseUidValue";
+joinPromiseValue.id = "joinPromiseValue";
+createPromiseBtn.id = "createPromiseBtn";
+joinPromiseBtn.id = "joinPromiseBtn";
 endPromiseBtn.id = "endPromiseBtn";
-joinPromiseDiv.id = "joinPromiseDiv"
-createPromiseDiv.id = "createPromiseDiv";
-endPromiseDiv.id = "endPromiseDiv";
-navigationMenu.id = "navigationMenu";
-navCreateBtn.id = "navCreateBtn";
-navJoinBtn.id = "navJoinBtn";
-navEndBtn.id = "navEndBtn";
-line.id = "line"
-line2.id = "line2"
-circle.id = "circle"
-circle2.id = "circle2"
+walletConnectBtn.id = "walletConnectBtn";
 
 titleInput.placeholder = "Title for promise";
 valueInput.placeholder = "ETH amount";
@@ -53,22 +129,15 @@ uidInput.placeholder = "Promise ID";
 joinPromiseValue.placeholder = "ETH amount (join)";
 endPromiseUidValue.placeholder = "ID of promise you want to end";
 
-walletConnectBtn.classList = "walletConnectBtn";
 
 createPromiseBtn.innerText = "Create SmartPromise";
 joinPromiseBtn.innerText = "Join SmartPromise";
 endPromiseBtn.innerText = "End SmartPromise";
-navCreateBtn.innerText = "Create a promise"
-navJoinBtn.innerText = "Join a promise"
-navEndBtn.innerText = "End a promise"
+walletConnectBtn.innertext = "Connect Wallet"
 
-document.body.append(otherContentWrapper, walletConnectBtn)
-otherContentWrapper.append(navigationMenu, createPromiseDiv, joinPromiseDiv, endPromiseDiv, line, line2, circle, circle2);
-navigationMenu.append(navCreateBtn, navJoinBtn, navEndBtn)
-createPromiseDiv.append(titleInput, valueInput, createPromiseBtn)
-joinPromiseDiv.append(uidInput, joinPromiseValue, joinPromiseBtn)
-endPromiseDiv.append(endPromiseUidValue, endPromiseBtn)
-
+document.body
+.append(mainHeader, titleInput, valueInput, createPromiseBtn, joinPromiseBtn, uidInput, joinPromiseValue, joinPromiseBtn, endPromiseBtn, endPromiseUidValue, walletConnectBtn)
+ */
 //----------- RIKTAR JS -> SMART CONTRACT ----------------//
 
 const smartContractInteraction = document.createElement("form");
@@ -179,31 +248,3 @@ endPromiseBtn.addEventListener("click", () => {
 });
 
 //----------EVENTLISTENERS TYP---------//
-
-navCreateBtn.addEventListener("click", () => {
-
-	let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "block";
-	if (document.getElementById("joinPromiseDiv").style.display == 'block' || document.getElementById("endPromiseDiv").style.display == 'block') {
-		let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "none";
-		let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "none";
-	}
-})
-
-navJoinBtn.addEventListener("click", () => {
-
-	let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "block";
-	if (document.getElementById("createPromiseDiv").style.display == 'block' || document.getElementById("endPromiseDiv").style.display == 'block') {
-		let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "none";
-		let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "none";
-
-	}
-})
-
-navEndBtn.addEventListener("click", () => {
-	let endPromiseDiv = document.getElementById("endPromiseDiv").style.display = "block";
-	if (document.getElementById("createPromiseDiv").style.display == 'block' || document.getElementById("joinPromiseDiv").style.display == 'block') {
-		let createPromiseDiv = document.getElementById("createPromiseDiv").style.display = "none";
-		let joinPromiseDiv = document.getElementById("joinPromiseDiv").style.display = "none";
-	}
-})
-

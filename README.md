@@ -20,20 +20,19 @@ The contract has a timer for 10 minutes with an exp. date.
 The (other) user can accept and sign the Smart Promise with Metamask.
 The contract is able to send money back to its depositors.
 
-
 <b>Design requirements:</b>
 The site should be simple and easy to understand and orient around.
 The site should have an appealing, clean design.
 
-
 <b>User stories:</b> <br>
-As a user living in the modern day and digital age, I want to create trustless contracts with people I’m not sure I trust without having to worry about it. 
+As a user living in the modern day and digital age, I want to create trustless contracts with people I’m not sure I trust without having to worry about it.
 
-As someone who’s about to get married, I want my prenup set in stone on the blockchain, so there can’t be any backtracking when it finally comes to the divorce. 
+As someone who’s about to get married, I want my prenup set in stone on the blockchain, so there can’t be any backtracking when it finally comes to the divorce.
 
-As someone who loves working out and making bets, I want to really challenge and motivate my fellow gym bro to go to the gym with me every day for a week. If there’s money in the game, then it’s serious business. 
+As someone who loves working out and making bets, I want to really challenge and motivate my fellow gym bro to go to the gym with me every day for a week. If there’s money in the game, then it’s serious business.
 
 As the leader of a developer team, I don’t want to get screwed over by scammy employers when being hired for seasonal projects.
+
 </p>
 
 <p>This project was made by: </p><br>

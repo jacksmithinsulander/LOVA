@@ -1,247 +1,137 @@
-// Define some global variables for color and typography
-$primary-color: #4E148C;
-$primary-color-light: #9A83D8;
-$primary-color-dark: #2C0735;
-$second-color: #F3A712;
-$third-color: #171512;
-$body-font: 'Ubuntu', sans-serif;
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    background-color: $primary-color;
-    background-image: url(../imgs/fractalsouter.png);
-    background-size: 400% 400%;
-    animation: gradient 150s ease infinite;
+    background-image: url(/imgs/ColourShades.webp);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-#otherContentWrapper {
-    width: 90vw;
-    height: 87vh;
-    outline: 1px solid black;
-    margin-top: 50px;
-    margin-left: 80px;
-    box-shadow: 0px 15px 33px 6px rgb(0 0 0 / 50%);
-    -webkit-box-shadow: 0px 15px 33px 6px rgb(0 0 0 / 50%);
-    -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
-    background-color: #9A83D8;
-    border-radius: 20px;
-    background-image: url(../imgs/fractalsfirstbox.png);
-    background-repeat: cover;
-    background-position: center top;
-}
-
-
-
-#createPromiseDiv,
-#joinPromiseDiv,
-#endPromiseDiv {
-    width: 200px;
-    height: 233px;
-    position: absolute;
-    left: 830px;
-    top: 307px;
-    display: none;
-}
-
-/* 
-#currencyDiv {
-    width: 100px;
-    height: 100px;
-    outline: 1px solid black;
-    position: absolute;
-    right: 162px;
-    top: 99px;
-    border-radius: 20px;
-    background-color: $primary-color-dark;
-    box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
-}
- */
-#navigationMenu {
-    height: 33rem;
-    width: 38rem;
-    left: 652px;
-    top: 164px;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    background-color: rgb(27, 5, 50);
-    border-radius: 20px;
-    box-shadow: 0px 15px 33px 6px rgb(0 0 0 / 50%);
-    -webkit-box-shadow: 0px 15px 33px 6px rgb(0 0 0 / 50%);
-    -moz-box-shadow: 0px 15px 33px 6px rgba(0, 0, 0, 0.5);
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    align-content: stretch;
-}
-
-// Buttons and such //
 button {
-    background-color: #7c6d93;
-    color: rgb(255, 255, 255);
-    font-family: "Ubuntu", sans-serif;
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 27rem;
-    pointer-events: auto;
+    color: rgb(214, 147, 23);
+    transition: 0.25s;
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
 
-    &:hover {
-        background-color: darken($primary-color, 15%);
+    &:hover,
+    &:focus {
+        border-color: purple;
+        color: black;
     }
-
-    &:active {
-        background-color: darken($primary-color, 10%);
-        box-shadow: 0 2px darken($primary-color, 60%);
-        transform: translateY(1.5px);
-    }
-
-
 }
 
-#createPromiseBtn,
-#joinPromiseBtn,
-#endPromiseBtn {
-    left: 61px;
-    top: 115px;
-    position: absolute;
+button:hover,
+button:focus {
+    box-shadow: -3px 8px 20px -4px rgba(0, 0, 0, 0.397);
+    transform: translateY(-0.25em);
 }
 
 
-#createPromiseDivExitBtn,
-#joinPromiseDivExitBtn,
-#endPromiseDivExitBtn {
-    top: 0;
-    right: 0;
-    position: absolute;
-}
-
-
-
-.walletConnectBtn {
-    position: absolute;
-    right: 162px;
-    top: 99px;
-    width: 100px;
-    height: 100px;
-    background-image: url(../imgs/MetaMask_Fox1.svg);
-
-}
-
-// Style the form elements
-input {
-    font-family: $body-font;
-    font-size: 15px;
-    padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
-
-}
-
-.textStyle {
-    font-size: 1rem;
-    font-family: "Ubuntu", sans-serif;
-    color: white;
-    margin-left: 22px;
-    margin-bottom: 8px;
-}
-
-#newPromiseDiv {
-    font-family: "Ubuntu";
-    position: absolute;
-    top: 569px;
-    right: 667px;
-    background-color: rgba(255, 255, 255, 0.405);
-    height: 111px;
-    border-radius: 6px;
-    width: 590px;
-}
-
-
-#newPromisePara {
+#header {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
     display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
+    height: 100px;
+    position: fixed;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+    justify-content: flex-end;
     align-items: flex-start;
 }
 
-#line {
-    width: 29%;
-    /* height: 459px; */
-    top: 254px;
-    left: 682px;
+#headerImg {
+    height: 342px;
+    width: 389px;
+    top: 476px;
     position: absolute;
-    pointer-events: none;
-
-
+    object-fit: contain;
+    //background-image: url(/imgs/Untitled.webp);
 }
 
-#line::after,
-#line::before {
-    content: '';
+#main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-bottom: 160px;
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+
+#footer {
+    display: flex;
     position: absolute;
-    margin: auto;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.205);
-    width: 45%;
-    top: 45%;
+    bottom: 0;
+    align-items: center;
+    width: 100%;
+    height: 104px;
+    padding: 0 0 46px;
+    vertical-align: baseline;
 
 }
 
-#line::after {
-    left: 0;
+.section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#line::before {
-    right: 0;
-}
-
-#line2 {
-    width: 29%;
-
-    top: 548px;
-    left: 682px;
-    position: absolute;
+.sectionTitles {
+    font-size: 90px;
+    line-height: 90px;
+    max-width: 660px;
 
 }
 
-#line2::after,
-#line2::before {
-    content: '';
-    position: absolute;
-    margin: auto;
-    height: 2px;
-    background: rgba(255, 255, 255, 0.205);
-    width: 45%;
-    top: 45%;
+#sectionOneSmallText {
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 32px;
+    max-width: 568px;
+    text-align: center;
+}
+
+#sectionOneDiv {
+    // outline: red 2px solid;
+    padding: 50px;
+
 
 }
 
-#line2::after {
-    left: 0;
+#sectionTwoDiv {
+    // outline: green 2px solid;
+    padding: 50px;
+
 }
 
-#line2::before {
-    right: 0;
+#sectionThreeDiv {
+
+    // outline: purple 2px solid;
+    padding: 50px;
 }
+
+
+
+
+/* (Animation eller något spännande vi hittade på nätet)
+
+[data-aos^=fade][data-aos^=fade].aos-animate {
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+
+*/
