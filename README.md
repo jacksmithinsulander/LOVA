@@ -1,1 +1,1 @@
-<h1>This is the official repository for for the smart promise project</h1>
+<h1>This is the official repository for for the smart promise project 2.0</h1>
