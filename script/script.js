@@ -39,7 +39,7 @@ sectionOne.classList.add("section")
 sectionOne.innerHTML = `
         <div id="sectionOneDiv">
             <h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
-            <h3 id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.</h3>
+            <p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.
         </div>
 `;
 
@@ -49,7 +49,7 @@ sectionTwo.classList = "section"
 sectionTwo.innerHTML = `
         <div id="sectionOneDiv">
             <h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
-            <h5 id="sectionOneSmallText">two</h3>
+            <p id="sectionOneSmallText">two</p>
         </div>
 `;
 
