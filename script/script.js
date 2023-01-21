@@ -21,77 +21,52 @@
 //<Footer>
 // 	container div
 
-//thx for coming
-
-
-
 
 let header = document.createElement("header")
-let headerImg = document.createElement("a")
-	header.id = "header"
-	headerImg.id = "headerImg"
-	headerImg.innerHTML = `<img src="/imgs/Untitled(1).webp" class="imageClass">`;
+header.id = "header"
+header.innerHTML = `<a href="#" id="headerImg" class="example-class"">Example Link</a>`;
 
-	const walletConnectBtn = document.createElement("button");
-	walletConnectBtn.id = "walletConnectBtn";
-	walletConnectBtn.innerText = "Launch dApp"
+const walletConnectBtn = document.createElement("button");
+walletConnectBtn.id = "walletConnectBtn";
+walletConnectBtn.innerText = "Launch dApp"
 
 let main = document.createElement("main")
 main.id = "main"
 
-let sectionOne = document.createElement("section")
-let sectionTwo = document.createElement("section")
-let sectionThree = document.createElement("section")
-sectionOne.id = " sectionOne"
-sectionTwo.id = " sectionTwo"
-sectionThree.id =  " sectionThree"
-sectionOne.classList = "section"
+let sectionOne = document.createElement("section");
+sectionOne.id = "sectionOne"
+sectionOne.classList.add("section")
+sectionOne.innerHTML = `
+        <div id="sectionOneDiv">
+            <h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
+            <h3 id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.</h3>
+        </div>
+`;
+
+let sectionTwo = document.createElement("section");
+sectionTwo.id = "sectionTwo"
 sectionTwo.classList = "section"
+sectionTwo.innerHTML = `
+        <div id="sectionOneDiv">
+            <h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
+            <h5 id="sectionOneSmallText">two</h3>
+        </div>
+`;
+
+let sectionThree = document.createElement("section");
+sectionThree.id = "sectionTwo"
 sectionThree.classList = "section"
-
-let sectionOneDiv = document.createElement("div")
-let sectionOneTitle = document.createElement("h1")
-let sectionOneSmallText = document.createElement("h3")
-sectionOneTitle.classList = "sectionTitles"
-sectionOneDiv.id = "sectionOneDiv"
-sectionOneTitle.id = "sectionOneTitle"
-sectionOneSmallText.id = "sectionOneSmallText"
-sectionOneTitle.innerHTML = "Setting a new standard for promises."
-sectionOneSmallText.innerHTML = "We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance."
-
-let sectionTwoDiv = document.createElement("div")
-let sectionTwoTitle = document.createElement("h1")
-sectionTwoTitle.classList = ("sectionTitles")
-sectionTwoDiv.id = "sectionTwoDiv"
-sectionTwoTitle.id = "sectionTwoTitle"
-sectionTwoTitle.innerHTML = "Two"
-
-
-let sectionThreeDiv = document.createElement("div")
-let sectionThreeTitle = document.createElement("h1")
-sectionThreeTitle.classList = ("sectionTitles")
-sectionThreeDiv.id = "sectionThreeDiv"
-sectionThreeTitle.id = "sectionThreeTitle"
-sectionThreeTitle.innerHTML = "Check one Three"
+sectionThree.innerHTML = `<div id="sectionThreeDiv"><h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1></div>`
 
 let footer = document.createElement("footer")
 let footerInfo = document.createElement("h1")
 footer.id = "footer"
 footerInfo.id = "footerInfo"
 footerInfo.innerText = "this is the footer"
-	
+
 document.body.append(header, main, footer)
 header.append(walletConnectBtn, headerImg)
 main.append(sectionOne, sectionTwo, sectionThree)
-
-sectionOne.append(sectionOneDiv)
-sectionOneDiv.append(sectionOneTitle,sectionOneSmallText)
-
-sectionTwo.append(sectionTwoDiv)
-sectionTwoDiv.append(sectionTwoTitle)
-
-sectionThree.append(sectionThreeDiv)
-sectionThreeDiv.append(sectionThreeTitle)
 
 footer.append(footerInfo)
 

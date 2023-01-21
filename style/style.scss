@@ -36,7 +36,6 @@ button:focus {
 
 
 #header {
-    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     display: flex;
     height: 100px;
@@ -45,16 +44,13 @@ button:focus {
     width: 100%;
     z-index: 10;
     top: 0;
-    justify-content: flex-end;
     align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 }
 
 #headerImg {
-    height: 342px;
-    width: 389px;
-    top: 476px;
-    position: absolute;
-    object-fit: contain;
+
     //background-image: url(/imgs/Untitled.webp);
 }
 
