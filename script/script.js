@@ -24,7 +24,7 @@
 
 let header = document.createElement("header")
 header.id = "header"
-header.innerHTML = `<a href="#" id="headerImg" class="example-class"">Example Link</a>`;
+header.innerHTML = `<a href="#" id="headerImg" class="example-class""><i class="fa-brands fa-discord"></i></a>`;
 
 const walletConnectBtn = document.createElement("button");
 walletConnectBtn.id = "walletConnectBtn";
