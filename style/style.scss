@@ -34,8 +34,7 @@ button {
     transition: 0.25s;
     background: none;
     border: 2px solid;
-    font: inherit;
-    line-height: 1;
+    font-family: 'Roboto';
     margin: 0.5em;
     padding: 1em 2em;
 
@@ -68,11 +67,8 @@ button:focus {
 }
 
 #main {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
     padding-bottom: 160px;
     padding-top: 100px;
     min-height: 100vh;
@@ -99,15 +95,12 @@ button:focus {
 
 .section {
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .sectionTitles {
     font-size: 90px;
     line-height: 90px;
-    max-width: 660px;
     color: #AC8DCC;
     font-family: 'Lato', sans-serif
 }
@@ -115,9 +108,6 @@ button:focus {
 #sectionOneSmallText {
     font-size: 18px;
     line-height: 22px;
-    margin-top: 32px;
-    max-width: 568px;
-    text-align: center;
     color: #FFCF7E;
     font-family: 'Roboto';
 }
