@@ -1,7 +1,9 @@
 @import "normalize";
-*{
-	box-sizing:border-box;
+
+* {
+    box-sizing: border-box;
 }
+
 html {
     scroll-behavior: smooth;
 }
@@ -15,8 +17,8 @@ body {
         radial-gradient(var(--color-5) 25%, transparent 50%),
         radial-gradient(var(--color-6) 25%, transparent 50%),
         radial-gradient(var(--color-7) 25%, transparent 50%);
-    background-size: 70% 77%, 83% 80%, 123% 66%, 135% 72%;
-    background-position: 172% -152%, -143% -56%, -105% 76%, 118% 264%;
+    background-size: 88% 77%, 89% 58%, 123% 66%, 135% 72%;
+    background-position: 500% -214%, -387% -11%, -203% 61%, 154% 264%;
     background-repeat: no-repeat;
     background-color: #170333;
     --color-1: #1ea990c9;
@@ -33,7 +35,7 @@ button {
     color: #FFB12D;
     transition: 0.25s;
     background: none;
-    border: 2px solid;
+    border: 0.125rem solid;
     font-family: 'Roboto';
     margin: 0.5em;
     padding: 1em 2em;
@@ -47,15 +49,14 @@ button {
 
 button:hover,
 button:focus {
-    box-shadow: -3px 8px 20px -4px #3C1B6A;
-    transform: translateY(-0.25em);
+    box-shadow: −0.1875rem 0.5rem 1.25rem -0.25rem #3C1B6A;
+    transform: translateY(-0.25rem);
 }
 
 
 #header {
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(0.9375rem);
     display: flex;
-    height: 100px;
     position: fixed;
     transition: all 0.3s ease-in-out;
     width: 100%;
@@ -67,10 +68,10 @@ button:focus {
 }
 
 #main {
-    max-width: 800px;
+    max-width: 50rem;
     margin: auto;
-    padding-bottom: 160px;
-    padding-top: 100px;
+    padding-bottom: 10rem;
+    padding-top: 6.25rem;
     min-height: 100vh;
 }
 
@@ -81,8 +82,8 @@ button:focus {
     bottom: 0;
     align-items: center;
     width: 100%;
-    height: 104px;
-    padding: 0 0 46px;
+    height: 6.5rem;
+    padding: 0 0 2.875rem;
     vertical-align: baseline;
 
 }
@@ -90,7 +91,6 @@ button:focus {
 #footerInfo {
     color: #AC8DCC;
     font-family: 'Lato', sans-serif
-
 }
 
 .section {
@@ -99,22 +99,21 @@ button:focus {
 }
 
 .sectionTitles {
-    font-size: 90px;
-    line-height: 90px;
+    font-size: 5.625rem;
+    line-height: 5.625rem;
     color: #AC8DCC;
     font-family: 'Lato', sans-serif
 }
 
 #sectionOneSmallText {
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 1.125rem;
+    line-height: 1.375rem;
     color: #FFCF7E;
     font-family: 'Roboto';
 }
 
 #headerImg {
     color: #AC8DCC;
-    font-size: 30px;
+    font-size: 1.875rem;
 
 }
-
