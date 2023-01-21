@@ -7,11 +7,6 @@ html {
 }
 
 body {
-    // background-image: url(/imgs/ColourShades.webp);
-    // background-position: 0% 100%;
-    // background-repeat: no-repeat;
-    // background-size: cover;
-    // color: #fff;
     position: relative;
     background: radial-gradient(var(--color-1) 25%, transparent 50%),
         radial-gradient(var(--color-2) 25%, transparent 50%),
@@ -72,11 +67,6 @@ button:focus {
     flex-direction: row-reverse;
 }
 
-#headerImg {
-
-    //background-image: url(/imgs/Untitled.webp);
-}
-
 #main {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -132,34 +122,3 @@ button:focus {
     font-family: 'Roboto';
 }
 
-#sectionOneDiv {
-    // outline: red 2px solid;
-    padding: 50px;
-
-
-}
-
-#sectionTwoDiv {
-    // outline: green 2px solid;
-    padding: 50px;
-
-}
-
-#sectionThreeDiv {
-
-    // outline: purple 2px solid;
-    padding: 50px;
-}
-
-
-
-
-/* (Animation eller något spännande vi hittade på nätet)
-
-[data-aos^=fade][data-aos^=fade].aos-animate {
-    opacity: 1;
-    transform: translateZ(0);
-}
-
-
-*/

@@ -37,26 +37,22 @@ let sectionOne = document.createElement("section");
 sectionOne.id = "sectionOne"
 sectionOne.classList.add("section")
 sectionOne.innerHTML = `
-        <div id="sectionOneDiv">
             <h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
             <p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.
-        </div>
 `;
 
 let sectionTwo = document.createElement("section");
 sectionTwo.id = "sectionTwo"
 sectionTwo.classList = "section"
 sectionTwo.innerHTML = `
-        <div id="sectionOneDiv">
             <h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
             <p id="sectionOneSmallText">two</p>
-        </div>
 `;
 
 let sectionThree = document.createElement("section");
 sectionThree.id = "sectionTwo"
 sectionThree.classList = "section"
-sectionThree.innerHTML = `<div id="sectionThreeDiv"><h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1></div>`
+sectionThree.innerHTML = `<h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1>`
 
 let footer = document.createElement("footer")
 let footerInfo = document.createElement("h1")
