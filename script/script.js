@@ -86,33 +86,20 @@ function launchApp() {
 	
 	let menuTitles = document.getElementsByClassName("menuTitles");
 	
-	/*menuTitles.addEventListener("click", () => {
-		if (createSmartPromiseInteface.open = true) {
-			joinPromiseInterface.open = false;
-			endPromiseInterface.open = false;
-		} else if (joinPromiseInterface.open = true) {
-			createSmartPromiseInterface.open = false;
-			endPromiseInterface.open = false;
-		} else if (endPromiseInterface.open = true) {
-			createSmartPromiseInterface.open = false;
-			joinPromiseInterface.open = false;
-		}
-	});*/
+	createSmartPromiseInterface.open = true;
 	
-	createSmartPromiseInterface.addEventListener("toggle", (event) => {
-		createSmartPromiseInterface.open = true;
-		joinPromiseInterface.open = false;
-		endPromiseInterface.open = false;
-	});
-	joinPromiseInterface.addEventListener("toggle", (event) => {
-		joinPromiseInterface.open = true;
-		createSmartPromiseInterface.open = false;
-		endPromiseInterface.open = false;
-	});
-	endPromiseInterface.addEventListener("toggle", (event) => {
-		createSmartPromiseInterface.open = false;
-		joinPromiseInterface.open = false;
-		endPromiseInterface.open = true;
+	const details = document.querySelectorAll("details");
+
+	details.forEach(function(detail) {
+		const summary = detail.querySelector("summary");
+		summary.addEventListener("click", function() {
+			// Close all other open details elements
+    			details.forEach(function(otherDetail) {
+      				if (otherDetail !== detail) {
+        				otherDetail.removeAttribute("open");
+      				}
+    			});
+		});
 	});
 }
 
