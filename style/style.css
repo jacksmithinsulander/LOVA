@@ -72,8 +72,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -325,6 +324,11 @@ body {
   background-color: #170333;
 }
 
+#bodyApp {
+  background-size: 88% 77%, 102% 197%, 99% 217%, 135% 72%;
+  background-position: 546% -305%, 2699% 101%, 4900% 4%, 175% 347%;
+}
+
 button {
   color: #FFB12D;
   transition: 0.25s;
@@ -347,8 +351,7 @@ button:focus {
 }
 
 #header {
-  -webkit-backdrop-filter: blur(0.9375rem);
-          backdrop-filter: blur(0.9375rem);
+  backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -462,4 +465,6 @@ button:focus {
 .interfaceBtns {
   width: 39rem;
   height: 5.25rem;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

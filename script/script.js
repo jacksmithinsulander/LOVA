@@ -51,6 +51,7 @@ footer.append(footerInfo)
 
 function launchApp() {
 	main.innerHTML = "";
+	document.body.id = "bodyApp";
 	let interfaceSection = document.createElement("section");
 	interfaceSection.id = "interfaceSection"
 	let createSmartPromiseInterface = document.createElement("details");
@@ -81,9 +82,40 @@ function launchApp() {
 		</form>`;
 
 	main.append(interfaceSection);
-	interfaceSection.append(createSmartPromiseInterface, joinPromiseInterface, endPromiseInterface)
-
+	interfaceSection.append(createSmartPromiseInterface, joinPromiseInterface, endPromiseInterface);
+	
+	let menuTitles = document.getElementsByClassName("menuTitles");
+	
+	/*menuTitles.addEventListener("click", () => {
+		if (createSmartPromiseInteface.open = true) {
+			joinPromiseInterface.open = false;
+			endPromiseInterface.open = false;
+		} else if (joinPromiseInterface.open = true) {
+			createSmartPromiseInterface.open = false;
+			endPromiseInterface.open = false;
+		} else if (endPromiseInterface.open = true) {
+			createSmartPromiseInterface.open = false;
+			joinPromiseInterface.open = false;
+		}
+	});*/
+	
+	createSmartPromiseInterface.addEventListener("toggle", (event) => {
+		createSmartPromiseInterface.open = true;
+		joinPromiseInterface.open = false;
+		endPromiseInterface.open = false;
+	});
+	joinPromiseInterface.addEventListener("toggle", (event) => {
+		joinPromiseInterface.open = true;
+		createSmartPromiseInterface.open = false;
+		endPromiseInterface.open = false;
+	});
+	endPromiseInterface.addEventListener("toggle", (event) => {
+		createSmartPromiseInterface.open = false;
+		joinPromiseInterface.open = false;
+		endPromiseInterface.open = true;
+	});
 }
+
 
 dappLaunchBtn.addEventListener("click", async () => {
 	launchApp();
