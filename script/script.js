@@ -1,11 +1,17 @@
-
 let header = document.createElement("header")
 header.id = "header"
 header.innerHTML = `<a href="#" id="headerImg" class="example-class""><i class="fa-brands fa-discord"></i></a>`;
 
-const walletConnectBtn = document.createElement("button");
+/*
+const walletConnecrBtn = document.createElement("button");
 walletConnectBtn.id = "walletConnectBtn";
 walletConnectBtn.innerText = "Launch dApp"
+*/
+
+const dappLaunchBtn = document.createElement("button");
+dappLaunchBtn.id = "dappLaunchBtn";
+dappLaunchBtn.innerText = "Launch dApp"
+
 
 let main = document.createElement("main")
 main.id = "main"
@@ -38,14 +44,52 @@ footerInfo.id = "footerInfo"
 footerInfo.innerText = "this is the footer"
 
 document.body.append(header, main, footer)
-header.append(walletConnectBtn, headerImg)
+header.append(dappLaunchBtn, headerImg)
 main.append(sectionOne, sectionTwo, sectionThree)
 
 footer.append(footerInfo)
 
+function launchApp() {
+	main.innerHTML = "";
+	let interfaceSection = document.createElement("section");
+	interfaceSection.id = "interfaceSection"
+	let createSmartPromiseInterface = document.createElement("details");
+	createSmartPromiseInterface.id = "createSmartPromiseInterface";
+	createSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Create</summary>
+		<form id="createSmartPromiseInterface" class="bottomInterface font">
+			
+			<input  type="text" id="promiseTitle" name="promiseTitle" class="inputStyling"> </input>
+			<input type="text" id="promiseCollateral" name="promiseCollateral" class="inputStyling"> </input>
+			<button id="createPromiseBtn" class="interfaceBtns">Create Promise </button>
+			</form>`;
+	let joinPromiseInterface = document.createElement("details");
+	joinPromiseInterface.id = "joinPromiseInterface";
+	joinPromiseInterface.classlist = "menuTitles";
+	joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
+		<form id="joinSmartPromiseInterface" class="bottomInterface font">
+			<input  type="text" id="promiseID" class="font inputStyling"> </input>
+			<input type="text" id="promiseMatchCollateral" class="inputStyling font"></input>
+			<button id="joinPromiseBtn" class="interfaceBtns">Join Promise </button>
+		</form>`;
+	let endPromiseInterface = document.createElement("details");
+	endPromiseInterface.id = "endPromiseInterface";
+	endPromiseInterface.classlist = "menuTitles";
+	endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
+		<form id="endSmartPromiseInterface" class="bottomInterface font">
+			<input  type="text" id="promiseIDToEnd" class="font inputStyling"> </input>
+			<button id="endPromiseBtn" class="interfaceBtns">End Promise </button>
+		</form>`;
 
+	main.append(interfaceSection);
+	interfaceSection.append(createSmartPromiseInterface, joinPromiseInterface, endPromiseInterface)
 
-// document.body.append(footer)
+}
+
+dappLaunchBtn.addEventListener("click", async () => {
+	launchApp();
+
+})
+
 
 // Appen
 /* 
@@ -139,11 +183,12 @@ const connect = async () => {
 		console.log("No metamask");
 	}
 };
-
+/*
 walletConnectBtn.addEventListener("click", async () => {
 	await connect();
 
 })
+*/
 
 console.log("senast log", results);
 

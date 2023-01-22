@@ -1,5 +1,27 @@
 @import "normalize";
 
+
+$color-1: #1ea99079;
+$color-2: #3c5c85cb;
+$color-3: #570f84ce;
+$color-4: #6d0490c9;
+$color-5: #6F2796c9;
+$color-6: #572987c9;
+$color-7: #460B7Fc9;
+$color-8: #3c1b6a;
+$color-9: #170333;
+$color-hover: #A13E8E;
+$color-focus: #673C93;
+$color-shadow: #3C1B6A;
+$color-footer: #AC8DCC;
+$color-section-title: #AC8DCC;
+$color-section-text: #FFCF7E;
+$color-header-img: #AC8DCC;
+$font-body: 'Roboto';
+$font-header: 'Lato', sans-serif;
+$radius: 2rem;
+
+
 * {
     box-sizing: border-box;
 }
@@ -10,49 +32,43 @@ html {
 
 body {
     position: relative;
-    background: radial-gradient(var(--color-1) 25%, transparent 50%),
-        radial-gradient(var(--color-2) 25%, transparent 50%),
-        radial-gradient(var(--color-3) 25%, transparent 50%),
-        radial-gradient(var(--color-4) 25%, transparent 50%),
-        radial-gradient(var(--color-5) 25%, transparent 50%),
-        radial-gradient(var(--color-6) 25%, transparent 50%),
-        radial-gradient(var(--color-7) 25%, transparent 50%);
+    background:
+        radial-gradient($color-1 25%, transparent 50%),
+        radial-gradient($color-2 25%, transparent 50%),
+        radial-gradient($color-3 25%, transparent 50%),
+        radial-gradient($color-4 25%, transparent 50%),
+        radial-gradient($color-5 25%, transparent 50%),
+        radial-gradient($color-6 25%, transparent 50%),
+        radial-gradient($color-7 25%, transparent 50%);
     background-size: 88% 77%, 89% 58%, 123% 66%, 135% 72%;
     background-position: 500% -214%, -387% -11%, -203% 61%, 154% 264%;
     background-repeat: no-repeat;
-    background-color: #170333;
-    --color-1: #1ea990c9;
-    --color-2: #3c5c85cb;
-    --color-3: #570f84ce;
-    --color-4: #6d0490c9;
-    --color-5: #6F2796c9;
-    --color-6: #572987c9;
-    --color-7: #460B7Fc9;
-    --color-8: #3C1B6Ac9;
+    background-color: $color-9;
 }
+
 
 button {
     color: #FFB12D;
     transition: 0.25s;
     background: none;
     border: 0.125rem solid;
-    font-family: 'Roboto';
+    font-family: $font-body;
     margin: 0.5em;
     padding: 1em 2em;
+    border-radius: $radius;
 
     &:hover,
     &:focus {
-        border-color: #673C93;
-        color: #A13E8E;
+        border-color: $color-focus;
+        color: $color-hover;
     }
 }
 
 button:hover,
 button:focus {
-    box-shadow: -0.187rem 0.5rem 1.25rem -0.25rem #3C1B6A;
+    box-shadow: -0.187rem 0.5rem 1.25rem -0.25rem $color-shadow;
     transform: translateY(-0.25rem);
 }
-
 
 #header {
     backdrop-filter: blur(0.9375rem);
@@ -66,6 +82,7 @@ button:focus {
     justify-content: space-between;
     flex-direction: row-reverse;
 }
+
 
 #main {
     max-width: 50rem;
@@ -85,12 +102,11 @@ button:focus {
     height: 6.5rem;
     padding: 0 0 2.875rem;
     vertical-align: baseline;
-
 }
 
 #footerInfo {
-    color: #AC8DCC;
-    font-family: 'Lato', sans-serif
+    color: $color-footer;
+    font-family: $font-header;
 }
 
 .section {
@@ -101,19 +117,77 @@ button:focus {
 .sectionTitles {
     font-size: 5.625rem;
     line-height: 5.625rem;
-    color: #AC8DCC;
-    font-family: 'Lato', sans-serif
+    color: $color-section-title;
+    font-family: $font-header;
 }
 
 #sectionOneSmallText {
     font-size: 1.125rem;
     line-height: 1.375rem;
-    color: #FFCF7E;
-    font-family: 'Roboto';
+    color: $color-section-text;
+    font-family: $font-body;
 }
 
 #headerImg {
-    color: #AC8DCC;
+    color: $color-header-img;
     font-size: 1.875rem;
+}
 
+.menuTitles {
+    color: #AC8DCC;
+    font-size: 2.8rem;
+    list-style-type: none;
+    font-family: $font-header;
+}
+
+/* .fontTitle {
+    font-size: 5.625rem;
+} */
+
+#interfaceSection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    border: 2px solid black;
+    justify-content: space-evenly;
+    border-radius: $radius;
+    background-color: rgba(13, 1, 29, 0.6901960784);
+    ;
+}
+
+.bottomInterface {
+    position: absolute;
+    height: 35rem;
+    width: 41rem;
+    padding-top: 2rem;
+    left: 5rem;
+    top: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #0d011db0;
+    border-radius: $radius;
+}
+
+.inputStyling {
+    width: 39rem;
+    max-width: 41rem;
+    height: 10.5rem;
+    border-radius: $radius;
+    background-color: $color-9;
+    border-color: $color-8;
+    border-spacing: 1rem;
+
+}
+
+.inputStyling:hover {
+    outline-color: $color-1;
+    outline-style: solid;
+}
+
+.interfaceBtns {
+    width: 39rem;
+    height: 5.25rem;
 }
