@@ -1,11 +1,17 @@
-
 let header = document.createElement("header")
 header.id = "header"
 header.innerHTML = `<a href="#" id="headerImg" class="example-class""><i class="fa-brands fa-discord"></i></a>`;
 
-const walletConnectBtn = document.createElement("button");
+/*
+const walletConnecrBtn = document.createElement("button");
 walletConnectBtn.id = "walletConnectBtn";
 walletConnectBtn.innerText = "Launch dApp"
+*/
+
+const dappLaunchBtn = document.createElement("button");
+dappLaunchBtn.id = "dappLaunchBtn";
+dappLaunchBtn.innerText = "Launch dApp"
+
 
 let main = document.createElement("main")
 main.id = "main"
@@ -38,14 +44,53 @@ footerInfo.id = "footerInfo"
 footerInfo.innerText = "this is the footer"
 
 document.body.append(header, main, footer)
-header.append(walletConnectBtn, headerImg)
+header.append(dappLaunchBtn, headerImg)
 main.append(sectionOne, sectionTwo, sectionThree)
 
 footer.append(footerInfo)
 
+function launchApp() {
+	main.innerHTML = "";
+	let createSmartPromiseInterface = document.createElement("details");
+	createSmartPromiseInterface.id = "createSmartPromiseInterface";
+	createSmartPromiseInterface.classlist = "menuTitles"; 
+	createSmartPromiseInterface.innerHTML = `<summary>Create Smart Promise</summary>
+		<form id="createSmartPromiseInterface">
+			<label for="promiseTitle">Promise Title </label>
+			<input  type="text" id="promiseTitle" name="promiseTitle"> </input>
+			<label for="promiseCollateral">Promise Collateral </label>
+			<input type="text" id="promiseCollateral" name="promiseCollateral"> </input>
+			<button id="createPromiseBtn">Create Promise </button>
+		</form>`;
+	let joinPromiseInterface = document.createElement("details");
+	joinPromiseInterface.id = "joinPromiseInterface";
+	joinPromiseInterface.classlist = "menuTitles"; 
+	joinPromiseInterface.innerHTML = `<summary>Join A Promise</summary>
+		<form id="createSmartPromiseInterface">
+			<label for="promiseID">Promise ID</label>
+			<input  type="text" id="promiseID" name="promiseID"> </input>
+			<label for="promiseMatchCollateral">ETH amount</label>
+			<input type="text" id="promiseMatchCollateral" name="promiseMatchCollateral"> </input>
+			<button id="joinPromiseBtn">Join Promise </button>
+		</form>`; 
+	let endPromiseInterface = document.createElement("details");
+	endPromiseInterface.id = "endPromiseInterface";
+	endPromiseInterface.classlist = "menuTitles"; 
+	endPromiseInterface.innerHTML = `<summary>End a promise Promise</summary>
+		<form id="endPromiseInterface">
+			<label for="promiseIDToEnd">Promise ID</label>
+			<input  type="text" id="promiseIDToEnd" name="promiseIDToEnd"> </input>
+			<button id="endPromiseBtn">End Promise </button>
+		</form>`; 
 
+	main.append(createSmartPromiseInterface, joinPromiseInterface, endPromiseInterface);
+}
 
-// document.body.append(footer)
+dappLaunchBtn.addEventListener("click", async () => {
+	launchApp();
+
+})
+
 
 // Appen
 /* 
@@ -139,11 +184,12 @@ const connect = async () => {
 		console.log("No metamask");
 	}
 };
-
+/*
 walletConnectBtn.addEventListener("click", async () => {
 	await connect();
 
 })
+*/
 
 console.log("senast log", results);
 

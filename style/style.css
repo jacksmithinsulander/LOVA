@@ -72,8 +72,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -354,8 +353,7 @@ button:focus {
 }
 
 #header {
-  -webkit-backdrop-filter: blur(0.9375rem);
-          backdrop-filter: blur(0.9375rem);
+  backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -413,4 +411,11 @@ button:focus {
 #headerImg {
   color: #AC8DCC;
   font-size: 1.875rem;
-}/*# sourceMappingURL=style.css.map */
+}
+
+#menuTitles {
+  color: #AC8DCC;
+  font-size: 4rem;
+}
+
+/*# sourceMappingURL=style.css.map */
