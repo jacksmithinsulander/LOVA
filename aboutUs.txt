@@ -1,0 +1,15 @@
+At SmartPromise, we believe in revolutionizing the way promises are made in the decentralized finance (DeFi) space.
+ We understand that trustless systems require trustworthy tools, and that's exactly what we aim to provide. 
+ Our team of experienced developers and blockchain enthusiasts have come together to create a platform that sets a new standard for promises in the DeFi space.
+
+Our dApp, SmartPromise, allows users to create custom contracts, deposit money, and generate unique links to send to other participants. 
+These contracts have a timer of 10 minutes, with an expiration date, after which the other participant can accept and sign the promise using their Metamask wallet. 
+The contract also allows for the depositors to receive their money back, if necessary.
+
+But beyond the technicalities of our dApp, our vision is to create a more secure and reliable way for individuals to make promises in the DeFi space. 
+We understand the importance of trust in financial transactions and want to provide a platform that instills trust in its users. 
+We believe that our dApp will pave the way for more efficient and secure promise-making in the DeFi space, 
+ultimately leading to greater adoption and growth in the industry.
+
+We are excited about the future of DeFi and are committed to building the tools and infrastructure necessary to make it a reality.
+Join us on this journey and be a part of shaping the future of finance.
