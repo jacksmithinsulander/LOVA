@@ -67,8 +67,8 @@ function launchApp() {
 	joinPromiseInterface.classlist = "menuTitles";
 	joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
 		<form id="joinSmartPromiseInterface" class="bottomInterface font">
-			<input  type="text" id="promiseID" class="font" class="inputStyling"> </input>
-			<input type="text" id="promiseMatchCollateral class="font"" class="inputStyling"> </input>
+			<input  type="text" id="promiseID" class="font inputStyling"> </input>
+			<input type="text" id="promiseMatchCollateral class="inputStyling font"></input>
 			<button id="joinPromiseBtn">Join Promise </button>
 		</form>`;
 	let endPromiseInterface = document.createElement("details");
@@ -76,7 +76,7 @@ function launchApp() {
 	endPromiseInterface.classlist = "menuTitles";
 	endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
 		<form id="endSmartPromiseInterface" class="bottomInterface font">
-			<input  type="text" id="promiseIDToEnd" class="font" class="inputStyling"> </input>
+			<input  type="text" id="promiseIDToEnd" class="font inputStyling"> </input>
 			<button id="endPromiseBtn">End Promise </button>
 		</form>`;
 
