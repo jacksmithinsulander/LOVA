@@ -1,26 +1,3 @@
-// import api from './api.js'
-// import design from './design.js'
-
-
-// (Landing Page)
-// Saker vi behöver:
-// <Body>
-//	 <Header>
-//	  Nav
-//	  Ul (Med )
-//	 </Header>
-//<Main>
-//		<section 1>
-//		h1, p, (informativ, slogan, etc)
-//		<section 2>
-//		how to, visuellt step-by-step
-//		<section 3>
-//		''vi är open source''
-//		läs våra docs
-//</Main>
-//<Footer>
-// 	container div
-
 
 let header = document.createElement("header")
 header.id = "header"
