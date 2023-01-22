@@ -1,6 +1,5 @@
 @import "normalize";
 
-
 $color-1: #1ea99079;
 $color-2: #3c5c85cb;
 $color-3: #570f84ce;
@@ -20,7 +19,6 @@ $color-header-img: #AC8DCC;
 $font-body: 'Roboto';
 $font-header: 'Lato', sans-serif;
 $radius: 2rem;
-
 
 * {
     box-sizing: border-box;
@@ -60,7 +58,6 @@ button {
     margin: 0.5em;
     padding: 1em 2em;
     border-radius: $radius;
-
     &:hover,
     &:focus {
         border-color: $color-focus;
@@ -87,6 +84,10 @@ button:focus {
     flex-direction: row-reverse;
 }
 
+#homeBtnImg {
+    width: 50px;
+    height: 50px;
+}
 
 #main {
     max-width: 50rem;
@@ -143,10 +144,6 @@ button:focus {
     list-style-type: none;
     font-family: $font-header;
 }
-
-/* .fontTitle {
-    font-size: 5.625rem;
-} */
 
 #interfaceSection {
     display: flex;

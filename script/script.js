@@ -1,6 +1,10 @@
-let header = document.createElement("header")
-header.id = "header"
-header.innerHTML = `<a href="#" id="headerImg" class="example-class""><i class="fa-brands fa-discord"></i></a>`;
+function landingPage() {
+	let header = document.createElement("header")
+	header.innerHTML="";
+	header.id = "header"
+	header.innerHTML = `<figure id="homeBtn">
+		<img src="imgs/logoTransparentBackground.webp"
+		id="homeBtnImg"></img></figure>`;
 
 /*
 const walletConnecrBtn = document.createElement("button");
@@ -8,49 +12,60 @@ walletConnectBtn.id = "walletConnectBtn";
 walletConnectBtn.innerText = "Launch dApp"
 */
 
-const dappLaunchBtn = document.createElement("button");
-dappLaunchBtn.id = "dappLaunchBtn";
-dappLaunchBtn.innerText = "Launch dApp"
+	const dappLaunchBtn = document.createElement("button");
+	dappLaunchBtn.id = "dappLaunchBtn";
+	dappLaunchBtn.innerText = "Launch dApp"
 
 
-let main = document.createElement("main")
-main.id = "main"
+	let main = document.createElement("main")
+	main.innerHTML="";
+	main.id = "main"
 
-let sectionOne = document.createElement("section");
-sectionOne.id = "sectionOne"
-sectionOne.classList.add("section")
-sectionOne.innerHTML = `
-            <h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
-            <p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.
-`;
+	let sectionOne = document.createElement("section");
+	sectionOne.id = "sectionOne"
+	sectionOne.classList.add("section")
+	sectionOne.innerHTML = `
+        	<h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
+        	<p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.`;
 
-let sectionTwo = document.createElement("section");
-sectionTwo.id = "sectionTwo"
-sectionTwo.classList = "section"
-sectionTwo.innerHTML = `
-            <h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
-            <p id="sectionOneSmallText">two</p>
-`;
+	let sectionTwo = document.createElement("section");
+	sectionTwo.id = "sectionTwo"
+	sectionTwo.classList = "section"
+	sectionTwo.innerHTML = `
+		<h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
+		<p id="sectionOneSmallText">two</p>`;
 
-let sectionThree = document.createElement("section");
-sectionThree.id = "sectionTwo"
-sectionThree.classList = "section"
-sectionThree.innerHTML = `<h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1>`
+	let sectionThree = document.createElement("section");
+	sectionThree.id = "sectionTwo"
+	sectionThree.classList = "section"
+	sectionThree.innerHTML = `<h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1>`
 
-let footer = document.createElement("footer")
-let footerInfo = document.createElement("h1")
-footer.id = "footer"
-footerInfo.id = "footerInfo"
-footerInfo.innerText = "this is the footer"
+	let footer = document.createElement("footer")
+	let footerInfo = document.createElement("h1")
+	footer.id = "footer"
+	footerInfo.id = "footerInfo"
+	footerInfo.innerText = "this is the footer"
 
-document.body.append(header, main, footer)
-header.append(dappLaunchBtn, headerImg)
-main.append(sectionOne, sectionTwo, sectionThree)
+	document.body.append(header, main, footer)
+	header.append(dappLaunchBtn)
+	main.append(sectionOne, sectionTwo, sectionThree)
 
-footer.append(footerInfo)
+	footer.append(footerInfo)
+	
+	dappLaunchBtn.addEventListener("click", async () => {
+		launchApp();
+	})
+}
 
 function launchApp() {
 	main.innerHTML = "";
+	header.innerHTML = `<figure id="homeBtn">
+		<img src="imgs/logoTransparentBackground.webp"
+		id="homeBtnImg"></img></figure>`;
+	let homeBtn = document.getElementById("homeBtn");
+	homeBtn.addEventListener("click", () => {
+		landingPage();
+	});
 	document.body.id = "bodyApp";
 	let interfaceSection = document.createElement("section");
 	interfaceSection.id = "interfaceSection"
@@ -103,12 +118,14 @@ function launchApp() {
 	});
 }
 
+landingPage();
 
+/*
 dappLaunchBtn.addEventListener("click", async () => {
 	launchApp();
 
 })
-
+*/
 
 // Appen
 /* 
