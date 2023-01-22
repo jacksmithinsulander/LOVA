@@ -51,39 +51,38 @@ footer.append(footerInfo)
 
 function launchApp() {
 	main.innerHTML = "";
+	let interfaceSection = document.createElement("section");
+	interfaceSection.id = "interfaceSection"
 	let createSmartPromiseInterface = document.createElement("details");
 	createSmartPromiseInterface.id = "createSmartPromiseInterface";
-	createSmartPromiseInterface.classlist = "menuTitles"; 
-	createSmartPromiseInterface.innerHTML = `<summary>Create Smart Promise</summary>
-		<form id="createSmartPromiseInterface">
-			<label for="promiseTitle">Promise Title </label>
-			<input  type="text" id="promiseTitle" name="promiseTitle"> </input>
-			<label for="promiseCollateral">Promise Collateral </label>
-			<input type="text" id="promiseCollateral" name="promiseCollateral"> </input>
+	createSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Create</summary>
+		<form id="createSmartPromiseInterface" class="bottomInterface font">
+			
+			<input  type="text" id="promiseTitle" name="promiseTitle" class="inputStyling"> </input>
+			<input type="text" id="promiseCollateral" name="promiseCollateral" class="inputStyling"> </input>
 			<button id="createPromiseBtn">Create Promise </button>
 		</form>`;
 	let joinPromiseInterface = document.createElement("details");
 	joinPromiseInterface.id = "joinPromiseInterface";
-	joinPromiseInterface.classlist = "menuTitles"; 
-	joinPromiseInterface.innerHTML = `<summary>Join A Promise</summary>
-		<form id="createSmartPromiseInterface">
-			<label for="promiseID">Promise ID</label>
-			<input  type="text" id="promiseID" name="promiseID"> </input>
-			<label for="promiseMatchCollateral">ETH amount</label>
-			<input type="text" id="promiseMatchCollateral" name="promiseMatchCollateral"> </input>
+	joinPromiseInterface.classlist = "menuTitles";
+	joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
+		<form id="joinSmartPromiseInterface" class="bottomInterface font">
+			<input  type="text" id="promiseID" class="font" class="inputStyling"> </input>
+			<input type="text" id="promiseMatchCollateral class="font"" class="inputStyling"> </input>
 			<button id="joinPromiseBtn">Join Promise </button>
-		</form>`; 
+		</form>`;
 	let endPromiseInterface = document.createElement("details");
 	endPromiseInterface.id = "endPromiseInterface";
-	endPromiseInterface.classlist = "menuTitles"; 
-	endPromiseInterface.innerHTML = `<summary>End a promise Promise</summary>
-		<form id="endPromiseInterface">
-			<label for="promiseIDToEnd">Promise ID</label>
-			<input  type="text" id="promiseIDToEnd" name="promiseIDToEnd"> </input>
+	endPromiseInterface.classlist = "menuTitles";
+	endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
+		<form id="endSmartPromiseInterface" class="bottomInterface font">
+			<input  type="text" id="promiseIDToEnd" class="font" class="inputStyling"> </input>
 			<button id="endPromiseBtn">End Promise </button>
-		</form>`; 
+		</form>`;
 
-	main.append(createSmartPromiseInterface, joinPromiseInterface, endPromiseInterface);
+	main.append(interfaceSection);
+	interfaceSection.append(createSmartPromiseInterface, joinPromiseInterface, endPromiseInterface)
+
 }
 
 dappLaunchBtn.addEventListener("click", async () => {

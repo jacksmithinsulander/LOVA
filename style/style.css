@@ -72,7 +72,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -317,19 +318,11 @@ html {
 
 body {
   position: relative;
-  background: radial-gradient(var(--color-1) 25%, transparent 50%), radial-gradient(var(--color-2) 25%, transparent 50%), radial-gradient(var(--color-3) 25%, transparent 50%), radial-gradient(var(--color-4) 25%, transparent 50%), radial-gradient(var(--color-5) 25%, transparent 50%), radial-gradient(var(--color-6) 25%, transparent 50%), radial-gradient(var(--color-7) 25%, transparent 50%);
+  background: radial-gradient(rgba(30, 169, 144, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(60, 92, 133, 0.7960784314) 25%, transparent 50%), radial-gradient(rgba(87, 15, 132, 0.8078431373) 25%, transparent 50%), radial-gradient(rgba(109, 4, 144, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(111, 39, 150, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(87, 41, 135, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(70, 11, 127, 0.7882352941) 25%, transparent 50%);
   background-size: 88% 77%, 89% 58%, 123% 66%, 135% 72%;
   background-position: 500% -214%, -387% -11%, -203% 61%, 154% 264%;
   background-repeat: no-repeat;
   background-color: #170333;
-  --color-1: #1ea990c9;
-  --color-2: #3c5c85cb;
-  --color-3: #570f84ce;
-  --color-4: #6d0490c9;
-  --color-5: #6F2796c9;
-  --color-6: #572987c9;
-  --color-7: #460B7Fc9;
-  --color-8: #3C1B6Ac9;
 }
 
 button {
@@ -353,7 +346,8 @@ button:focus {
 }
 
 #header {
-  backdrop-filter: blur(0.9375rem);
+  -webkit-backdrop-filter: blur(0.9375rem);
+          backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -413,9 +407,37 @@ button:focus {
   font-size: 1.875rem;
 }
 
-#menuTitles {
+.menuTitles {
   color: #AC8DCC;
   font-size: 4rem;
+  list-style-type: none;
+  font-family: "Lato", sans-serif;
 }
 
-/*# sourceMappingURL=style.css.map */
+#interfaceSection {
+  outline: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.bottomInterface {
+  position: absolute;
+  outline: 1px solid aqua;
+  height: 35rem;
+  width: 41rem;
+  padding-top: 2rem;
+  left: 35rem;
+  top: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.inputStyling {
+  width: 39rem;
+  max-width: 41rem;
+  height: 10.5rem;
+}/*# sourceMappingURL=style.css.map */
