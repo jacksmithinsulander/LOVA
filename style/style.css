@@ -318,7 +318,7 @@ html {
 
 body {
   position: relative;
-  background: radial-gradient(rgba(30, 169, 144, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(60, 92, 133, 0.7960784314) 25%, transparent 50%), radial-gradient(rgba(87, 15, 132, 0.8078431373) 25%, transparent 50%), radial-gradient(rgba(109, 4, 144, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(111, 39, 150, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(87, 41, 135, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(70, 11, 127, 0.7882352941) 25%, transparent 50%);
+  background: radial-gradient(rgba(30, 169, 144, 0.4745098039) 25%, transparent 50%), radial-gradient(rgba(60, 92, 133, 0.7960784314) 25%, transparent 50%), radial-gradient(rgba(87, 15, 132, 0.8078431373) 25%, transparent 50%), radial-gradient(rgba(109, 4, 144, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(111, 39, 150, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(87, 41, 135, 0.7882352941) 25%, transparent 50%), radial-gradient(rgba(70, 11, 127, 0.7882352941) 25%, transparent 50%);
   background-size: 88% 77%, 89% 58%, 123% 66%, 135% 72%;
   background-position: 500% -214%, -387% -11%, -203% 61%, 154% 264%;
   background-repeat: no-repeat;
@@ -333,6 +333,7 @@ button {
   font-family: "Roboto";
   margin: 0.5em;
   padding: 1em 2em;
+  border-radius: 2rem;
 }
 button:hover, button:focus {
   border-color: #673C93;
@@ -409,35 +410,56 @@ button:focus {
 
 .menuTitles {
   color: #AC8DCC;
-  font-size: 4rem;
+  font-size: 2.8rem;
   list-style-type: none;
   font-family: "Lato", sans-serif;
 }
 
+/* .fontTitle {
+    font-size: 5.625rem;
+} */
 #interfaceSection {
-  outline: 1px solid white;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position: relative;
+  border: 2px solid black;
   justify-content: space-evenly;
+  border-radius: 2rem;
+  background-color: rgba(13, 1, 29, 0.6901960784);
 }
 
 .bottomInterface {
   position: absolute;
-  outline: 1px solid aqua;
   height: 35rem;
   width: 41rem;
   padding-top: 2rem;
-  left: 35rem;
-  top: 20rem;
+  left: 5rem;
+  top: 7rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
+  background-color: rgba(13, 1, 29, 0.6901960784);
+  border-radius: 2rem;
 }
 
 .inputStyling {
   width: 39rem;
   max-width: 41rem;
   height: 10.5rem;
+  border-radius: 2rem;
+  background-color: #170333;
+  border-color: #3c1b6a;
+  border-spacing: 1rem;
+}
+
+.inputStyling:hover {
+  outline-color: rgba(30, 169, 144, 0.4745098039);
+  outline-style: solid;
+}
+
+.interfaceBtns {
+  width: 39rem;
+  height: 5.25rem;
 }/*# sourceMappingURL=style.css.map */

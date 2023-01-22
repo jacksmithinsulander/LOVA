@@ -1,14 +1,15 @@
 @import "normalize";
 
 
-$color-1: #1ea990c9;
+$color-1: #1ea99079;
 $color-2: #3c5c85cb;
 $color-3: #570f84ce;
 $color-4: #6d0490c9;
 $color-5: #6F2796c9;
 $color-6: #572987c9;
 $color-7: #460B7Fc9;
-$color-8: #3C1B6Ac9;
+$color-8: #3c1b6a;
+$color-9: #170333;
 $color-hover: #A13E8E;
 $color-focus: #673C93;
 $color-shadow: #3C1B6A;
@@ -18,6 +19,7 @@ $color-section-text: #FFCF7E;
 $color-header-img: #AC8DCC;
 $font-body: 'Roboto';
 $font-header: 'Lato', sans-serif;
+$radius: 2rem;
 
 
 * {
@@ -41,7 +43,7 @@ body {
     background-size: 88% 77%, 89% 58%, 123% 66%, 135% 72%;
     background-position: 500% -214%, -387% -11%, -203% 61%, 154% 264%;
     background-repeat: no-repeat;
-    background-color: #170333;
+    background-color: $color-9;
 }
 
 
@@ -53,6 +55,7 @@ button {
     font-family: $font-body;
     margin: 0.5em;
     padding: 1em 2em;
+    border-radius: $radius;
 
     &:hover,
     &:focus {
@@ -132,35 +135,59 @@ button:focus {
 
 .menuTitles {
     color: #AC8DCC;
-    font-size: 4rem;
+    font-size: 2.8rem;
     list-style-type: none;
     font-family: $font-header;
 }
 
+/* .fontTitle {
+    font-size: 5.625rem;
+} */
+
 #interfaceSection {
-    outline: 1px solid white;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    position: relative;
+    border: 2px solid black;
     justify-content: space-evenly;
+    border-radius: $radius;
+    background-color: rgba(13, 1, 29, 0.6901960784);
+    ;
 }
 
 .bottomInterface {
     position: absolute;
-    outline: 1px solid aqua;
     height: 35rem;
     width: 41rem;
     padding-top: 2rem;
-    left: 35rem;
-    top: 20rem;
+    left: 5rem;
+    top: 7rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
+    background-color: #0d011db0;
+    border-radius: $radius;
 }
 
 .inputStyling {
     width: 39rem;
     max-width: 41rem;
     height: 10.5rem;
+    border-radius: $radius;
+    background-color: $color-9;
+    border-color: $color-8;
+    border-spacing: 1rem;
+
+}
+
+.inputStyling:hover {
+    outline-color: $color-1;
+    outline-style: solid;
+}
+
+.interfaceBtns {
+    width: 39rem;
+    height: 5.25rem;
 }

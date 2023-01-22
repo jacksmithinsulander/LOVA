@@ -60,16 +60,16 @@ function launchApp() {
 			
 			<input  type="text" id="promiseTitle" name="promiseTitle" class="inputStyling"> </input>
 			<input type="text" id="promiseCollateral" name="promiseCollateral" class="inputStyling"> </input>
-			<button id="createPromiseBtn">Create Promise </button>
-		</form>`;
+			<button id="createPromiseBtn" class="interfaceBtns">Create Promise </button>
+			</form>`;
 	let joinPromiseInterface = document.createElement("details");
 	joinPromiseInterface.id = "joinPromiseInterface";
 	joinPromiseInterface.classlist = "menuTitles";
 	joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
 		<form id="joinSmartPromiseInterface" class="bottomInterface font">
 			<input  type="text" id="promiseID" class="font inputStyling"> </input>
-			<input type="text" id="promiseMatchCollateral class="inputStyling font"></input>
-			<button id="joinPromiseBtn">Join Promise </button>
+			<input type="text" id="promiseMatchCollateral" class="inputStyling font"></input>
+			<button id="joinPromiseBtn" class="interfaceBtns">Join Promise </button>
 		</form>`;
 	let endPromiseInterface = document.createElement("details");
 	endPromiseInterface.id = "endPromiseInterface";
@@ -77,7 +77,7 @@ function launchApp() {
 	endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
 		<form id="endSmartPromiseInterface" class="bottomInterface font">
 			<input  type="text" id="promiseIDToEnd" class="font inputStyling"> </input>
-			<button id="endPromiseBtn">End Promise </button>
+			<button id="endPromiseBtn" class="interfaceBtns">End Promise </button>
 		</form>`;
 
 	main.append(interfaceSection);
