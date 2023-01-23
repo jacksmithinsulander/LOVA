@@ -150,12 +150,6 @@ function launchApp() {
     homeBtn.addEventListener("click", () => {
         landingPage();
     });
-    
-    let textarea = document.getElementsByClassName("inputStyling");
-    textarea.addEventListener("keyup", () => {
-    textarea.style.height = calcHeight(textarea.value) + "0.1rem";
-});
-
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
     connectWalletBtn.addEventListener("click", async () => {
