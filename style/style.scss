@@ -16,7 +16,7 @@ $color-footer: #AC8DCC;
 $color-section-title: #AC8DCC;
 $color-section-text: #FFCF7E;
 $color-header-img: #AC8DCC;
-$font-body: 'Roboto';
+$font-body: 'Roboto', sans-serif;
 $font-header: 'Lato', sans-serif;
 $radius: 2rem;
 
@@ -58,6 +58,7 @@ button {
     margin: 0.5em;
     padding: 1em 2em;
     border-radius: $radius;
+
     &:hover,
     &:focus {
         border-color: $color-focus;
@@ -81,12 +82,12 @@ button:focus {
     top: 0;
     align-items: flex-start;
     justify-content: space-between;
-    flex-direction: row-reverse;
+    flex-direction: row;
 }
 
 #homeBtnImg {
-    width: 50px;
-    height: 50px;
+    width: 3.125rem;
+    height: 3.125rem;
 }
 
 #main {
@@ -99,7 +100,7 @@ button:focus {
 
 
 #footer {
-    display: flex;
+    // display: flex;
     position: absolute;
     bottom: 0;
     align-items: center;
@@ -112,6 +113,21 @@ button:focus {
 #footerInfo {
     color: $color-footer;
     font-family: $font-header;
+}
+
+.footerUl {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 5REM;
+    white-space: 1rem;
+    /* row-gap: 12rem; */
+    gap: 1rem;
+    list-style: none;
+}
+
+.footerLi {
+    color: $color-footer;
 }
 
 .section {
@@ -150,11 +166,12 @@ button:focus {
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    border: 2px solid black;
+    border: 0.3rem solid #673c930e;
     justify-content: space-evenly;
     border-radius: $radius;
     background-color: rgba(13, 1, 29, 0.6901960784);
-    ;
+
+
 }
 
 .bottomInterface {
@@ -170,6 +187,7 @@ button:focus {
     flex-direction: column;
     background-color: #0d011db0;
     border-radius: $radius;
+    border: 0.3rem solid #673c930e;
 }
 
 .inputStyling {
@@ -179,16 +197,38 @@ button:focus {
     border-radius: $radius;
     background-color: $color-9;
     border-color: $color-8;
-    border-spacing: 1rem;
+    //border-spacing: 1rem;
+    border: 2px solid black;
+    font-size: 2rem;
+    font-family: $font-body;
+    color: $color-footer;
+    resize: none;
 
 }
 
+
+
 .inputStyling:hover {
-    outline-color: $color-1;
-    outline-style: solid;
+    outline: 1px solid #673c9335;
+    // outline-style: solid;
+    box-shadow: 0px 0px 20px -16px $color-focus;
+
+
 }
 
 .interfaceBtns {
     width: 39rem;
     height: 5.25rem;
+}
+
+summary {
+    border-radius: $radius;
+    background-color: $color-9;
+}
+
+summary:hover {
+    box-shadow: 1px 2px 55px -27px $color-hover;
+    outline-color: 1px $color-hover;
+    outline-style: solid;
+    transform: translateY(-0.25rem);
 }

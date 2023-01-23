@@ -2,6 +2,7 @@ let header;
 let main;
 let homeBtn;
 let footer;
+let connectWalletBtn;
 
 function landingPage() {
     if (header) header.remove();
@@ -43,18 +44,12 @@ function landingPage() {
     sectionThree.classList = "section"
     sectionThree.innerHTML =
         `<h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1>`
-
-    footer = document.createElement("footer")
-    let footerInfo = document.createElement("h1")
-
-    footer.id = "footer"
-    footerInfo.id = "footerInfo"
-    footerInfo.innerText = "this is the footer"
+    createFooter();
 
     document.body.append(header, main, footer)
     header.append(dappLaunchBtn)
     main.append(sectionOne, sectionTwo, sectionThree)
-    footer.append(footerInfo)
+    // footer.append(footerInfo)
 
     homeBtn = document.getElementById("homeBtn");
     homeBtn.addEventListener("click", () => {
@@ -64,7 +59,32 @@ function landingPage() {
     dappLaunchBtn.addEventListener("click", () => {
         launchApp();
     });
+
+    
 }
+
+function createFooter() {
+    footer = document.createElement("footer")
+    footer.id = "footer"
+    footer.classList = "footerInfo"
+    footer.innerHTML = `<nav>
+   
+        <ul class="footerUl">
+        <li class="footerLi" onclick="location.href = 'https://www.discord.com';"> <i  class="fa-brands fa-discord fa-2xl"></i></li>
+        <li class="footerLi" onclick="location.href = 'https://www.twitter.com';"> <i class="fa-brands fa-twitter fa-2xl"></i></li>
+        <li class="footerLi" onclick="location.href = 'https://github.com/jacksmithinsulander/smartPromise';"> <i class="fa-brands fa-github fa-2xl"></i></li>
+      </ul>
+    
+    </nav>
+`; 
+}
+// OM MAN VILL HA LOGGAN I FOOTERN
+/*
+ <figure id="homeBtn">
+		<img src="imgs/logoTransparentBackground.webp"
+		id="homeBtnImg"></img></figure>
+*/
+   
 
 function launchApp() {
     if (header) header.remove();
@@ -75,7 +95,8 @@ function launchApp() {
     header.id = "header"
     header.innerHTML = `<figure id="homeBtn">
 		<img src="imgs/logoTransparentBackground.webp"
-		id="homeBtnImg"></img></figure>`;
+		id="homeBtnImg"></img></figure>
+        <button id="connectWalletBtn">Connect Wallet</button>`;
     main = document.createElement("main")
     main.id = "main"
 
@@ -87,24 +108,23 @@ function launchApp() {
     createSmartPromiseInterface.id = "createSmartPromiseInterface";
     createSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Create</summary>
 		<form id="createSmartPromiseInterface" class="bottomInterface font">
-			
-			<input  type="text" id="promiseTitle" name="promiseTitle" class="inputStyling"> </input>
-			<input type="text" id="promiseCollateral" name="promiseCollateral" class="inputStyling"> </input>
+			<input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
+			<input type="text" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="0.0 ETH"></input>
 			<button id="createPromiseBtn" class="interfaceBtns">Create Promise </button>
 			</form>`;
     let joinPromiseInterface = document.createElement("details");
     joinPromiseInterface.id = "joinPromiseInterface";
     joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
 		<form id="joinSmartPromiseInterface" class="bottomInterface font">
-			<input  type="text" id="promiseID" class="font inputStyling"> </input>
-			<input type="text" id="promiseMatchCollateral" class="inputStyling font"></input>
+			<input type="text" id="promiseID" class="font inputStyling" placeholder="ID of active Promise"></input>
+			<input type="text" id="promiseMatchCollateral" class="inputStyling font" placeholder="Title for your promise"></input>
 			<button id="joinPromiseBtn" class="interfaceBtns">Join Promise </button>
 		</form>`;
     let endPromiseInterface = document.createElement("details");
     endPromiseInterface.id = "endPromiseInterface";
     endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
 		<form id="endSmartPromiseInterface" class="bottomInterface font">
-			<input  type="text" id="promiseIDToEnd" class="font inputStyling"> </input>
+			<input type="text" id="promiseIDToEnd" class="font inputStyling" placeholder="ID to end Promise"></input>
 			<button id="endPromiseBtn" class="interfaceBtns">End Promise </button>
 		</form>`;
 
@@ -122,9 +142,7 @@ function launchApp() {
     footer = document.createElement("footer")
     let footerInfo = document.createElement("h1")
 
-    footer.id = "footer"
-    footerInfo.id = "footerInfo"
-    footerInfo.innerText = "this is the footer"
+    createFooter();
     document.body.append(footer)
     footer.append(footerInfo)
 
@@ -132,6 +150,21 @@ function launchApp() {
     homeBtn.addEventListener("click", () => {
         landingPage();
     });
+    
+    let textarea = document.getElementsByClassName("inputStyling");
+    textarea.addEventListener("keyup", () => {
+    textarea.style.height = calcHeight(textarea.value) + "0.1rem";
+});
+
+
+    connectWalletBtn = document.getElementById("connectWalletBtn");
+    connectWalletBtn.addEventListener("click", async () => {
+            console.log("hejhej vi npr dig")
+            connect();
+    });
+
+
+    
     const detailsElements = document.querySelectorAll("details");
 
     detailsElements.forEach(element => {
