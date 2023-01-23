@@ -14,16 +14,12 @@ function landingPage() {
     header.innerHTML = `<figure id="homeBtn">
 		<img src="imgs/logoTransparentBackground.webp"
 		id="homeBtnImg"></img></figure>`;
-    /*
-    const walletConnecrBtn = document.createElement("button");
-    walletConnectBtn.id = "walletConnectBtn";
-    walletConnectBtn.innerText = "Launch dApp"
-    */
 
     const dappLaunchBtn = document.createElement("button");
     main = document.createElement("main")
     main.id = "main"
     dappLaunchBtn.innerHTML = "Launch dApp";
+    dappLaunchBtn.id = "dappLaunchBtn";
     let sectionOne = document.createElement("section");
     sectionOne.id = "sectionOne"
     sectionOne.classList.add("section")
@@ -49,7 +45,6 @@ function landingPage() {
     document.body.append(header, main, footer)
     header.append(dappLaunchBtn)
     main.append(sectionOne, sectionTwo, sectionThree)
-    // footer.append(footerInfo)
 
     homeBtn = document.getElementById("homeBtn");
     homeBtn.addEventListener("click", () => {
@@ -78,13 +73,6 @@ function createFooter() {
     </nav>
 `; 
 }
-// OM MAN VILL HA LOGGAN I FOOTERN
-/*
- <figure id="homeBtn">
-		<img src="imgs/logoTransparentBackground.webp"
-		id="homeBtnImg"></img></figure>
-*/
-   
 
 function launchApp() {
     if (header) header.remove();
@@ -107,24 +95,24 @@ function launchApp() {
         "details");
     createSmartPromiseInterface.id = "createSmartPromiseInterface";
     createSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Create</summary>
-		<form id="createSmartPromiseInterface" class="bottomInterface font">
+		<form id="createSmartPromiseInterface" class="bottomInterface">
 			<input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
-			<input type="text" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="0.0 ETH"></input>
+			<input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral"></input>
 			<button id="createPromiseBtn" class="interfaceBtns">Create Promise </button>
 			</form>`;
     let joinPromiseInterface = document.createElement("details");
     joinPromiseInterface.id = "joinPromiseInterface";
     joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
-		<form id="joinSmartPromiseInterface" class="bottomInterface font">
-			<input type="text" id="promiseID" class="font inputStyling" placeholder="ID of active Promise"></input>
-			<input type="text" id="promiseMatchCollateral" class="inputStyling font" placeholder="Title for your promise"></input>
+		<form id="joinSmartPromiseInterface" class="bottomInterface">
+			<input type="text" id="promiseID" class="inputStyling" placeholder="ID of active Promise"></input>
+			<input type="number" id="promiseMatchCollateral" class="inputStyling font" placeholder="Promise collateral"></input>
 			<button id="joinPromiseBtn" class="interfaceBtns">Join Promise </button>
 		</form>`;
     let endPromiseInterface = document.createElement("details");
     endPromiseInterface.id = "endPromiseInterface";
     endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
-		<form id="endSmartPromiseInterface" class="bottomInterface font">
-			<input type="text" id="promiseIDToEnd" class="font inputStyling" placeholder="ID to end Promise"></input>
+		<form id="endSmartPromiseInterface" class="bottomInterface">
+			<input type="text" id="promiseIDToEnd" class="inputStyling" placeholder="ID to end Promise"></input>
 			<button id="endPromiseBtn" class="interfaceBtns">End Promise </button>
 		</form>`;
 
@@ -153,7 +141,6 @@ function launchApp() {
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
     connectWalletBtn.addEventListener("click", async () => {
-            console.log("hejhej vi npr dig")
             connect();
     });
 

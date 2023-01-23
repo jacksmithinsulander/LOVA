@@ -72,8 +72,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -325,12 +324,16 @@ body {
   background-color: #170333;
 }
 
+#homeBtn:hover, #connectWalletBtn:hover, .menuTitles:hover, .fa-brands:hover, #dappLaunchBtn:hover, .interfaceBtns:hover {
+  cursor: pointer;
+}
+
 #bodyApp {
   background-size: 88% 77%, 102% 197%, 99% 217%, 135% 72%;
   background-position: 546% -305%, 2699% 101%, 4900% 4%, 175% 347%;
 }
 
-button {
+#dappLaunchBtn, #connectWalletBtn {
   color: #FFB12D;
   transition: 0.25s;
   background: none;
@@ -340,20 +343,15 @@ button {
   padding: 1em 2em;
   border-radius: 2rem;
 }
-button:hover, button:focus {
+#dappLaunchBtn:hover, #dappLaunchBtn:focus, #connectWalletBtn:hover, #connectWalletBtn:focus {
   border-color: #673C93;
   color: #A13E8E;
-}
-
-button:hover,
-button:focus {
   box-shadow: -0.187rem 0.5rem 1.25rem -0.25rem #3C1B6A;
   transform: translateY(-0.25rem);
 }
 
 #header {
-  -webkit-backdrop-filter: blur(0.9375rem);
-          backdrop-filter: blur(0.9375rem);
+  backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -399,7 +397,6 @@ button:focus {
   justify-content: flex-end;
   margin-right: 5REM;
   white-space: 1rem;
-  /* row-gap: 12rem; */
   gap: 1rem;
   list-style: none;
 }
@@ -473,11 +470,11 @@ button:focus {
   border-radius: 2rem;
   background-color: #170333;
   border-color: #3c1b6a;
-  border: 2px solid black;
   font-size: 2rem;
   font-family: "Roboto", sans-serif;
   color: #AC8DCC;
   resize: none;
+  text-align: center;
 }
 
 .inputStyling:hover {
@@ -485,19 +482,26 @@ button:focus {
   box-shadow: 0px 0px 20px -16px #673C93;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .interfaceBtns {
   width: 39rem;
   height: 5.25rem;
 }
 
-summary {
+summary:hover {
   border-radius: 2rem;
-  background-color: #170333;
+  background-color: summary:hover color-2;
+  box-shadow: 1px 2px 55px -27px #A13E8E;
+  transform: translateY(-0.25rem);
 }
 
-summary:hover {
-  box-shadow: 1px 2px 55px -27px #A13E8E;
-  outline-color: 1px #A13E8E;
-  outline-style: solid;
-  transform: translateY(-0.25rem);
-}/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=style.css.map */

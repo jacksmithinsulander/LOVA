@@ -44,12 +44,16 @@ body {
     background-color: $color-9;
 }
 
+#homeBtn:hover, #connectWalletBtn:hover, .menuTitles:hover, .fa-brands:hover, #dappLaunchBtn:hover, .interfaceBtns:hover {
+    cursor: pointer
+}
+
 #bodyApp {
     background-size: 88% 77%, 102% 197%, 99% 217%, 135% 72%;
     background-position: 546% -305%, 2699% 101%, 4900% 4%, 175% 347%;
 }
 
-button {
+#dappLaunchBtn, #connectWalletBtn {
     color: #FFB12D;
     transition: 0.25s;
     background: none;
@@ -63,13 +67,9 @@ button {
     &:focus {
         border-color: $color-focus;
         color: $color-hover;
+        box-shadow: -0.187rem 0.5rem 1.25rem -0.25rem $color-shadow;
+        transform: translateY(-0.25rem);
     }
-}
-
-button:hover,
-button:focus {
-    box-shadow: -0.187rem 0.5rem 1.25rem -0.25rem $color-shadow;
-    transform: translateY(-0.25rem);
 }
 
 #header {
@@ -100,7 +100,6 @@ button:focus {
 
 
 #footer {
-    // display: flex;
     position: absolute;
     bottom: 0;
     align-items: center;
@@ -121,7 +120,6 @@ button:focus {
     justify-content: flex-end;
     margin-right: 5REM;
     white-space: 1rem;
-    /* row-gap: 12rem; */
     gap: 1rem;
     list-style: none;
 }
@@ -170,8 +168,6 @@ button:focus {
     justify-content: space-evenly;
     border-radius: $radius;
     background-color: rgba(13, 1, 29, 0.6901960784);
-
-
 }
 
 .bottomInterface {
@@ -197,23 +193,26 @@ button:focus {
     border-radius: $radius;
     background-color: $color-9;
     border-color: $color-8;
-    //border-spacing: 1rem;
-    border: 2px solid black;
     font-size: 2rem;
     font-family: $font-body;
     color: $color-footer;
     resize: none;
-
+    text-align: center;
 }
-
-
 
 .inputStyling:hover {
     outline: 1px solid #673c9335;
-    // outline-style: solid;
     box-shadow: 0px 0px 20px -16px $color-focus;
+}
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 .interfaceBtns {
@@ -221,14 +220,14 @@ button:focus {
     height: 5.25rem;
 }
 
-summary {
-    border-radius: $radius;
-    background-color: $color-9;
-}
+//summary {
+  //  border-radius: $radius;
+    //background-color: $color-9;
+//}
 
 summary:hover {
+    border-radius: $radius;
+    background-color: &color-2;
     box-shadow: 1px 2px 55px -27px $color-hover;
-    outline-color: 1px $color-hover;
-    outline-style: solid;
     transform: translateY(-0.25rem);
 }
