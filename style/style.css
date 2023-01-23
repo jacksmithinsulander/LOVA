@@ -503,7 +503,7 @@ input[type=number] {
 
 summary:hover {
   border-radius: 2rem;
-  background-color: summary:hover color-2;
+  background-color: #6e0490;
   box-shadow: 1px 2px 55px -27px #A13E8E;
   transform: translateY(-0.25rem);
 }

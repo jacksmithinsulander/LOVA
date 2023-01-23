@@ -224,14 +224,9 @@ input[type=number] {
     height: 5.25rem;
 }
 
-//summary {
-  //  border-radius: $radius;
-    //background-color: $color-9;
-//}
-
 summary:hover {
     border-radius: $radius;
-    background-color: &color-2;
+    background-color: #6e0490;
     box-shadow: 1px 2px 55px -27px $color-hover;
     transform: translateY(-0.25rem);
 }
