@@ -44,7 +44,12 @@ body {
     background-color: $color-9;
 }
 
-#homeBtn:hover, #connectWalletBtn:hover, .menuTitles:hover, .fa-brands:hover, #dappLaunchBtn:hover, .interfaceBtns:hover {
+#homeBtn:hover,
+#connectWalletBtn:hover,
+.menuTitles:hover,
+.fa-brands:hover,
+#dappLaunchBtn:hover,
+.interfaceBtns:hover {
     cursor: pointer
 }
 
@@ -53,7 +58,8 @@ body {
     background-position: 546% -305%, 2699% 101%, 4900% 4%, 175% 347%;
 }
 
-#dappLaunchBtn, #connectWalletBtn {
+#dappLaunchBtn,
+#connectWalletBtn {
     color: #FFB12D;
     transition: 0.25s;
     background: none;
@@ -154,9 +160,12 @@ body {
 
 .menuTitles {
     color: #AC8DCC;
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     list-style-type: none;
     font-family: $font-header;
+    padding: 0rem 1rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 #interfaceSection {
@@ -164,10 +173,12 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     position: relative;
-    border: 0.3rem solid #673c930e;
+    border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
     justify-content: space-evenly;
-    border-radius: $radius;
+    border-radius: 2rem;
     background-color: rgba(13, 1, 29, 0.6901960784);
+    margin-left: 8.9rem;
+    left: -10rem;
 }
 
 .bottomInterface {
@@ -175,15 +186,15 @@ body {
     height: 35rem;
     width: 41rem;
     padding-top: 2rem;
-    left: 5rem;
+    left: 0;
     top: 7rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    background-color: #0d011db0;
-    border-radius: $radius;
-    border: 0.3rem solid #673c930e;
+    background-color: rgba(13, 1, 29, 0.6901960784);
+    border-radius: 2rem;
+    border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
 }
 
 .inputStyling {
@@ -225,8 +236,10 @@ input[type=number] {
 }
 
 summary:hover {
+    outline: 0.08rem solid $color-9;
     border-radius: $radius;
-    background-color: #6e0490;
+    background-color: #6d049041;
     box-shadow: 1px 2px 55px -27px $color-hover;
-    transform: translateY(-0.25rem);
+    // transform: translateY(-0.10rem);
+
 }

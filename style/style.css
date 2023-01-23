@@ -72,7 +72,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -324,7 +325,12 @@ body {
   background-color: #170333;
 }
 
-#homeBtn:hover, #connectWalletBtn:hover, .menuTitles:hover, .fa-brands:hover, #dappLaunchBtn:hover, .interfaceBtns:hover {
+#homeBtn:hover,
+#connectWalletBtn:hover,
+.menuTitles:hover,
+.fa-brands:hover,
+#dappLaunchBtn:hover,
+.interfaceBtns:hover {
   cursor: pointer;
 }
 
@@ -333,7 +339,8 @@ body {
   background-position: 546% -305%, 2699% 101%, 4900% 4%, 175% 347%;
 }
 
-#dappLaunchBtn, #connectWalletBtn {
+#dappLaunchBtn,
+#connectWalletBtn {
   color: #FFB12D;
   transition: 0.25s;
   background: none;
@@ -343,7 +350,9 @@ body {
   padding: 1em 2em;
   border-radius: 2rem;
 }
-#dappLaunchBtn:hover, #dappLaunchBtn:focus, #connectWalletBtn:hover, #connectWalletBtn:focus {
+#dappLaunchBtn:hover, #dappLaunchBtn:focus,
+#connectWalletBtn:hover,
+#connectWalletBtn:focus {
   border-color: #673C93;
   color: #A13E8E;
   box-shadow: -0.187rem 0.5rem 1.25rem -0.25rem #3C1B6A;
@@ -351,7 +360,8 @@ body {
 }
 
 #header {
-  backdrop-filter: blur(0.9375rem);
+  -webkit-backdrop-filter: blur(0.9375rem);
+          backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -431,9 +441,12 @@ body {
 
 .menuTitles {
   color: #AC8DCC;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   list-style-type: none;
   font-family: "Lato", sans-serif;
+  padding: 0rem 1rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
 }
 
 #interfaceSection {
@@ -445,6 +458,8 @@ body {
   justify-content: space-evenly;
   border-radius: 2rem;
   background-color: rgba(13, 1, 29, 0.6901960784);
+  margin-left: 8.9rem;
+  left: -10rem;
 }
 
 .bottomInterface {
@@ -452,7 +467,7 @@ body {
   height: 35rem;
   width: 41rem;
   padding-top: 2rem;
-  left: 5rem;
+  left: 0;
   top: 7rem;
   display: flex;
   align-items: center;
@@ -502,10 +517,8 @@ input[type=number] {
 }
 
 summary:hover {
+  outline: 0.08rem solid #170333;
   border-radius: 2rem;
-  background-color: #6e0490;
+  background-color: rgba(109, 4, 144, 0.2549019608);
   box-shadow: 1px 2px 55px -27px #A13E8E;
-  transform: translateY(-0.25rem);
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
