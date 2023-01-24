@@ -36,7 +36,7 @@ contract smartPromiseContract {
         emit SmartPromiseCreated(newPromise.promiseIdentifier);
     }
 
-
+    /// If conditions needs to be separated into 3 nested if elses to give accurate err msg
     function joinPromise(uint _promiseUID) public payable {
         bool ableToJoin;
         for (uint i = 0; i < smartPromises.length; i++) {

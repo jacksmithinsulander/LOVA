@@ -513,7 +513,31 @@ input[type=number] {
 
 .interfaceBtns {
   width: 39rem;
-  height: 5.25rem;
+  height: 6rem;
+  border: 2px #3C5C85 outset;
+  border-radius: 20px;
+  background-color: #3C1B6A;
+  color: #AC8DCC;
+  font-family: "Roboto", sans-serif;
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+.interfaceBtns:hover {
+  border: 2px #3C5C85 inset;
+}
+
+.collateralInputDiv {
+  width: 39rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.interfaceTxt {
+  padding-left: 1rem;
+  color: #AC8DCC;
+  font-family: "Roboto", sans-serif;
+  font-size: 2em;
 }
 
 summary:hover {
