@@ -167,16 +167,17 @@ body {
 
 .sectionBottomPage {
     display: flex;
-    position: absolute;
+    position: relative;
     width: 79rem;
     height: 31rem;
-    left: 19rem;
+    /* left: -19rem; */
     flex-wrap: nowrap;
     align-items: flex-start;
-    background-color: #3c5c8562;
-    border: 1px solid #1ea99088;
+    background-color: rgba(172, 141, 204, 0.168627451);
+    border: 1px solid rgba(137, 24, 207, 0.1529411765);
     border-radius: 0.5rem;
-    margin-top: 6rem;
+    margin-top: 7rem;
+    margin-left: -14rem;
 }
 
 .teamImg {
@@ -191,11 +192,11 @@ body {
 }
 
 #howToGuideTxt {
-    text-align: left;
-    margin-bottom: 20rem;
-    height: 21rem;
+    text-align: start;
+    /* margin-bottom: 20rem; */
+    /* height: 21rem; */
     width: 59rem;
-    left: 32rem;
+    left: 10rem;
 
 }
 
