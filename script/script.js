@@ -70,21 +70,24 @@ function landingPage() {
        <section class="sectionBottomPage">
        <h2 class="sectionBottomTitle">Our Team</h1>
         <figure class="teamImg">
-        <img src=""></img>
-        <p class="imgCardText"><b>Name and some other information</b></p>
-        
+        <img class="imgImg" src="/imgs/JackFinalFinal.webp"></img>
+        <p class="imgCardName"><b>Jack</b></p>
+        <p class="imgCardText">Information</p>
         </figure>
         <figure class="teamImg">
-        <img src=""></img>
-        <p class="imgCardText"><b>Name and some other information</b></p>
+        <img class="imgImg" src="/imgs/FelipeFinalFinal.webp"></img>
+        <p class="imgCardName"><b>Felipe 'Ippe'</b></p>
+        <p class="imgCardText">Information</p>
         </figure>
         <figure class="teamImg">
-        <img src=""></img>
-        <p class="imgCardText"><b>Name and some other information</b></p>
+        <img class="imgImg" src="/imgs/MaxFinalFinal.webp"></img>
+        <p class="imgCardName"><b>Max Cid</b></p>
+        <p class="imgCardText">Information</p>
         </figure>
         <figure class="teamImg">
-        <p class="imgCardText"><b>Name and some other information</b></p>
-        <img src=""></img>
+        <p class="imgCardName"><b>Philip</b></p>
+        <p class="imgCardText">Information</p>
+        <img class="imgImg" src="/imgs/PhilipFinal2.webp"></img>
         </figure>
        </section>
         `
