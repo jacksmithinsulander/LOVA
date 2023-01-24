@@ -232,7 +232,32 @@ input[type=number] {
 
 .interfaceBtns {
     width: 39rem;
-    height: 5.25rem;
+    height: 6rem;
+    border: 2px #3C5C85 outset;
+    border-radius: 20px;
+    background-color: #3C1B6A;
+    color: $color-section-title;
+    font-family: $font-body;
+    font-size: 2em;
+    margin-bottom: 1rem;
+
+    &:hover {
+        border: 2px #3C5C85 inset;
+    }
+}
+
+.collateralInputDiv {
+    width: 39rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.interfaceTxt {
+    padding-left: 1rem;
+    color: $color-section-title;
+    font-family: $font-body;
+    font-size: 2em;
 }
 
 summary:hover {

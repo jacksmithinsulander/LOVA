@@ -1,50 +1,60 @@
+import { abi as smartPromiseAbi } from "./abi.js";
+
 let header;
 let main;
 let homeBtn;
 let footer;
 let connectWalletBtn;
 
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////WEBSITE HOME///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
 function landingPage() {
     if (header) header.remove();
     if (main) main.remove();
     if (footer) footer.remove();
     document.body.removeAttribute("id");
-    header = document.createElement("header")
-    header.id = "header"
+    header = document.createElement("header");
+    header.id = "header";
     header.innerHTML = `<figure id="homeBtn">
 		<img src="imgs/logoTransparentBackground.webp"
 		id="homeBtnImg"></img></figure>`;
 
     const dappLaunchBtn = document.createElement("button");
-    main = document.createElement("main")
-    main.id = "main"
+    main = document.createElement("main");
+    main.id = "main";
     dappLaunchBtn.innerHTML = "Launch dApp";
     dappLaunchBtn.id = "dappLaunchBtn";
     let sectionOne = document.createElement("section");
-    sectionOne.id = "sectionOne"
-    sectionOne.classList.add("section")
+    sectionOne.id = "sectionOne";
+    sectionOne.classList.add("section");
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////HEROTXT////////////////////////////////////////////////////
+    //////////////Recommend keeping TXT content as vars in separate js files for cleaner code.///////
     sectionOne.innerHTML =
         `
         	<h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
-        	<p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that trustworthy tools are needed to engage a trustless world of finance.`;
+        	<p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that 
+            trustworthy tools are needed to engage a trustless world of finance.`;
 
     let sectionTwo = document.createElement("section");
-    sectionTwo.id = "sectionTwo"
-    sectionTwo.classList = "section"
+    sectionTwo.id = "sectionTwo";
+    sectionTwo.classList = "section";
     sectionTwo.innerHTML = `
 		<h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
 		<p id="sectionOneSmallText">two</p>`;
 
     let sectionThree = document.createElement("section");
-    sectionThree.id = "sectionThree"
-    sectionThree.classList = "section"
+    sectionThree.id = "sectionThree";
+    sectionThree.classList = "section";
     sectionThree.innerHTML =
         `<h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1>`
     createFooter();
 
-    document.body.append(header, main, footer)
-    header.append(dappLaunchBtn)
-    main.append(sectionOne, sectionTwo, sectionThree)
+    document.body.append(header, main, footer);
+    header.append(dappLaunchBtn);
+    main.append(sectionOne, sectionTwo, sectionThree);
 
     homeBtn = document.getElementById("homeBtn");
     homeBtn.addEventListener("click", () => {
@@ -54,14 +64,12 @@ function landingPage() {
     dappLaunchBtn.addEventListener("click", () => {
         launchApp();
     });
-
-    
 }
 
 function createFooter() {
-    footer = document.createElement("footer")
-    footer.id = "footer"
-    footer.classList = "footerInfo"
+    footer = document.createElement("footer");
+    footer.id = "footer";
+    footer.classList = "footerInfo";
     footer.innerHTML = `<nav>
    
         <ul class="footerUl">
@@ -71,35 +79,51 @@ function createFooter() {
       </ul>
     
     </nav>
-`; 
+`;
 }
 
+
+///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////dApp/////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 function launchApp() {
+    // Removing Homepage Content
     if (header) header.remove();
     if (main) main.remove();
     if (footer) footer.remove();
 
-    header = document.createElement("header")
-    header.id = "header"
+    // Creating header element
+    header = document.createElement("header");
+    header.id = "header";
     header.innerHTML = `<figure id="homeBtn">
 		<img src="imgs/logoTransparentBackground.webp"
 		id="homeBtnImg"></img></figure>
         <button id="connectWalletBtn">Connect Wallet</button>`;
-    main = document.createElement("main")
-    main.id = "main"
+
+
+    // Creating main content area
+    main = document.createElement("main");
+    main.id = "main";
 
     document.body.id = "bodyApp";
     let interfaceSection = document.createElement("section");
-    interfaceSection.id = "interfaceSection"
+    interfaceSection.id = "interfaceSection";
+
+
+    /*                                  CREATE SMART PROMISE DOM                        */
     let createSmartPromiseInterface = document.createElement(
         "details");
     createSmartPromiseInterface.id = "createSmartPromiseInterface";
     createSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Create</summary>
 		<form id="createSmartPromiseInterface" class="bottomInterface">
 			<input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
-			<input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral"></input>
+			
+            <input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral"></input>
+          
 			<button id="createPromiseBtn" class="interfaceBtns">Create Promise </button>
 			</form>`;
+
+    /*                                  JOIN SMART PROMISE DOM                        */
     let joinPromiseInterface = document.createElement("details");
     joinPromiseInterface.id = "joinPromiseInterface";
     joinPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">Join</summary>
@@ -108,6 +132,8 @@ function launchApp() {
 			<input type="number" id="promiseMatchCollateral" class="inputStyling font" placeholder="Promise collateral"></input>
 			<button id="joinPromiseBtn" class="interfaceBtns">Join Promise </button>
 		</form>`;
+
+    /*                                  END SMART PROMISE DOM                        */
     let endPromiseInterface = document.createElement("details");
     endPromiseInterface.id = "endPromiseInterface";
     endPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle">End</summary>
@@ -116,23 +142,39 @@ function launchApp() {
 			<button id="endPromiseBtn" class="interfaceBtns">End Promise </button>
 		</form>`;
 
+    // Adding search tab to Details
+    // Connect to showPromiseParticipants and add title to function output in .sol
+    let searchSmartPromiseInterface = document.createElement(
+        "details");
+    searchSmartPromiseInterface.id = "searchSmartPromiseInterface";
+    searchSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Search</summary>
+		<form id="searchSmartPromiseInterface" class="bottomInterface">
+			<input type="text" id="promiseId" name="promiseTitle" class="inputStyling" placeholder="Promise ID"></input>
+            <p class="interfaceTxt" id="searchOutput">Promise participants and Promise Title Displayed here</p>
+			<button id="searchPromiseBtn" class="interfaceBtns">Search </button>
+			</form>`;
+
+
+    // Adding Interface To Main
     main.append(interfaceSection);
     interfaceSection.append(createSmartPromiseInterface,
         joinPromiseInterface,
-        endPromiseInterface);
+        endPromiseInterface,
+        searchSmartPromiseInterface);
 
+    // Still needed??
     let menuTitles = document.getElementsByClassName("menuTitles");
 
     createSmartPromiseInterface.open = true;
 
-    document.body.append(header, main)
-    main.append(interfaceSection)
-    footer = document.createElement("footer")
-    let footerInfo = document.createElement("h1")
+    document.body.append(header, main);
+    main.append(interfaceSection);
+    footer = document.createElement("footer");
+    let footerInfo = document.createElement("h1");
 
     createFooter();
-    document.body.append(footer)
-    footer.append(footerInfo)
+    document.body.append(footer);
+    footer.append(footerInfo);
 
     homeBtn = document.getElementById("homeBtn");
     homeBtn.addEventListener("click", () => {
@@ -141,11 +183,11 @@ function launchApp() {
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
     connectWalletBtn.addEventListener("click", async () => {
-            connect();
+        connect();
     });
 
 
-    
+
     const detailsElements = document.querySelectorAll("details");
 
     detailsElements.forEach(element => {
@@ -166,7 +208,7 @@ landingPage();
 
 /*
 dappLaunchBtn.addEventListener("click", async () => {
-	launchApp();
+    launchApp();
 
 })
 */
@@ -217,121 +259,6 @@ const smartContractInteraction = document.createElement("form");
 const smartPromiseAddress =
     "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
 
-const smartPromiseAbi = [{
-        "anonymous": false,
-        "inputs": [{
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "promiseIdentifier",
-            "type": "uint256"
-        }],
-        "name": "SmartPromiseCreated",
-        "type": "event"
-    },
-    {
-        "inputs": [{
-            "internalType": "string",
-            "name": "_promiseTitle",
-            "type": "string"
-        }],
-        "name": "createSmartPromise",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "emptyPromiseData",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "_promiseUID",
-            "type": "uint256"
-        }],
-        "name": "endSmartPromise",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "_promiseUID",
-            "type": "uint256"
-        }],
-        "name": "joinPromise",
-        "outputs": [],
-        "stateMutability": "payable",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "_promiseUID",
-            "type": "uint256"
-        }],
-        "name": "showPromiseParticipants",
-        "outputs": [{
-            "internalType": "address[]",
-            "name": "",
-            "type": "address[]"
-        }],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "_promiseUID",
-            "type": "uint256"
-        }],
-        "name": "signFullfilledPromise",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [{
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-        }],
-        "name": "smartPromises",
-        "outputs": [{
-                "internalType": "address",
-                "name": "initialDepositor",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "promiseCollateral",
-                "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "promiseTitle",
-                "type": "string"
-            },
-            {
-                "internalType": "uint256",
-                "name": "promiseIdentifier",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "promiseAcceptDeadline",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    }
-]
-
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress,
@@ -340,7 +267,7 @@ const smartPromiseContract = new ethers.Contract(smartPromiseAddress,
 const filter = smartPromiseContract.filters.SmartPromiseCreated(null);
 
 const results = await smartPromiseContract.queryFilter(filter,
-    8327570, 8328820)
+    8327570, 8328820);
 
 let signer;
 
@@ -357,10 +284,10 @@ const listenToEvent = () => {
         };
         console.log("listenToEvent", data);
 
-        let newPromiseDiv = document.createElement("div")
-        let newPromisePara = document.createElement("p")
-        newPromiseDiv.id = "newPromiseDiv"
-        newPromisePara.id = "newPromisePara"
+        let newPromiseDiv = document.createElement("div");
+        let newPromisePara = document.createElement("p");
+        newPromiseDiv.id = "newPromiseDiv";
+        newPromisePara.id = "newPromisePara";
         newPromisePara.innerHTML =
             `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
         otherContentWrapper.append(newPromiseDiv);
@@ -382,7 +309,7 @@ const connect = async () => {
 };
 /*
 walletConnectBtn.addEventListener("click", async () => {
-	await connect();
+    await connect();
 
 })
 */
@@ -407,8 +334,8 @@ async function createSmartPromiseJS() {
         let completedPromiseDiv = document.createElement("div");
         let completedPromisePara = document.createElement("p");
 
-        completedPromisePara.innerText = "finished transac"
-        completedPromiseDiv.appendChild(completedPromisePara)
+        completedPromisePara.innerText = "finished transaction";
+        completedPromiseDiv.appendChild(completedPromisePara);
     }
 
 }
@@ -425,7 +352,7 @@ async function joinPromiseJS() {
     }
     const txResponse = await smartPromiseContract.connect(signer)
         .joinPromise(uidInputValue, payableValue);
-    await txResponse.wait()
+    await txResponse.wait();
 }
 
 joinPromiseBtn.addEventListener("click", () => {
@@ -440,10 +367,31 @@ async function endPromiseJS() {
     };
     const txResponse = await smartPromiseContract.connect(signer)
         .endSmartPromise(endValueID, payableValue);
-    await txResponse.wait()
+    await txResponse.wait();
 }
 endPromiseBtn.addEventListener("click", () => {
     endPromiseJS();
 });
+
+searchPromiseBtn.addEventListener('click', () => {
+    searchPromiseJS();
+});
+
+
+// Calling read only fn showPromiseParticipants
+async function searchPromiseJS() {
+    await connect();
+
+    // Get read return value from showPromiseParticipants(); 
+    // Add collateral amounts and promise title to contract later so we can print a promise status here
+    const searchOutput = document.getElementById("searchOutput")
+    let _promiseUID = promiseId.value;
+    const txResponse = await smartPromiseContract.connect(signer)
+        .showPromiseParticipants(_promiseUID);
+
+    // Print fn output to interface, needs modification but need testnet to do right
+    searchOutput.innerHTML = await txResponse.wait();
+
+}
 
 //----------EVENTLISTENERS TYP---------//
