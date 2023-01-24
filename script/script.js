@@ -70,24 +70,24 @@ function landingPage() {
        <section class="sectionBottomPage">
        <h2 class="sectionBottomTitle">Our Team</h1>
         <figure class="teamImg">
-        <img class="imgImg" src="/imgs/JackFinalFinal.webp"></img>
-        <p class="imgCardName"><b>Jack</b></p>
+        <img class="imgImg" src="./imgs/jackS.webp"></img>
+        <p class="imgCardName"><b>Jack Smith Insulander</b></p>
         <p class="imgCardText">Information</p>
         </figure>
         <figure class="teamImg">
-        <img class="imgImg" src="/imgs/FelipeFinalFinal.webp"></img>
-        <p class="imgCardName"><b>Felipe 'Ippe'</b></p>
+        <img class="imgImg" src="./imgs/felipeS.webp"></img>
+        <p class="imgCardName"><b>Felipe Stiernhoff</b></p>
         <p class="imgCardText">Information</p>
         </figure>
         <figure class="teamImg">
-        <img class="imgImg" src="/imgs/MaxFinalFinal.webp"></img>
+        <img class="imgImg" src="./imgs/maxC.webp"></img>
         <p class="imgCardName"><b>Max Cid</b></p>
         <p class="imgCardText">Information</p>
         </figure>
         <figure class="teamImg">
-        <p class="imgCardName"><b>Philip</b></p>
+        <p class="imgCardName"><b>Philip Andelic</b></p>
         <p class="imgCardText">Information</p>
-        <img class="imgImg" src="/imgs/PhilipFinal2.webp"></img>
+        <img class="imgImg" src="./imgs/philipA.webp"></img>
         </figure>
        </section>
         `
