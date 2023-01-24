@@ -87,7 +87,7 @@ function landingPage() {
         <figure class="teamImg">
         <p class="imgCardName"><b>Philip</b></p>
         <p class="imgCardText">Information</p>
-        <img class="imgImg" src="/imgs/PhilipFinalFinal.webp"></img>
+        <img class="imgImg" src="/imgs/PhilipFinal2.webp"></img>
         </figure>
        </section>
         `
