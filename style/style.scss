@@ -164,8 +164,6 @@ body {
     list-style-type: none;
     font-family: $font-header;
     padding: 0rem 1rem;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
 }
 
 #interfaceSection {
@@ -195,6 +193,8 @@ body {
     background-color: rgba(13, 1, 29, 0.6901960784);
     border-radius: 2rem;
     border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
+    // animation: fadeIn 1s;
+
 }
 
 .inputStyling {
@@ -265,6 +265,40 @@ summary:hover {
     border-radius: $radius;
     background-color: #6d049041;
     box-shadow: 1px 2px 55px -27px $color-hover;
-    // transform: translateY(-0.10rem);
 
+}
+
+details[open] {
+    outline: 0.08rem solid $color-9;
+    border-radius: $radius;
+    background-color: #6d049041;
+    box-shadow: 1px 2px 55px -27px $color-hover;
+
+    .inputStyling,
+    .interfaceBtns,
+    .interfaceTxt {
+        animation: fadeIn 1.6s;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
 }

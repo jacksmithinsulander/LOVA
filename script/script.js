@@ -186,8 +186,6 @@ function launchApp() {
         connect();
     });
 
-
-
     const detailsElements = document.querySelectorAll("details");
 
     detailsElements.forEach(element => {
@@ -195,6 +193,7 @@ function launchApp() {
             detailsElements.forEach(otherElement => {
                 if (otherElement !== event
                     .currentTarget) {
+                    createSmartPromiseInterface.classList.add("closing");
                     otherElement
                         .removeAttribute(
                             "open");

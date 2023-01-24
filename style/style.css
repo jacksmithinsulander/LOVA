@@ -445,8 +445,6 @@ body {
   list-style-type: none;
   font-family: "Lato", sans-serif;
   padding: 0rem 1rem;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
 }
 
 #interfaceSection {
@@ -545,4 +543,51 @@ summary:hover {
   border-radius: 2rem;
   background-color: rgba(109, 4, 144, 0.2549019608);
   box-shadow: 1px 2px 55px -27px #A13E8E;
+}
+
+details[open] {
+  outline: 0.08rem solid #170333;
+  border-radius: 2rem;
+  background-color: rgba(109, 4, 144, 0.2549019608);
+  box-shadow: 1px 2px 55px -27px #A13E8E;
+}
+details[open] .inputStyling,
+details[open] .interfaceBtns,
+details[open] .interfaceTxt {
+  -webkit-animation: fadeIn 1.6s;
+          animation: fadeIn 1.6s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
 }/*# sourceMappingURL=style.css.map */
