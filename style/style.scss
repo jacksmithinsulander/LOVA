@@ -144,13 +144,59 @@ body {
     line-height: 5.625rem;
     color: $color-section-title;
     font-family: $font-header;
+    padding-top: 5rem;
 }
 
-#sectionOneSmallText {
+.sectionBottomTitle {
+    font-size: 3.625rem;
+    color: $color-section-title;
+    font-family: $font-header;
+    padding-top: 5rem;
+    position: absolute;
+    top: -13rem;
+    left: 0;
+    right: 0;
+}
+
+.sectionOneSmallText {
     font-size: 1.125rem;
     line-height: 1.375rem;
     color: $color-section-text;
     font-family: $font-body;
+}
+
+.sectionBottomPage {
+    display: flex;
+    position: absolute;
+    width: 79rem;
+    height: 31rem;
+    left: 19rem;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    background-color: #3c5c8562;
+    border: 1px solid #1ea99088;
+    border-radius: 0.5rem;
+    margin-top: 6rem;
+}
+
+.teamImg {
+    height: 20rem;
+    width: 20rem;
+    outline: 1px solid black;
+}
+
+.imgCardText {
+    position: absolute;
+    top: 21rem;
+}
+
+#howToGuideTxt {
+    text-align: left;
+    margin-bottom: 20rem;
+    height: 21rem;
+    width: 59rem;
+    left: 32rem;
+
 }
 
 #headerImg {
@@ -164,8 +210,6 @@ body {
     list-style-type: none;
     font-family: $font-header;
     padding: 0rem 1rem;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
 }
 
 #interfaceSection {
@@ -195,6 +239,8 @@ body {
     background-color: rgba(13, 1, 29, 0.6901960784);
     border-radius: 2rem;
     border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
+    // animation: fadeIn 1s;
+
 }
 
 .inputStyling {
@@ -265,6 +311,40 @@ summary:hover {
     border-radius: $radius;
     background-color: #6d049041;
     box-shadow: 1px 2px 55px -27px $color-hover;
-    // transform: translateY(-0.10rem);
 
+}
+
+details[open] {
+    outline: 0.08rem solid $color-9;
+    border-radius: $radius;
+    background-color: #6d049041;
+    box-shadow: 1px 2px 55px -27px $color-hover;
+
+    .inputStyling,
+    .interfaceBtns,
+    .interfaceTxt {
+        animation: fadeIn 1.6s;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
 }
