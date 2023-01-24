@@ -43,13 +43,13 @@ function landingPage() {
     sectionTwo.classList = "section";
     sectionTwo.innerHTML = `
 		<h1 class="sectionTitles" id="sectionTwoTitle">How to</h1>
-		<p class="sectionOneSmallText sectionBottomPage" id="howToGuideTxt">
+		<p class="sectionOneSmallText" id="howToGuideTxt">
         1. Install and log in to Metamask. <br><br>
-        2. Visit our website and connect your Metamask wallet to our dApp. <br><br>
-        3. Click on the "Create SmartPromise" button. <br> <br>
+        2. Visit our website and connect your Metamask wallet to our LOVA dApp. <br><br>
+        3. Click on the "Create" button. <br> <br>
         4. Enter a title for your promise and deposit the desired amount of ETH. <br><br>
         5. Share the unique ID generated for your promise with the other participant. <br><br>
-        6. The other participant must accept the Smart Promise within 10 minutes, after which the option to join will expire. <br><br>
+        6. The other participant must accept the promise within 10 minutes, after which the option to join will expire. <br><br>
         7. Both participants must sign the promise to confirm their commitment. <br><br>
         8. Once both participants have signed the promise, the funds will be released to the initial depositor. <br><br>
             </p>`;
@@ -60,10 +60,10 @@ function landingPage() {
     sectionThree.innerHTML =
         `<h1 class="sectionTitles" id="sectionThreeTitle">About us</h1>
         <p class="sectionOneSmallText">
-        Build a Web3 dApp for people to make social agreements and build trust in an anonymous environment.
+        Our goal is to build a Web3 dApp for people to make social agreements and build trust in an anonymous environment.
 
         <br><br><br>
-       The smart promise dApp provides a two step solution that any Web3 beginner can quickly put to use. The simplicity of Smart Promise revolutionizes the way of people can work and interact in Defi and beyond.
+       The LOVA dApp provides a two step solution that any Web3 beginner can quickly put to use. The simplicity of LOVA revolutionizes the way of people can work and interact in Defi and beyond.
        <br><br><br>
        We are excited about the future of DeFi and are committed to building the tools and infrastructure necessary to make it a reality.
        Join us on this journey and be a part of shaping the future of finance.</p>
