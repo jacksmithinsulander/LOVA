@@ -1,4 +1,4 @@
-import { abi as smartPromiseAbi}  from "./abi.js";
+import { abi as smartPromiseAbi } from "./abi.js";
 
 let header;
 let main;
@@ -79,7 +79,7 @@ function createFooter() {
       </ul>
     
     </nav>
-`; 
+`;
 }
 
 
@@ -117,7 +117,9 @@ function launchApp() {
     createSmartPromiseInterface.innerHTML = `<summary class="menuTitles fontTitle" >Create</summary>
 		<form id="createSmartPromiseInterface" class="bottomInterface">
 			<input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
-			<div class="collateralInputDiv"><input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral"></input><p class="interfaceTxt">ETH</p></div>
+			
+            <input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral"></input>
+          
 			<button id="createPromiseBtn" class="interfaceBtns">Create Promise </button>
 			</form>`;
 
@@ -151,7 +153,7 @@ function launchApp() {
             <p class="interfaceTxt" id="searchOutput">Promise participants and Promise Title Displayed here</p>
 			<button id="searchPromiseBtn" class="interfaceBtns">Search </button>
 			</form>`;
-    
+
 
     // Adding Interface To Main
     main.append(interfaceSection);
@@ -181,11 +183,11 @@ function launchApp() {
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
     connectWalletBtn.addEventListener("click", async () => {
-            connect();
+        connect();
     });
 
 
-    
+
     const detailsElements = document.querySelectorAll("details");
 
     detailsElements.forEach(element => {
@@ -206,7 +208,7 @@ landingPage();
 
 /*
 dappLaunchBtn.addEventListener("click", async () => {
-	launchApp();
+    launchApp();
 
 })
 */
@@ -307,7 +309,7 @@ const connect = async () => {
 };
 /*
 walletConnectBtn.addEventListener("click", async () => {
-	await connect();
+    await connect();
 
 })
 */
@@ -385,10 +387,10 @@ async function searchPromiseJS() {
     const searchOutput = document.getElementById("searchOutput")
     let _promiseUID = promiseId.value;
     const txResponse = await smartPromiseContract.connect(signer)
-        .showPromiseParticipants(_promiseUID );
-    
+        .showPromiseParticipants(_promiseUID);
+
     // Print fn output to interface, needs modification but need testnet to do right
-    searchOutput.innerHTML= await txResponse.wait();
+    searchOutput.innerHTML = await txResponse.wait();
 
 }
 

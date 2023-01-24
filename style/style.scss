@@ -239,8 +239,10 @@ input[type=number] {
     color: $color-section-title;
     font-family: $font-body;
     font-size: 2em;
+    margin-bottom: 1rem;
+
     &:hover {
-        border: 2px #3C5C85 inset; 
+        border: 2px #3C5C85 inset;
     }
 }
 
