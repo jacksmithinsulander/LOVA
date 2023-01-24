@@ -72,8 +72,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -360,8 +359,7 @@ body {
 }
 
 #header {
-  -webkit-backdrop-filter: blur(0.9375rem);
-          backdrop-filter: blur(0.9375rem);
+  backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -599,17 +597,7 @@ details[open] {
 details[open] .inputStyling,
 details[open] .interfaceBtns,
 details[open] .interfaceTxt {
-  -webkit-animation: fadeIn 1.6s;
-          animation: fadeIn 1.6s;
-}
-
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  animation: fadeIn 1.6s;
 }
 
 @keyframes fadeIn {
@@ -620,14 +608,6 @@ details[open] .interfaceTxt {
     opacity: 1;
   }
 }
-@-webkit-keyframes fadeOut {
-  100% {
-    opacity: 0;
-  }
-  0% {
-    opacity: 1;
-  }
-}
 @keyframes fadeOut {
   100% {
     opacity: 0;
@@ -635,4 +615,6 @@ details[open] .interfaceTxt {
   0% {
     opacity: 1;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
