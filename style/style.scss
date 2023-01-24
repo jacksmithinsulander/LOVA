@@ -144,13 +144,59 @@ body {
     line-height: 5.625rem;
     color: $color-section-title;
     font-family: $font-header;
+    padding-top: 5rem;
 }
 
-#sectionOneSmallText {
+.sectionBottomTitle {
+    font-size: 3.625rem;
+    color: $color-section-title;
+    font-family: $font-header;
+    padding-top: 5rem;
+    position: absolute;
+    top: -13rem;
+    left: 0;
+    right: 0;
+}
+
+.sectionOneSmallText {
     font-size: 1.125rem;
     line-height: 1.375rem;
     color: $color-section-text;
     font-family: $font-body;
+}
+
+.sectionBottomPage {
+    display: flex;
+    position: absolute;
+    width: 79rem;
+    height: 31rem;
+    left: 19rem;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    background-color: #3c5c8562;
+    border: 1px solid #1ea99088;
+    border-radius: 0.5rem;
+    margin-top: 6rem;
+}
+
+.teamImg {
+    height: 20rem;
+    width: 20rem;
+    outline: 1px solid black;
+}
+
+.imgCardText {
+    position: absolute;
+    top: 21rem;
+}
+
+#howToGuideTxt {
+    text-align: left;
+    margin-bottom: 20rem;
+    height: 21rem;
+    width: 59rem;
+    left: 32rem;
+
 }
 
 #headerImg {

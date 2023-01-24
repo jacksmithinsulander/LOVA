@@ -35,21 +35,59 @@ function landingPage() {
     sectionOne.innerHTML =
         `
         	<h1 class="sectionTitles" id="sectionOneTitle">Setting a new standard for promises.</h1>
-        	<p id="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that 
+        	<p class="sectionOneSmallText">We believe in a revolution within the DeFi space, and for that 
             trustworthy tools are needed to engage a trustless world of finance.`;
 
     let sectionTwo = document.createElement("section");
     sectionTwo.id = "sectionTwo";
     sectionTwo.classList = "section";
     sectionTwo.innerHTML = `
-		<h1 class="sectionTitles" id="sectionTwoTitle">Two</h1>
-		<p id="sectionOneSmallText">two</p>`;
+		<h1 class="sectionTitles" id="sectionTwoTitle">How to</h1>
+		<p class="sectionOneSmallText sectionBottomPage" id="howToGuideTxt">
+        1. Install and log in to Metamask. <br><br>
+        2. Visit our website and connect your Metamask wallet to our dApp. <br><br>
+        3. Click on the "Create SmartPromise" button. <br> <br>
+        4. Enter a title for your promise and deposit the desired amount of ETH. <br><br>
+        5. Share the unique ID generated for your promise with the other participant. <br><br>
+        6. The other participant must accept the Smart Promise within 10 minutes, after which the option to join will expire. <br><br>
+        7. Both participants must sign the promise to confirm their commitment. <br><br>
+        8. Once both participants have signed the promise, the funds will be released to the initial depositor. <br><br>
+            </p>`;
 
     let sectionThree = document.createElement("section");
     sectionThree.id = "sectionThree";
     sectionThree.classList = "section";
     sectionThree.innerHTML =
-        `<h1 class="sectionTitles" id="sectionThreeTitle">Check one Three</h1>`
+        `<h1 class="sectionTitles" id="sectionThreeTitle">About us</h1>
+        <p class="sectionOneSmallText">
+        Build a Web3 dApp for people to make social agreements and build trust in an anonymous environment.
+
+        <br><br><br>
+       The smart promise dApp provides a two step solution that any Web3 beginner can quickly put to use. The simplicity of Smart Promise revolutionizes the way of people can work and interact in Defi and beyond.
+       <br><br><br>
+       We are excited about the future of DeFi and are committed to building the tools and infrastructure necessary to make it a reality.
+       Join us on this journey and be a part of shaping the future of finance.</p>
+       <section class="sectionBottomPage">
+       <h2 class="sectionBottomTitle">Our Team</h1>
+        <figure class="teamImg">
+        <img src=""></img>
+        <p class="imgCardText"><b>Name and some other information</b></p>
+        
+        </figure>
+        <figure class="teamImg">
+        <img src=""></img>
+        <p class="imgCardText"><b>Name and some other information</b></p>
+        </figure>
+        <figure class="teamImg">
+        <img src=""></img>
+        <p class="imgCardText"><b>Name and some other information</b></p>
+        </figure>
+        <figure class="teamImg">
+        <p class="imgCardText"><b>Name and some other information</b></p>
+        <img src=""></img>
+        </figure>
+       </section>
+        `
     createFooter();
 
     document.body.append(header, main, footer);
