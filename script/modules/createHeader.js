@@ -7,11 +7,6 @@ export function createHeaderHome() {
 		<img src="imgs/logoTransparentBackground.webp"id="homeBtnImg"></img>
     </figure>
     <button id="dappLaunchBtn">Launch dApp</button>`;  
-
-/*     const dappLaunchBtn = document.createElement("button");
-    dappLaunchBtn.innerHTML = "Launch dApp";
-    dappLaunchBtn.id = "dappLaunchBtn";
-    header.append(dappLaunchBtn); */
     return header;
 
 }

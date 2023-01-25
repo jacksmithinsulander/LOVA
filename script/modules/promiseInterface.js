@@ -41,7 +41,7 @@ export const listenToEvent = () => {
         newPromiseDiv.append(newPromisePara);
     });
 }
-console.log("senast log", results);
+//console.log("senast log", results);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
