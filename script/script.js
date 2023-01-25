@@ -1,4 +1,4 @@
-import { abi as smartPromiseAbi } from "./abi.js";
+import { abi as smartPromiseAbi } from "./modules/abi.js";
 
 let header;
 let main;
