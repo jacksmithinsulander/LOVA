@@ -1,4 +1,5 @@
 import { abi as smartPromiseAbi } from "./abi.js";
+import { connect as connect } from "./modules/connect.js";
 
 let header;
 let main;
@@ -254,55 +255,7 @@ function launchApp() {
 
 landingPage();
 
-/*
-dappLaunchBtn.addEventListener("click", async () => {
-    launchApp();
 
-})
-*/
-
-// Appen
-/* 
-const walletConnectBtn = document.createElement("button");
-let createPromiseBtn = document.createElement("button");
-let joinPromiseBtn = document.createElement("button");
-let endPromiseBtn = document.createElement("button");
-
-
-let titleInput = document.createElement("input");
-let valueInput = document.createElement("input");
-let uidInput = document.createElement("input");
-let joinPromiseValue = document.createElement("input");
-let endPromiseUidValue = document.createElement("input");
-
-titleInput.id = "titleInput";
-valueInput.id = "valueInput";
-uidInput.id = "uidInput";
-endPromiseUidValue.id = "endPromiseUidValue";
-joinPromiseValue.id = "joinPromiseValue";
-createPromiseBtn.id = "createPromiseBtn";
-joinPromiseBtn.id = "joinPromiseBtn";
-endPromiseBtn.id = "endPromiseBtn";
-walletConnectBtn.id = "walletConnectBtn";
-
-titleInput.placeholder = "Title for promise";
-valueInput.placeholder = "ETH amount";
-uidInput.placeholder = "Promise ID";
-joinPromiseValue.placeholder = "ETH amount (join)";
-endPromiseUidValue.placeholder = "ID of promise you want to end";
-
-
-createPromiseBtn.innerText = "Create SmartPromise";
-joinPromiseBtn.innerText = "Join SmartPromise";
-endPromiseBtn.innerText = "End SmartPromise";
-walletConnectBtn.innertext = "Connect Wallet"
-
-document.body
-.append(mainHeader, titleInput, valueInput, createPromiseBtn, joinPromiseBtn, uidInput, joinPromiseValue, joinPromiseBtn, endPromiseBtn, endPromiseUidValue, walletConnectBtn)
- */
-//----------- RIKTAR JS -> SMART CONTRACT ----------------//
-
-//const smartContractInteraction = document.createElement("form");
 
 const smartPromiseAddress =
     "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
@@ -343,25 +296,6 @@ const listenToEvent = () => {
     });
 }
 
-const connect = async () => {
-    if (typeof window.ethereum !== "undefined") {
-        await window.ethereum.request({
-            method: "eth_requestAccounts",
-        });
-        signer = provider.getSigner();
-        smartPromiseContract.connect(signer);
-        listenToEvent();
-    } else {
-        console.log("No metamask");
-    }
-};
-/*
-walletConnectBtn.addEventListener("click", async () => {
-    await connect();
-
-})
-*/
-
 console.log("senast log", results);
 
 //----------FUNKTIONER TILL KEDJAN-----------//
@@ -386,6 +320,7 @@ async function createSmartPromiseJS() {
         completedPromiseDiv.appendChild(completedPromisePara);
     }
 }
+
 createPromiseBtn.addEventListener("click", () => {
     createSmartPromiseJS();
 });
@@ -428,7 +363,6 @@ searchPromiseBtn.addEventListener('click', () => {
 // Calling read only fn showPromiseParticipants
 async function searchPromiseJS() {
     await connect();
-
     // Get read return value from showPromiseParticipants(); 
     // Add collateral amounts and promise title to contract later so we can print a promise status here
     const searchOutput = document.getElementById("searchOutput")
@@ -438,7 +372,6 @@ async function searchPromiseJS() {
 
     // Print fn output to interface, needs modification but need testnet to do right
     searchOutput.innerHTML = await txResponse.wait();
-
 }
 
 //----------EVENTLISTENERS TYP---------//
