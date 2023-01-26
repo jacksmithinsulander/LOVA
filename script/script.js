@@ -194,13 +194,13 @@ function dappButtons() {
     //----------JOIN PROMISE-----------//
     const joinPromiseBtn = document.getElementById("joinPromiseBtn");
     joinPromiseBtn.addEventListener("click", () => {
-        joinPromiseJS(uidInput.value, joinPromiseValue.value);
+        joinPromiseJS(promiseID.value, promiseMatchCollateral.value);
     });
 
     //----------END PROMISE-----------//
     const endPromiseBtn = document.getElementById("endPromiseBtn");
     endPromiseBtn.addEventListener("click", () => {
-       endPromiseJS(endPromiseUidValue.value);
+       endPromiseJS(promiseIDToEnd.value);
     });
 
     //----------SEARCH PROMISE-----------//
