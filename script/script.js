@@ -177,6 +177,7 @@ function launchApp() {
             });
         });
     });
+    dappButtons();
 }
 landingPage();
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -184,26 +185,28 @@ landingPage();
 /////////////////////////////////////////////////////////////////////////////////////////
 
 //----------CREATE PROMISE-----------//
-const createPromiseBtn = document.getElementById("createPromiseBtn");
-createPromiseBtn.addEventListener("click", () => {
-    createSmartPromiseJS(titleInput.value, valueInput.value);
-});
+function dappButtons() {
+    const createPromiseBtn = document.getElementById("createPromiseBtn");
+    createPromiseBtn.addEventListener("click", () => {
+        createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
+    });
 
-//----------JOIN PROMISE-----------//
-const joinPromiseBtn = document.getElementById("joinPromiseBtn");
-joinPromiseBtn.addEventListener("click", () => {
-    joinPromiseJS(uidInput.value, joinPromiseValue.value);
-});
+    //----------JOIN PROMISE-----------//
+    const joinPromiseBtn = document.getElementById("joinPromiseBtn");
+    joinPromiseBtn.addEventListener("click", () => {
+        joinPromiseJS(uidInput.value, joinPromiseValue.value);
+    });
 
-//----------END PROMISE-----------//
-const endPromiseBtn = document.getElementById("endPromiseBtn");
-endPromiseBtn.addEventListener("click", () => {
-    endPromiseJS(endPromiseUidValue.value);
-});
+    //----------END PROMISE-----------//
+    const endPromiseBtn = document.getElementById("endPromiseBtn");
+    endPromiseBtn.addEventListener("click", () => {
+       endPromiseJS(endPromiseUidValue.value);
+    });
 
-//----------SEARCH PROMISE-----------//
-const searchPromiseBtn = document.getElementById("searchPromiseBtn");
-const searchOutput = document.getElementById("searchOutput")
-searchPromiseBtn.addEventListener('click', () => {
-    searchOutput.innerHTML = searchPromiseJS(promiseId.value);
-});
+    //----------SEARCH PROMISE-----------//
+    const searchPromiseBtn = document.getElementById("searchPromiseBtn");
+    const searchOutput = document.getElementById("searchOutput")
+    searchPromiseBtn.addEventListener('click', () => {
+        searchOutput.innerHTML = searchPromiseJS(promiseId.value);
+    });
+};

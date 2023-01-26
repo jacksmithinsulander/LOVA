@@ -4,7 +4,7 @@ import { abi as smartPromiseAbi } from './abi.js'
 ///////////////////////////////// WEB 3 FUNCTIONALITY ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-const smartPromiseAddress =                "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
+const smartPromiseAddress ="0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
