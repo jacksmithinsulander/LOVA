@@ -1,6 +1,5 @@
 export const createPromiseHtml = `
 <summary class="menuTitles fontTitle" >Create</summary>
-
 <form id="createSmartPromiseInterface" class="bottomInterface">
 
     <input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
