@@ -4,14 +4,13 @@ import { abi as smartPromiseAbi } from './abi.js'
 ///////////////////////////////// WEB 3 FUNCTIONALITY ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-const smartPromiseAddress ="0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
+const smartPromiseAddress = "0x8B80709DD6Ca1613A117287d4d294Ce89D614f29";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
 const filter = smartPromiseContract.filters.SmartPromiseCreated(null);
 const results = await smartPromiseContract.queryFilter(filter, 8327570, 8328820);
 let signer;
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// EVENT LISTENER //////////////////////////////////////
@@ -30,18 +29,17 @@ export const listenToEvent = () => {
                 .toString()
         };
         console.log("listenToEvent", data);
-
-        let newPromiseDiv = document.createElement("div");
-        let newPromisePara = document.createElement("p");
-        newPromiseDiv.id = "newPromiseDiv";
-        newPromisePara.id = "newPromisePara";
-        newPromisePara.innerHTML =
+        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface")
+        let successfulPromiseUID = document.createElement("p");
+        successfulPromiseUID.id = "successfulPromiseUID";
+        successfulPromiseUID.classList = "sectionOneSmallText"
+        successfulPromiseUID.innerHTML =
             `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
-        otherContentWrapper.append(newPromiseDiv);
-        newPromiseDiv.append(newPromisePara);
+        createSmartPromiseInterface.appendChild(successfulPromiseUID);
     });
 }
-//console.log("senast log", results);
+
+// console.log("senast log", results);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -110,7 +108,7 @@ export async function joinPromiseJS(uidInputValue, joinValue) {
 
 export async function endPromiseJS(endValueID) {
     await connect();
-    
+
     const payableValue = {
         value: ethers.utils.parseEther("0")
     };

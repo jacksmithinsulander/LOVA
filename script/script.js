@@ -61,7 +61,7 @@ function landingPage() {
     /////////////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////// LANDING PAGE TXT ///////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////
-   
+
     //---------- SECTION ONE TXT -----------//
     let sectionOne = document.createElement("section");
     sectionOne.id = "sectionOne";
@@ -78,7 +78,7 @@ function landingPage() {
     let sectionThree = document.createElement("section");
     sectionThree.id = "sectionThree";
     sectionThree.classList = "section";
-    sectionThree.innerHTML = sectionThreeHtml; 
+    sectionThree.innerHTML = sectionThreeHtml;
 
     //---------- APPENDING CONTENT TO DOC -----------//
     header = createHeaderHome();
@@ -89,7 +89,7 @@ function landingPage() {
     //---------- EVENT LISTENERS -----------//
     homeBtn = document.getElementById("homeBtn");
     dappLaunchBtn = document.getElementById("dappLaunchBtn");
-    
+
     homeBtn.addEventListener("click", () => {
         landingPage();
     });
@@ -118,8 +118,8 @@ function launchApp() {
 
     //---------- CREATE PROMISE DOM -----------//
     let createSmartPromiseInterface = document.createElement("details");
-    createSmartPromiseInterface.id = "createSmartPromiseInterface";
-    createSmartPromiseInterface.innerHTML =  createPromiseHtml;
+    createSmartPromiseInterface.id = "createPromiseInterface";
+    createSmartPromiseInterface.innerHTML = createPromiseHtml;
 
     //---------- JOIN PROMISE DOM -----------//
     let joinPromiseInterface = document.createElement("details");
@@ -133,9 +133,9 @@ function launchApp() {
 
     //---------- SEARCH PROMISE DOM -----------//
     let searchSmartPromiseInterface = document.createElement("details");
-    searchSmartPromiseInterface.id = "searchSmartPromiseInterface";
+    searchSmartPromiseInterface.id = "searchPromiseInterface";
     searchSmartPromiseInterface.innerHTML = searchPromiseHtml;
-    
+
     //---------- CREATING HEADER AND FOOTER -----------//
     header = createHeaderApp();
     footer = createFooter(footer);
@@ -163,7 +163,7 @@ function launchApp() {
     connectWalletBtn.addEventListener("click", async () => {
         connect();
     });
-    
+
     //---------- DETAILS -----------//
     const detailsElements = document.querySelectorAll("details");
     detailsElements.forEach(element => {
@@ -200,7 +200,9 @@ function dappButtons() {
     //----------END PROMISE-----------//
     const endPromiseBtn = document.getElementById("endPromiseBtn");
     endPromiseBtn.addEventListener("click", () => {
+
        endPromiseJS(promiseIDToEnd.value);
+
     });
 
     //----------SEARCH PROMISE-----------//
