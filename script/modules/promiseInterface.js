@@ -4,7 +4,7 @@ import { abi as smartPromiseAbi } from './abi.js'
 ///////////////////////////////// WEB 3 FUNCTIONALITY ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-const smartPromiseAddress = "0x7E989e0c8e43B488F2B820Ab0A4c38Fd1cD86620";
+const smartPromiseAddress = "0x8B80709DD6Ca1613A117287d4d294Ce89D614f29";
 
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
@@ -39,29 +39,7 @@ export const listenToEvent = () => {
     });
 }
 
-export const listenToPromiseParticipants = () => {
-    const contract = new ethers.Contract(
-        smartPromiseAddress,
-        smartPromiseAbi,
-        signer
-    );
-
-    contract.on("SmartPromiseCreated", (promiseIdentifier) => {
-        let data = {
-            promiseIdentifier: promiseIdentifier
-                .toString()
-        };
-        console.log("listenToEvent", data);
-        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface")
-        let successfulPromiseUID = document.createElement("p");
-        successfulPromiseUID.id = "successfulPromiseUID";
-        successfulPromiseUID.classList = "sectionOneSmallText"
-        successfulPromiseUID.innerHTML =
-            `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
-        createSmartPromiseInterface.appendChild(successfulPromiseUID);
-    });
-}
-//console.log("senast log", results);
+// console.log("senast log", results);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////
