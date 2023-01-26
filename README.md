@@ -1,8 +1,8 @@
-# SmartPromise
+# LOVA
 A decentralized application for creating and signing trustworthy promises using smart contract technology on the Ethereum blockchain.
 
 ## Project Description
-SmartPromise is a platform for creating and signing promises using smart contract technology on the Ethereum blockchain. Our goal is to revolutionize the DeFi space by providing trustworthy tools for engaging in trustless financial transactions.
+LOVA is a platform for creating and signing promises using smart contract technology on the Ethereum blockchain. Our goal is to revolutionize the DeFi space by providing trustworthy tools for engaging in trustless financial transactions.
 
 ## Table of Contents
 - Installation
@@ -14,11 +14,11 @@ SmartPromise is a platform for creating and signing promises using smart contrac
 
 ## Installation
 1. Install Metamask browser extension or mobile app to connect to the Ethereum network.
-2. Access the SmartPromise dApp at smartpromise.com
+2. Access the dApp at _____
 3. Use Metamask to log in and interact with the smart contract on the Ethereum network.
 
 ## Usage
-1. Create a new SmartPromise by depositing a collateral in ETH and providing a title for the promise.
+1. Create a new promise by depositing a collateral in ETH and providing a title for the promise.
 2. Share the unique promise ID with the other participant.
 3. The other participant can then accept the promise within 10 minutes by depositing the same collateral and signing the promise using Metamask.
 4. Once all participants have signed the promise, the contract can release the collateral to all participants.
