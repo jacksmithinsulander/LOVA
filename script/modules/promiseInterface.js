@@ -29,7 +29,7 @@ export const listenToEvent = () => {
                 .toString()
         };
         console.log("listenToEvent", data);
-        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface")
+        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface");
         let successfulPromiseUID = document.createElement("p");
         successfulPromiseUID.id = "successfulPromiseUID";
         successfulPromiseUID.classList = "sectionOneSmallText"
@@ -46,7 +46,7 @@ export const listenToEvent = () => {
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export const connect = async () => {
+export const connect = async () => {  
     if (typeof window.ethereum !== "undefined") {
         await window.ethereum.request({
             method: "eth_requestAccounts",
@@ -54,8 +54,10 @@ export const connect = async () => {
         signer = provider.getSigner();
         smartPromiseContract.connect(signer);
         listenToEvent();
+        connectWalletBtn = document.getElementById("connectWalletBtn");
+        connectWalletBtn.innerText = "Wallet Connected";
     } else {
-        console.log("No metamask");
+        alert("No metamask wallet detected");
     }
 };
 
@@ -129,4 +131,18 @@ export async function searchPromiseJS(_promiseUID) {
     const txResponse = await smartPromiseContract.connect(signer)
         .showPromiseParticipants(_promiseUID);
     return await txResponse.wait();
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// Check Connection ////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+export async function checkConnection () {
+    let accounts = await ethereum.request({method: 'eth_accounts'});
+    if (accounts.length) {
+        return true;
+    } 
+    else {
+        return false;
+    }
 }
