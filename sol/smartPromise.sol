@@ -36,7 +36,7 @@ contract smartPromiseContract {
         emit SmartPromiseCreated(newPromise.promiseIdentifier);
     }
 
-    /// If conditions needs to be separated into 3 nested if elses to give accurate err msg
+
     function joinPromise(uint _promiseUID) public payable {
         bool ableToJoin;
         for (uint i = 0; i < smartPromises.length; i++) {
@@ -85,10 +85,10 @@ contract smartPromiseContract {
         delete smartPromises;
     }
 
-    function showPromiseParticipants(uint _promiseUID) public view returns (address[] memory) {
+    function showPromiseInfo(uint _promiseUID) public view returns (address[] memory, string memory, uint256) {
         for (uint i = 0; i < smartPromises.length; i++) {
             if (smartPromises[i].promiseIdentifier == _promiseUID) {
-                return smartPromises[i].promiseParticipators;
+                return(smartPromises[i].promiseParticipators, smartPromises[i].promiseTitle, smartPromises[i].promiseCollateral);
             }
         }
         revert("Promise not found");

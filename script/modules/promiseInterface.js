@@ -92,10 +92,11 @@ export async function createSmartPromiseJS(smartPromiseTitle, smartPromiseValue)
 
 export async function joinPromiseJS(uidInputValue, joinValue) {
     await connect();
+    joinValue = JSON.stringify(parseInt(joinValue));
 
     const payableValue = {
         value: ethers.utils.parseEther(joinValue)
-    }
+    }   
 
     const txResponse = await smartPromiseContract.connect(signer)
         .joinPromise(uidInputValue, payableValue);
@@ -127,6 +128,6 @@ export async function searchPromiseJS(_promiseUID) {
     await connect();
 
     const txResponse = await smartPromiseContract.connect(signer)
-        .showPromiseParticipants(_promiseUID);
-    return await txResponse.wait();
+        .showPromiseInfo(_promiseUID);
+    return await txResponse;
 }
