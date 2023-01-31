@@ -15,6 +15,7 @@ import { createSmartPromiseJS } from "./modules/promiseInterface.js";
 import { joinPromiseJS } from "./modules/promiseInterface.js";
 import { endPromiseJS } from "./modules/promiseInterface.js";
 import { searchPromiseJS } from "./modules/promiseInterface.js";
+import { checkConnection } from "./modules/promiseInterface.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// INNER HTML VARIABLES ///////////////////////////////////
@@ -160,9 +161,21 @@ function launchApp() {
     });
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
-    connectWalletBtn.addEventListener("click", async () => {
-        connect();
-    });
+    async function loadWalletBtn () {
+        if (await checkConnection() == false) {
+            connectWalletBtn.addEventListener("click", async () => {
+                if (await connect() === true) {
+                    connectWalletBtn.innerText = "Wallet Connected";
+                } else {
+                    alert("Connection to Metamask failed!");
+                }
+            });
+        } 
+        else {
+            connectWalletBtn.innerText = "Wallet Connected";
+        }
+    }
+    loadWalletBtn();
 
     //---------- DETAILS -----------//
     const detailsElements = document.querySelectorAll("details");
