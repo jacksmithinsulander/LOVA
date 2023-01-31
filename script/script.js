@@ -164,7 +164,11 @@ function launchApp() {
     async function loadWalletBtn () {
         if (await checkConnection() == false) {
             connectWalletBtn.addEventListener("click", async () => {
-                connect();
+                if (await connect() === true) {
+                    connectWalletBtn.innerText = "Wallet Connected";
+                } else {
+                    alert("Connection to Metamask failed!");
+                }
             });
         } 
         else {

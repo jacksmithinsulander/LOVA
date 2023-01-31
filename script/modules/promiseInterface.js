@@ -54,10 +54,10 @@ export const connect = async () => {
         signer = provider.getSigner();
         smartPromiseContract.connect(signer);
         listenToEvent();
-        connectWalletBtn = document.getElementById("connectWalletBtn");
-        connectWalletBtn.innerText = "Wallet Connected";
+        return true;
     } else {
         alert("No metamask wallet detected");
+        return false;
     }
 };
 
