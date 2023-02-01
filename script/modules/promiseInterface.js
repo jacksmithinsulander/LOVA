@@ -4,7 +4,7 @@ import { abi as smartPromiseAbi } from './abi.js'
 ///////////////////////////////// WEB 3 FUNCTIONALITY ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-const smartPromiseAddress = "0x8B80709DD6Ca1613A117287d4d294Ce89D614f29";
+const smartPromiseAddress = "0x12A3b58b02C0F9E2d872C518A8EACbaAb2968591";
 
 //const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = "goerli"

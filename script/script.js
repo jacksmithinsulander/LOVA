@@ -224,7 +224,7 @@ function dappButtons() {
 
     //----------END PROMISE-----------//
     const endPromiseBtn = document.getElementById("endPromiseBtn");
-    endPromiseBtn.addEventListener("click", () => {
+    endPromiseBtn.addEventListener("click", async () => {
 
        endPromiseJS(promiseIDToEnd.value);
 
