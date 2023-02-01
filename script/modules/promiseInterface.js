@@ -6,11 +6,15 @@ import { abi as smartPromiseAbi } from './abi.js'
 
 const smartPromiseAddress = "0x8B80709DD6Ca1613A117287d4d294Ce89D614f29";
 
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+//const provider = new ethers.providers.Web3Provider(window.ethereum);
+const network = "goerli"
+const apiKey = "839f70b5cbfc4b13a4f4ba5a1f24423a"
+//const provider = new ethers.providers.InfuraProvider(network, "https://goerli.infura.io/v3/839f70b5cbfc4b13a4f4ba5a1f24423a");
+const provider = new ethers.providers.InfuraProvider(network, apiKey);
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
 const filter = smartPromiseContract.filters.SmartPromiseCreated(null);
 const results = await smartPromiseContract.queryFilter(filter, 8327570, 8328820);
-let signer;
+let signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// EVENT LISTENER //////////////////////////////////////
@@ -29,7 +33,7 @@ export const listenToEvent = () => {
                 .toString()
         };
         console.log("listenToEvent", data);
-        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface")
+        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface");
         let successfulPromiseUID = document.createElement("p");
         successfulPromiseUID.id = "successfulPromiseUID";
         successfulPromiseUID.classList = "sectionOneSmallText"
@@ -46,16 +50,18 @@ export const listenToEvent = () => {
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export const connect = async () => {
+export const connect = async () => {  
     if (typeof window.ethereum !== "undefined") {
         await window.ethereum.request({
             method: "eth_requestAccounts",
         });
-        signer = provider.getSigner();
+        signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
         smartPromiseContract.connect(signer);
         listenToEvent();
+        return true;
     } else {
-        console.log("No metamask");
+        alert("No metamask wallet detected");
+        return false;
     }
 };
 
@@ -133,4 +139,18 @@ export async function searchPromiseJS(_promiseUID) {
     const txResponse = await smartPromiseContract.connect(signer)
         .showPromiseInfo(_promiseUID);
     return await txResponse;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////// Check Connection ////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+export async function checkConnection () {
+    let accounts = await ethereum.request({method: 'eth_accounts'});
+    if (accounts.length) {
+        return true;
+    } 
+    else {
+        return false;
+    }
 }
