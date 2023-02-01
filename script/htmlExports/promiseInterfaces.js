@@ -14,8 +14,8 @@ export const joinPromiseHtml = `
 <form id="joinSmartPromiseInterface" class="bottomInterface">
 
     <input type="text" id="promiseID" class="inputStyling" placeholder="ID of active Promise"></input>
-    <input type="number" id="promiseMatchCollateral" class="inputStyling font" placeholder="Promise collateral" step="0.000000000000000001"></input>
-    <button id="joinPromiseBtn" class="interfaceBtns" type="button">Join Promise </button>
+    <p class="interfaceTxt" id="joinPromiseSearchOutput">Promise Details Will Be Displayed here</p>
+    <button id="joinPromiseBtn" class="interfaceBtns" type="button">Search Promise</button>
 
 </form>`
 

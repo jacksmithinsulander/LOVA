@@ -201,13 +201,25 @@ landingPage();
 function dappButtons() {
     const createPromiseBtn = document.getElementById("createPromiseBtn");
     createPromiseBtn.addEventListener("click", () => {
-        createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
+        if (promiseCollateral.value < 0.001) {
+            alert("Please input a minimum collateral of 0.001 ETH to continue")
+        }
+        else {
+            createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
+        }  
     });
 
     //----------JOIN PROMISE-----------//
     const joinPromiseBtn = document.getElementById("joinPromiseBtn");
-    joinPromiseBtn.addEventListener("click", () => {
-        joinPromiseJS(promiseID.value, promiseMatchCollateral.value);
+    const joinPromiseSearchOutput = document.getElementById("joinPromiseSearchOutput");
+    const promiseIDInput = document.getElementById("promiseID");
+    joinPromiseBtn.addEventListener("click", async () => {
+        await searchPromiseJS(promiseIDInput.value)
+        .then((data) => {
+            console.log(data);
+            displayJoinSearchData(promiseIDInput.value, data)});
+        // add as event listener func later
+        //joinPromiseJS(promiseID.value, promiseMatchCollateral.value);
     });
 
     //----------END PROMISE-----------//
@@ -221,7 +233,33 @@ function dappButtons() {
     //----------SEARCH PROMISE-----------//
     const searchPromiseBtn = document.getElementById("searchPromiseBtn");
     const searchOutput = document.getElementById("searchOutput")
-    searchPromiseBtn.addEventListener('click', () => {
-        searchOutput.innerHTML = searchPromiseJS(promiseId.value);
+    searchPromiseBtn.addEventListener('click', async () => {
+        const searchReturn = await searchPromiseJS(promiseId.value)
+        .then((data) => {displaySearchData(data)});
     });
-};
+
+    function displaySearchData(data) {
+        searchOutput.innerHTML = `
+        <p class="interfaceTXT">Promise Title: ${data[1]} </p>
+        <p class="interfaceTXT">Promise Collateral: ${data[2]/1000000000000000000}ETH</p>
+        `;
+        for(let i = 0; i < data[0].length; i++){
+            const participator = document.createElement("p");
+            participator.className = "interfaceTXT";
+            participator.innerHTML = `<p class="interfaceTXT">Participator ${i + 1} : ${data[0][i]}</p>`
+            searchOutput.appendChild(participator);
+        }
+    }
+
+    function displayJoinSearchData (promiseUID, data) {
+        joinPromiseSearchOutput.innerHTML = `
+        <p class="interfaceTXT">Promise Title: ${data[1]} </p>
+        <p class="interfaceTXT">Promise Collateral: ${data[2]/1000000000000000000}ETH</p>
+        `;
+        joinPromiseBtn.innerHTML = "Join Promise"
+        joinPromiseBtn.removeEventListener;
+        joinPromiseBtn.addEventListener('click',async () => {
+            joinPromiseJS(promiseUID, await data[2]);
+        });
+    }
+}
