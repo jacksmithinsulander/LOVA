@@ -188,17 +188,23 @@ landingPage();
 function dappButtons() {
     const createPromiseBtn = document.getElementById("createPromiseBtn");
     createPromiseBtn.addEventListener("click", () => {
-        createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
+        if (promiseCollateral.value < 0.001) {
+            alert("Please input a minimum collateral of 0.001 ETH to continue")
+        }
+        else {
+            createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
+        }  
     });
 
     //----------JOIN PROMISE-----------//
     const joinPromiseBtn = document.getElementById("joinPromiseBtn");
     const joinPromiseSearchOutput = document.getElementById("joinPromiseSearchOutput");
+    const promiseIDInput = document.getElementById("promiseID");
     joinPromiseBtn.addEventListener("click", async () => {
-        const searchReturn = await searchPromiseJS(promiseID.value)
+        await searchPromiseJS(promiseIDInput.value)
         .then((data) => {
             console.log(data);
-            displayJoinSearchData(promiseID.value, data)});
+            displayJoinSearchData(promiseIDInput.value, data)});
         // add as event listener func later
         //joinPromiseJS(promiseID.value, promiseMatchCollateral.value);
     });
