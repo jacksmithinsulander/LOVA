@@ -226,12 +226,25 @@ function dappButtons() {
     //----------END PROMISE-----------//
     const endPromiseBtn = document.getElementById("endPromiseBtn");
     endPromiseBtn.addEventListener("click", async () => {
-        await signFullfilledPromiseJS(promiseIDToEnd.value)
-        .then((data) => {
-            console.log(data);
-	    displayEndConfirm(promiseIDToEnd.value, data)});
-      // endPromiseJS(promiseIDToEnd.value);
+        const endSelect = document.getElementById("endSelect");
+        console.log(endSelect.value)
 
+        switch (endSelect.value) {
+            case "sign":
+                await signFullfilledPromiseJS(promiseIDToEnd.value)
+                .then((data) => {  
+                    alert("sign successful, please end promise once all participants have signed");
+                }); 
+
+            case "end":
+                await endPromiseJS(promiseIDToEnd.value)
+                .then((data) => {
+                    alert("Promise is now complete and funds have been released");
+                });
+
+            case "":
+                alert("Please select an option from the dropdown list");
+        }
     });
 
     //----------SEARCH PROMISE-----------//
@@ -241,6 +254,7 @@ function dappButtons() {
         const searchReturn = await searchPromiseJS(promiseId.value)
         .then((data) => {displaySearchData(data)});
     });
+
 
     function displaySearchData(data) {
         searchOutput.innerHTML = `
@@ -266,8 +280,9 @@ function dappButtons() {
             joinPromiseJS(promiseUID, await data[2]);
         });
     }
+
     function displayEndConfirm(promiseUID, data) {
-        console.log("endConfirm incomming data:", data);
+        console.log("endConfirm incoming data:", data);
         endPromiseBtn.removeEventListener;
         endPromiseBtn.addEventListener('click', async () => {	
 	     endPromiseJS(promiseUID);

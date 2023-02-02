@@ -335,6 +335,29 @@ input[type=number] {
     font-size: 2em;
 }
 
+.interfaceSelect {
+    margin-top: 1rem;
+    height: 3rem;
+    width: 13rem;
+    font-family: $font-body;
+    font-size: 1.5em;
+    color: $color-section-title;
+    border: 2px #3C5C85 outset;
+    border-radius: 5rem;
+    padding-left: 1.5rem;
+    background-color: #3C1B6A;
+}
+
+.interfaceSelectDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    :first-child{
+        margin-right: 2rem;
+    }
+}
+
 summary:hover {
     outline: 0.08rem solid $color-9;
     border-radius: $radius;

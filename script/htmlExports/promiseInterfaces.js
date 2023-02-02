@@ -25,6 +25,13 @@ export const endPromiseHtml = `
 <form id="endSmartPromiseInterface" class="bottomInterface">
 
     <input type="text" id="promiseIDToEnd" class="inputStyling" placeholder="ID to end Promise"></input>
+    <div class="interfaceSelectDiv">
+        <p class="interfaceTxt">Select desired action</p>
+        <select class="interfaceSelect" id="endSelect"> 
+            <option value="sign">Sign Promise</option>
+            <option value="end">End Promise</option>
+        </select>
+    </div>
     <button id="endPromiseBtn" class="interfaceBtns" type="button">End Promise </button>
 
 </form>`
