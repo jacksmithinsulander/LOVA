@@ -42,9 +42,9 @@ let dappLaunchBtn;
 ////////////////////////////////////////////////////////////////////////////////////
 
 function clearPage() {
-    if (header) header.remove();
-    if (main) main.remove();
-    if (footer) footer.remove();
+    if (header || main || footer) {
+        document.body.innerHTML = "";
+    }
 }
 
 function landingPage() {
