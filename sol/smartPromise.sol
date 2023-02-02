@@ -32,7 +32,6 @@ contract smartPromiseContract {
         smartPromises.push(newPromise);
         promiseData storage arrPushPromise = smartPromises[smartPromises.length - 1];
         arrPushPromise.promiseParticipators.push(msg.sender);
-        //return newPromise.promiseIdentifier;
         emit SmartPromiseCreated(newPromise.promiseIdentifier);
     }
 
@@ -53,36 +52,49 @@ contract smartPromiseContract {
     }
 
     function endSmartPromise(uint _promiseUID) public payable {
-        bool ableToWithdraw = false;
-        for (uint i = 0; i < smartPromises.length; i++) {
-            if (smartPromises[i].promiseIdentifier == _promiseUID && smartPromises[i].promiseCollateral > 0) {
-                for (uint j = 0; j < smartPromises[i].promiseParticipators.length; j++) {
-                    require(signed[_promiseUID][smartPromises[i].promiseParticipators[j]], "test");
-                    ableToWithdraw = true;
-                }
-                payable(msg.sender).transfer(smartPromises[i].promiseCollateral);
+        bool ableToWithdraw = true;
+        uint256 promiseIndex;
+        for (uint256 i = 0; i < smartPromises.length; i++) {
+            if (smartPromises[i].promiseIdentifier == _promiseUID) {
+                promiseIndex = i;
                 break;
             }
         }
-        require(ableToWithdraw, "Invalid promise identifier");
+        require(promiseIndex < smartPromises.length, "Invalid promise identifier");
+        require(smartPromises[promiseIndex].promiseCollateral > 0, "This promise has no collateral to withdraw");
+
+        for (uint j = 0; j < smartPromises[promiseIndex].promiseParticipators.length; j++) {
+            if (!signed[_promiseUID][smartPromises[promiseIndex].promiseParticipators[j]]) {
+                ableToWithdraw = false;
+                break;
+            }
+        }
+
+        require(ableToWithdraw, "All participants have not signed the promise");
+        payable(smartPromises[promiseIndex].initialDepositor).transfer(smartPromises[promiseIndex].promiseCollateral);
     }
 
     function signFullfilledPromise(uint _promiseUID) public {
-        for (uint i = 0; i < smartPromises.length; i++) {
+        uint256 promiseIndex;
+        for (uint256 i = 0; i < smartPromises.length; i++) {
             if (smartPromises[i].promiseIdentifier == _promiseUID) {
-                for (uint j = 0; j < smartPromises[i].promiseParticipators.length; j++) {
-                    if (smartPromises[i].promiseParticipators[j] == msg.sender) {
-                        require (!signed[_promiseUID][msg.sender], "You are not a participant of this promise");
-                        signed[_promiseUID][msg.sender] = true;
-                        break;
-                    }
-                }
+                promiseIndex = i;
+                break;
             }
         }
-    }
+        require(promiseIndex < smartPromises.length, "Invalid promise identifier");
 
-    function emptyPromiseData() public {
-        delete smartPromises;
+        bool isParticipant = false;
+        for (uint j = 0; j < smartPromises[promiseIndex].promiseParticipators.length; j++) {
+            if (smartPromises[promiseIndex].promiseParticipators[j] == msg.sender) {
+                isParticipant = true;
+                break;
+            }
+        }
+        require(isParticipant, "You are not a participant of this promise");
+
+        require(!signed[_promiseUID][msg.sender], "You have already signed this promise");
+        signed[_promiseUID][msg.sender] = true;
     }
 
     function showPromiseInfo(uint _promiseUID) public view returns (address[] memory, string memory, uint256) {

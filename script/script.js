@@ -15,6 +15,7 @@ import { createSmartPromiseJS } from "./modules/promiseInterface.js";
 import { joinPromiseJS } from "./modules/promiseInterface.js";
 import { endPromiseJS } from "./modules/promiseInterface.js";
 import { searchPromiseJS } from "./modules/promiseInterface.js";
+import { signFullfilledPromiseJS } from "./modules/promiseInterface.js";
 import { checkConnection } from "./modules/promiseInterface.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -224,9 +225,12 @@ function dappButtons() {
 
     //----------END PROMISE-----------//
     const endPromiseBtn = document.getElementById("endPromiseBtn");
-    endPromiseBtn.addEventListener("click", () => {
-
-       endPromiseJS(promiseIDToEnd.value);
+    endPromiseBtn.addEventListener("click", async () => {
+        await signFullfilledPromiseJS(promiseIDToEnd.value)
+        .then((data) => {
+            console.log(data);
+	    displayEndConfirm(promiseIDToEnd.value, data)});
+      // endPromiseJS(promiseIDToEnd.value);
 
     });
 
@@ -251,15 +255,22 @@ function dappButtons() {
         }
     }
 
-    function displayJoinSearchData (promiseUID, data) {
+    function displayJoinSearchData(promiseUID, data) {
         joinPromiseSearchOutput.innerHTML = `
         <p class="interfaceTXT">Promise Title: ${data[1]} </p>
         <p class="interfaceTXT">Promise Collateral: ${data[2]/1000000000000000000}ETH</p>
         `;
         joinPromiseBtn.innerHTML = "Join Promise"
         joinPromiseBtn.removeEventListener;
-        joinPromiseBtn.addEventListener('click',async () => {
+        joinPromiseBtn.addEventListener('click', async () => {
             joinPromiseJS(promiseUID, await data[2]);
+        });
+    }
+    function displayEndConfirm(promiseUID, data) {
+        console.log("endConfirm incomming data:", data);
+        endPromiseBtn.removeEventListener;
+        endPromiseBtn.addEventListener('click', async () => {	
+	     endPromiseJS(promiseUID);
         });
     }
 }
