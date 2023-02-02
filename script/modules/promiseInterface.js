@@ -39,10 +39,27 @@ export const listenToEvent = () => {
         successfulPromiseUID.classList = "sectionOneSmallText"
         successfulPromiseUID.innerHTML =
             `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
+        
+        let countdown = 10 * 60 * 1000; 
+        let countdownTimer = document.createElement("p");
+        countdownTimer.id = "countdownTimer";
+        countdownTimer.classList = "sectionOneSmallText"
         createSmartPromiseInterface.appendChild(successfulPromiseUID);
+         
+         let timer = setInterval(() => {
+             countdown -= 1000; 
+             let minutes = Math.floor(countdown / (60 * 1000));
+             let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
+             countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds`;
+             if (countdown <= 0) {
+                 clearInterval(timer);
+                 countdownTimer.innerHTML = `Deadline has passed!`;
+                 console.log("Countdown timer has ended");
+             }
+         }, 1000);
+         createSmartPromiseInterface.appendChild(countdownTimer);
     });
 }
-
 // console.log("senast log", results);
 
 

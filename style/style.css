@@ -539,7 +539,6 @@ body {
   position: absolute;
   height: 35rem;
   width: 41rem;
-  min-width: fit-content;
   padding-top: 2rem;
   left: 0;
   top: 7rem;
