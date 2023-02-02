@@ -39,13 +39,8 @@ export const listenToEvent = async (successfulPromiseUID) => {
                         .toString()
                 };
                 console.log("listenToEvent", data);
-                let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface");
-                /* let successfulPromiseUID = document.createElement("p");
-                successfulPromiseUID.id = "successfulPromiseUID";
-                successfulPromiseUID.classList = "sectionOneSmallText" */
                 successfulPromiseUID.innerHTML =
                     `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
-                //createSmartPromiseInterface.appendChild(successfulPromiseUID);
             }
             else {
                 console.log("user is not signer");
@@ -88,7 +83,6 @@ export async function createSmartPromiseJS(smartPromiseTitle, smartPromiseValue)
     const payableValue = {
         value: ethers.utils.parseEther(smartPromiseValue)
     }
-    //console.log(payableValue);
 
     const txResponse = await smartPromiseContract.connect(signer)
         .createSmartPromise(smartPromiseTitle, payableValue);
