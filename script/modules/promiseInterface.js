@@ -26,13 +26,10 @@ export const listenToEvent = async (successfulPromiseUID) => {
         smartPromiseAbi,
         signer
     );
-    console.log(signer);
 
     contract.on("SmartPromiseCreated", async (promiseIdentifier) => {
         await searchPromiseJS(promiseIdentifier)
         .then(async (data) => {
-            console.log("data" + data[0][0]);
-            console.log("signer Add" + await signer.getAddress());
             if (data[0][0] === await signer.getAddress()) {
                 let data = {
                     promiseIdentifier: promiseIdentifier
