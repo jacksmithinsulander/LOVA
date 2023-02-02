@@ -20,26 +20,37 @@ let signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
 //////////////////////////////////// EVENT LISTENER //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export const listenToEvent = () => {
+export const listenToEvent = async (successfulPromiseUID) => {
     const contract = new ethers.Contract(
         smartPromiseAddress,
         smartPromiseAbi,
         signer
     );
+    console.log(signer);
 
-    contract.on("SmartPromiseCreated", (promiseIdentifier) => {
-        let data = {
-            promiseIdentifier: promiseIdentifier
-                .toString()
-        };
-        console.log("listenToEvent", data);
-        let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface");
-        let successfulPromiseUID = document.createElement("p");
-        successfulPromiseUID.id = "successfulPromiseUID";
-        successfulPromiseUID.classList = "sectionOneSmallText"
-        successfulPromiseUID.innerHTML =
-            `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
-        createSmartPromiseInterface.appendChild(successfulPromiseUID);
+    contract.on("SmartPromiseCreated", async (promiseIdentifier) => {
+        await searchPromiseJS(promiseIdentifier)
+        .then(async (data) => {
+            console.log("data" + data[0][0]);
+            console.log("signer Add" + await signer.getAddress());
+            if (data[0][0] === await signer.getAddress()) {
+                let data = {
+                    promiseIdentifier: promiseIdentifier
+                        .toString()
+                };
+                console.log("listenToEvent", data);
+                let createSmartPromiseInterface = document.getElementById("createSmartPromiseInterface");
+                /* let successfulPromiseUID = document.createElement("p");
+                successfulPromiseUID.id = "successfulPromiseUID";
+                successfulPromiseUID.classList = "sectionOneSmallText" */
+                successfulPromiseUID.innerHTML =
+                    `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
+                //createSmartPromiseInterface.appendChild(successfulPromiseUID);
+            }
+            else {
+                console.log("user is not signer");
+            }
+        })
     });
 }
 
@@ -57,7 +68,8 @@ export const connect = async () => {
         });
         signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
         smartPromiseContract.connect(signer);
-        listenToEvent();
+        const successfulPromiseUID = document.getElementById("successfulPromiseUID");
+        listenToEvent(successfulPromiseUID);
         return true;
     } else {
         alert("No metamask wallet detected");
@@ -81,6 +93,7 @@ export async function createSmartPromiseJS(smartPromiseTitle, smartPromiseValue)
     const txResponse = await smartPromiseContract.connect(signer)
         .createSmartPromise(smartPromiseTitle, payableValue);
     await txResponse.wait();
+    
 
     console.log("Transaction hash: ", txResponse);
 
