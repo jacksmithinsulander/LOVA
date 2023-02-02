@@ -89,18 +89,13 @@ function landingPage() {
     homeBtn = document.getElementById("homeBtn");
     dappLaunchBtn = document.getElementById("dappLaunchBtn");
 
-    setEventListeners([
-        [homeBtn, "click", landingPage()],
-        [dappLaunchBtn, "click", launchApp()]
-    ]);
-
-    /*homeBtn.addEventListener("click", () => {
+    homeBtn.addEventListener("click", () => {
         landingPage();
     });
 
     dappLaunchBtn.addEventListener("click", () => {
         launchApp();
-    }); */
+    }); 
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
