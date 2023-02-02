@@ -6,14 +6,11 @@ import { abi as smartPromiseAbi } from './abi.js'
 
 const smartPromiseAddress = "0x12A3b58b02C0F9E2d872C518A8EACbaAb2968591";
 
-//const provider = new ethers.providers.Web3Provider(window.ethereum);
 const network = "goerli"
 const apiKey = "839f70b5cbfc4b13a4f4ba5a1f24423a"
-//const provider = new ethers.providers.InfuraProvider(network, "https://goerli.infura.io/v3/839f70b5cbfc4b13a4f4ba5a1f24423a");
 const provider = new ethers.providers.InfuraProvider(network, apiKey);
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
 const filter = smartPromiseContract.filters.SmartPromiseCreated(null);
-const results = await smartPromiseContract.queryFilter(filter, 8327570, 8328820);
 let signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -35,7 +32,6 @@ export const listenToEvent = async (successfulPromiseUID) => {
                     promiseIdentifier: promiseIdentifier
                         .toString()
                 };
-                console.log("listenToEvent", data);
                 successfulPromiseUID.innerHTML =
                     `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
             }
@@ -45,9 +41,6 @@ export const listenToEvent = async (successfulPromiseUID) => {
         })
     });
 }
-
-// console.log("senast log", results);
-
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
@@ -84,17 +77,6 @@ export async function createSmartPromiseJS(smartPromiseTitle, smartPromiseValue)
     const txResponse = await smartPromiseContract.connect(signer)
         .createSmartPromise(smartPromiseTitle, payableValue);
     await txResponse.wait();
-    
-
-    console.log("Transaction hash: ", txResponse);
-
-    if (txResponse) {
-        let completedPromiseDiv = document.createElement("div");
-        let completedPromisePara = document.createElement("p");
-
-        completedPromisePara.innerText = "finished transaction";
-        completedPromiseDiv.appendChild(completedPromisePara);
-    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -103,7 +85,6 @@ export async function createSmartPromiseJS(smartPromiseTitle, smartPromiseValue)
 
 export async function joinPromiseJS(uidInputValue, joinValue) {
     await connect();
-    //console.log(joinValue);
 
     joinValue = joinValue/1000000000000000000;
     joinValue = JSON.stringify(joinValue);
@@ -148,7 +129,6 @@ export async function endPromiseJS(endValueID) {
 //////////////////////////////////// SEARCH PROMISE //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-// Calling read only fn showPromiseParticipants
 export async function searchPromiseJS(_promiseUID) {
     await connect();
 
