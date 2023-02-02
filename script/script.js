@@ -3,20 +3,17 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 import { connect } from "./modules/promiseInterface.js";
-import { createFooter } from "./modules/createFooter.js";
-import { createHeaderHome } from "./modules/createHeader.js";
-import { createHeaderApp } from "./modules/createHeader.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// PROMISE INTERFACE IMPORTS //////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-import { createSmartPromiseJS } from "./modules/promiseInterface.js";
-import { joinPromiseJS } from "./modules/promiseInterface.js";
-import { endPromiseJS } from "./modules/promiseInterface.js";
-import { searchPromiseJS } from "./modules/promiseInterface.js";
-import { signFullfilledPromiseJS } from "./modules/promiseInterface.js";
-import { checkConnection } from "./modules/promiseInterface.js";
+import { createSmartPromiseJS, 
+    joinPromiseJS, 
+    endPromiseJS, 
+    searchPromiseJS, 
+    signFullfilledPromiseJS, 
+    checkConnection } from "./modules/promiseInterface.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// INNER HTML VARIABLES ///////////////////////////////////
@@ -25,12 +22,9 @@ import { checkConnection } from "./modules/promiseInterface.js";
 import { sectionOneHtml as sectionOneHtml } from "./htmlExports/sectionOne.js";
 import { sectionTwoHtml as sectionTwoHtml } from "./htmlExports/sectionTwo.js";
 import { sectionThreeHtml as sectionThreeHtml } from "./htmlExports/sectionThree.js";
-
-import { createPromiseHtml } from "./htmlExports/promiseInterfaces.js";
-import { joinPromiseHtml } from "./htmlExports/promiseInterfaces.js";
-import { endPromiseHtml } from "./htmlExports/promiseInterfaces.js";
-import { searchPromiseHtml } from "./htmlExports/promiseInterfaces.js";
-
+import { createFooter } from "./htmlExports/createFooter.js";
+import { createHeaderHome, createHeaderApp } from "./htmlExports/createHeader.js";
+import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml } from "./htmlExports/promiseInterfaces.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// GLOBAL VARIABLES ///////////////////////////////////
@@ -46,6 +40,7 @@ let dappLaunchBtn;
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// WEBSITE HOME //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////
+
 function clearPage() {
     if (header) header.remove();
     if (main) main.remove();
@@ -163,7 +158,7 @@ function launchApp() {
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
     async function loadWalletBtn () {
-        if (await checkConnection() == false) {
+        if (await checkConnection() === false) {
             connectWalletBtn.addEventListener("click", async () => {
                 if (await connect() === true) {
                     connectWalletBtn.innerText = "Wallet Connected";
@@ -194,6 +189,7 @@ function launchApp() {
     dappButtons();
 }
 landingPage();
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////// INTERFACE BTN EVENT LISTENERS ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -217,18 +213,13 @@ function dappButtons() {
     joinPromiseBtn.addEventListener("click", async () => {
         await searchPromiseJS(promiseIDInput.value)
         .then((data) => {
-            console.log(data);
             displayJoinSearchData(promiseIDInput.value, data)});
-        // add as event listener func later
-        //joinPromiseJS(promiseID.value, promiseMatchCollateral.value);
     });
 
     //----------END PROMISE-----------//
     const endPromiseBtn = document.getElementById("endPromiseBtn");
     endPromiseBtn.addEventListener("click", async () => {
         const endSelect = document.getElementById("endSelect");
-        console.log(endSelect.value)
-
         switch (endSelect.value) {
             case "sign":
                 await signFullfilledPromiseJS(promiseIDToEnd.value)
@@ -251,7 +242,7 @@ function dappButtons() {
     const searchPromiseBtn = document.getElementById("searchPromiseBtn");
     const searchOutput = document.getElementById("searchOutput")
     searchPromiseBtn.addEventListener('click', async () => {
-        const searchReturn = await searchPromiseJS(promiseId.value)
+        await searchPromiseJS(promiseId.value)
         .then((data) => {displaySearchData(data)});
     });
 
@@ -278,14 +269,6 @@ function dappButtons() {
         joinPromiseBtn.removeEventListener;
         joinPromiseBtn.addEventListener('click', async () => {
             joinPromiseJS(promiseUID, await data[2]);
-        });
-    }
-
-    function displayEndConfirm(promiseUID, data) {
-        console.log("endConfirm incoming data:", data);
-        endPromiseBtn.removeEventListener;
-        endPromiseBtn.addEventListener('click', async () => {	
-	     endPromiseJS(promiseUID);
         });
     }
 }
