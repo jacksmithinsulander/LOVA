@@ -30,12 +30,14 @@ import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml }
 ///////////////////////////////////// GLOBAL VARIABLES ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-let header;
+/*let header;
 let main;
 let homeBtn;
 let footer;
 let connectWalletBtn;
-let dappLaunchBtn;
+let dappLaunchBtn;*/
+
+let header, main, homeBtn, footer, connectWalletBtn, dappLaunchBtn;
 
 //////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// WEBSITE HOME //////////////////////////////////////
@@ -87,14 +89,18 @@ function landingPage() {
     homeBtn = document.getElementById("homeBtn");
     dappLaunchBtn = document.getElementById("dappLaunchBtn");
 
-    homeBtn.addEventListener("click", () => {
+    setEventListeners([
+        [homeBtn, "click", landingPage()],
+        [dappLaunchBtn, "click", launchApp()]
+    ]);
+
+    /*homeBtn.addEventListener("click", () => {
         landingPage();
     });
 
     dappLaunchBtn.addEventListener("click", () => {
         launchApp();
-    });
-
+    }); */
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
