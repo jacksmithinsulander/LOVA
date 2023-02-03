@@ -8,12 +8,14 @@ import { connect } from "./modules/promiseInterface.js";
 ///////////////////////////// PROMISE INTERFACE IMPORTS //////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-import { createSmartPromiseJS, 
-    joinPromiseJS, 
-    endPromiseJS, 
-    searchPromiseJS, 
-    signFullfilledPromiseJS, 
-    checkConnection } from "./modules/promiseInterface.js";
+import {
+    createSmartPromiseJS,
+    joinPromiseJS,
+    endPromiseJS,
+    searchPromiseJS,
+    signFullfilledPromiseJS,
+    checkConnection
+} from "./modules/promiseInterface.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////// INNER HTML VARIABLES ///////////////////////////////////
@@ -95,7 +97,7 @@ function landingPage() {
 
     dappLaunchBtn.addEventListener("click", () => {
         launchApp();
-    }); 
+    });
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -158,7 +160,7 @@ function launchApp() {
     });
 
     connectWalletBtn = document.getElementById("connectWalletBtn");
-    async function loadWalletBtn () {
+    async function loadWalletBtn() {
         if (await checkConnection() === false) {
             connectWalletBtn.addEventListener("click", async () => {
                 if (await connect() === true) {
@@ -167,7 +169,7 @@ function launchApp() {
                     alert("Connection to Metamask failed!");
                 }
             });
-        } 
+        }
         else {
             connectWalletBtn.innerText = "Wallet Connected";
         }
@@ -204,7 +206,7 @@ function dappButtons() {
         }
         else {
             createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
-        }  
+        }
     });
 
     //----------JOIN PROMISE-----------//
@@ -213,8 +215,9 @@ function dappButtons() {
     const promiseIDInput = document.getElementById("promiseID");
     joinPromiseBtn.addEventListener("click", async () => {
         await searchPromiseJS(promiseIDInput.value)
-        .then((data) => {
-            displayJoinSearchData(promiseIDInput.value, data)});
+            .then((data) => {
+                displayJoinSearchData(promiseIDInput.value, data)
+            });
     });
 
     //----------END PROMISE-----------//
@@ -224,15 +227,15 @@ function dappButtons() {
         switch (endSelect.value) {
             case "sign":
                 await signFullfilledPromiseJS(promiseIDToEnd.value)
-                .then((data) => {  
-                    alert("sign successful, please end promise once all participants have signed");
-                }); 
+                    .then((data) => {
+                        alert("sign successful, please end promise once all participants have signed");
+                    });
 
             case "end":
                 await endPromiseJS(promiseIDToEnd.value)
-                .then((data) => {
-                    alert("Promise is now complete and funds have been released");
-                });
+                    .then((data) => {
+                        alert("Promise is now complete and funds have been released");
+                    });
 
             case "":
                 alert("Please select an option from the dropdown list");
@@ -244,16 +247,24 @@ function dappButtons() {
     const searchOutput = document.getElementById("searchOutput")
     searchPromiseBtn.addEventListener('click', async () => {
         await searchPromiseJS(promiseId.value)
-        .then((data) => {displaySearchData(data)});
+            .then((data) => { displaySearchData(data) });
     });
 
 
     function displaySearchData(data) {
+
+        console.log(Date.now());
+        let date = new Date(data[3] * 1000);
+        // We can work with this!
+        // Log below gives out remaining time in unix time
+        console.log((data[3] * 1000) - Date.now());
         searchOutput.innerHTML = `
         <p class="interfaceTXT">Promise Title: ${data[1]} </p>
-        <p class="interfaceTXT">Promise Collateral: ${data[2]/1000000000000000000}ETH</p>
+        <p class="interfaceTXT">Promise Collateral: ${data[2] / 1000000000000000000}ETH</p>
+        <p class="interfaceTXT">Deadline: ${date}</p>
         `;
-        for(let i = 0; i < data[0].length; i++){
+
+        for (let i = 0; i < data[0].length; i++) {
             const participator = document.createElement("p");
             participator.className = "interfaceTXT";
             participator.innerHTML = `<p class="interfaceTXT">Participator ${i + 1} : ${data[0][i]}</p>`
@@ -264,7 +275,7 @@ function dappButtons() {
     function displayJoinSearchData(promiseUID, data) {
         joinPromiseSearchOutput.innerHTML = `
         <p class="interfaceTXT">Promise Title: ${data[1]} </p>
-        <p class="interfaceTXT">Promise Collateral: ${data[2]/1000000000000000000}ETH</p>
+        <p class="interfaceTXT">Promise Collateral: ${data[2] / 1000000000000000000}ETH</p>
         `;
         joinPromiseBtn.innerHTML = "Join Promise"
         joinPromiseBtn.removeEventListener;
