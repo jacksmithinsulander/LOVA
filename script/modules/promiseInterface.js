@@ -4,7 +4,7 @@ import { abi as smartPromiseAbi } from './abi.js'
 ///////////////////////////////// WEB 3 FUNCTIONALITY ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-const smartPromiseAddress = "0x9B5e4655FE2DB73d17fa4c1AB467d2D3bA62e462";
+const smartPromiseAddress = "0xBFB0F5eff414ed83Ff7A55D5647DF12E28b1E948";
 
 const network = "goerli"
 const apiKey = "839f70b5cbfc4b13a4f4ba5a1f24423a"
