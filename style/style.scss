@@ -285,12 +285,13 @@ body {
     width: 39rem;
     max-width: 41rem;
     height: 10.5rem;
-    border-radius: $radius;
-    background-color: $color-9;
-    border-color: $color-8;
-    font-size: 2rem;
-    font-family: $font-body;
-    color: $color-footer;
+    border-radius: 1rem;
+    border: 0.08rem solid rgb(172 141 204 / 10%);
+    border-color: #3c1b6a;
+    background-color: #17033300;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+    color: #AC8DCC;
     resize: none;
     text-align: center;
 }
@@ -317,12 +318,12 @@ input[type=number] {
 .interfaceBtns {
     width: 39rem;
     height: 6rem;
-    border: 2px #3C5C85 outset;
-    border-radius: $radius;
+    border: 0.1rem #3c5c858c outset;
+    border-radius: 1rem;
     background-color: #3C1B6A;
-    color: $color-section-title;
-    font-family: $font-body;
-    font-size: 2em;
+    color: #AC8DCC;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
@@ -346,7 +347,7 @@ input[type=number] {
     padding-left: 1rem;
     color: $color-section-title;
     font-family: $font-body;
-    font-size: 2em;
+    font-size: 1.5rem;
 }
 
 .interfaceSelect {
@@ -451,7 +452,7 @@ details[open] {
     height: 30rem;
     padding: 0.5rem;
     background-color: rgba(172, 141, 204, 0.168627451);
-    border-radius: 8px;
+    border-radius: 1rem;
     backdrop-filter: blur(5px);
     border-bottom: 3px 1px solid rgba(137, 24, 207, 0.1529411765);
     border-left: 2px 1px solid rgba(137, 24, 207, 0.1529411765)outset;
