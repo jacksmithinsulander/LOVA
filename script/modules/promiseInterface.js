@@ -47,6 +47,7 @@ export const listenToEvent = async (successfulPromiseUID) => {
                         }
 
                     }, 1000);
+                    successfulPromiseUID.style.display = "block"
                     successfulPromiseUID.innerHTML =
                         `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants`
 

@@ -18,7 +18,7 @@ $color-section-text: #FFCF7E;
 $color-header-img: #AC8DCC;
 $font-body: 'Roboto', sans-serif;
 $font-header: 'Lato', sans-serif;
-$radius: 2rem;
+$radius: 1rem;
 
 * {
     box-sizing: border-box;
@@ -99,7 +99,7 @@ body {
 .imgImg {
     border-style: none;
     width: 15rem;
-    border-radius: 2rem;
+    border-radius: $radius;
 }
 
 #main {
@@ -119,6 +119,7 @@ body {
     height: 6.5rem;
     padding: 0 0 2.875rem;
     vertical-align: baseline;
+    z-index: 0;
 }
 
 #footerInfo {
@@ -180,7 +181,7 @@ body {
     align-items: flex-start;
     background-color: rgba(172, 141, 204, 0.168627451);
     border: 1px solid rgba(137, 24, 207, 0.1529411765);
-    border-radius: 0.5rem;
+    border-radius: $radius;
     margin-top: 7rem;
     margin-left: -14rem;
 }
@@ -238,7 +239,7 @@ body {
 
 .menuTitles {
     color: #AC8DCC;
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     list-style-type: none;
     font-family: $font-header;
     padding: 0rem 1rem;
@@ -246,14 +247,15 @@ body {
 
 #interfaceSection {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     position: relative;
     border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
-    justify-content: space-evenly;
-    border-radius: 2rem;
+    border-radius: $radius;
     background-color: rgba(13, 1, 29, 0.6901960784);
     margin-left: 8.9rem;
+    height: 5rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .bottomInterface {
@@ -268,8 +270,13 @@ body {
     justify-content: space-between;
     flex-direction: column;
     background-color: rgba(13, 1, 29, 0.6901960784);
-    border-radius: 2rem;
+    border-radius: $radius;
     border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
+    z-index: 1;
+}
+
+#successfulPromiseUID {
+    display: none;
 }
 
 .inputStyling {
@@ -309,12 +316,17 @@ input[type=number] {
     width: 39rem;
     height: 6rem;
     border: 2px #3C5C85 outset;
-    border-radius: 20px;
+    border-radius: $radius;
     background-color: #3C1B6A;
     color: $color-section-title;
     font-family: $font-body;
     font-size: 2em;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
 
     &:hover {
         border: 2px #3C5C85 inset;
@@ -336,16 +348,15 @@ input[type=number] {
 }
 
 .interfaceSelect {
-    margin-top: 1rem;
-    height: 3rem;
+    height: 3.5rem;
     width: 13rem;
     font-family: $font-body;
     font-size: 1.5em;
-    color: $color-section-title;
-    border: 2px #3C5C85 outset;
-    border-radius: 5rem;
+    color: #ac8dcc;
+    border: 2px $color-8 inset;
+    border-radius: $radius;
     padding-left: 1.5rem;
-    background-color: #3C1B6A;
+    background-color: $color-9;
 }
 
 .interfaceSelectDiv {
@@ -353,10 +364,19 @@ input[type=number] {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    :first-child{
+
+    :first-child {
         margin-right: 2rem;
     }
 }
+
+.interfaceIcon {
+    // margin-left: 3rem;
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.2rem;
+}
+
 
 summary:hover {
     outline: 0.08rem solid $color-9;
@@ -376,6 +396,7 @@ details[open] {
     .interfaceBtns,
     .interfaceTxt {
         animation: fadeIn 1.6s;
+        margin-top: 0.4rem;
     }
 }
 
