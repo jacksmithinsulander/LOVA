@@ -6,7 +6,7 @@ export const createPromiseHtml = `
     <input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral" step="0.000000000000000001"></input>
     <button id="createPromiseBtn" class="interfaceBtns" type="button">Create Promise </button>
     <p id="successfulPromiseUID"  class="sectionOneSmallText" >
-
+    <p id="countdownTimer" class="sectionOneSmallText"> </p>
 </form>`
 
 export const joinPromiseHtml = `

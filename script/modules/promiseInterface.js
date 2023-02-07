@@ -4,7 +4,7 @@ import { abi as smartPromiseAbi } from './abi.js'
 ///////////////////////////////// WEB 3 FUNCTIONALITY ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-const smartPromiseAddress = "0x12A3b58b02C0F9E2d872C518A8EACbaAb2968591";
+const smartPromiseAddress = "0xBFB0F5eff414ed83Ff7A55D5647DF12E28b1E948";
 
 const network = "goerli"
 const apiKey = "839f70b5cbfc4b13a4f4ba5a1f24423a"
@@ -26,38 +26,35 @@ export const listenToEvent = async (successfulPromiseUID) => {
 
     contract.on("SmartPromiseCreated", async (promiseIdentifier) => {
         await searchPromiseJS(promiseIdentifier)
-        .then(async (data) => {
-            if (data[0][0] === await signer.getAddress()) {
-                let data = {
-                    promiseIdentifier: promiseIdentifier
-                        .toString()
-                };
-                successfulPromiseUID.innerHTML =
-                    `Your promise ID is: ${data.promiseIdentifier} <br><br> Please send this to promise participants`
+            .then(async (data) => {
+                if (data[0][0] === await signer.getAddress()) {
+                    let identifier = {
+                        promiseIdentifier: promiseIdentifier
+                            .toString()
+                    };
 
-                    let countdown = 10 * 60 * 1000; 
-                    let countdownTimer = document.createElement("p");
-                    countdownTimer.id = "countdownTimer";
-                    countdownTimer.classList = "sectionOneSmallText"
-                    createSmartPromiseInterface.appendChild(successfulPromiseUID);
-                     
-                     let timer = setInterval(() => {
-                         countdown -= 1000; 
-                         let minutes = Math.floor(countdown / (60 * 1000));
-                         let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
-                         countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds`;
-                         if (countdown <= 0) {
-                             clearInterval(timer);
-                             countdownTimer.innerHTML = `Deadline has passed!`;
-                             console.log("Countdown timer has ended");
-                         }
-                     }, 1000);
-                     createSmartPromiseInterface.appendChild(countdownTimer);
-            }
-            else {
-                console.log("user is not signer");
-            }
-        })
+                    let countdownTimer = document.getElementById("countdownTimer");
+                    let countdown = new Date(data[3] * 1000);
+                    console.log(data[3]);
+                    let timer = setInterval(() => {
+                        countdown -= 1000;
+                        let minutes = Math.floor(countdown / (60 * 1000));
+                        let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
+                        countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds;`
+                        if (countdown <= 0) {
+                            clearInterval(timer);
+                            countdownTimer.innerHTML = `Deadline has passed!;`
+                        }
+
+                    }, 1000);
+                    successfulPromiseUID.innerHTML =
+                        `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants`
+
+                }
+                else {
+                    console.log("user is not signer");
+                }
+            })
     });
 }
 
@@ -65,7 +62,7 @@ export const listenToEvent = async (successfulPromiseUID) => {
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export const connect = async () => {  
+export const connect = async () => {
     if (typeof window.ethereum !== "undefined") {
         await window.ethereum.request({
             method: "eth_requestAccounts",
@@ -105,14 +102,14 @@ export async function createSmartPromiseJS(smartPromiseTitle, smartPromiseValue)
 export async function joinPromiseJS(uidInputValue, joinValue) {
     await connect();
 
-    joinValue = joinValue/1000000000000000000;
+    joinValue = joinValue / 1000000000000000000;
     joinValue = JSON.stringify(joinValue);
     joinValue = {
         value: ethers.utils.parseEther(joinValue)
     }
 
     const txResponse = await smartPromiseContract.connect(signer)
-        .joinPromise(uidInputValue ,joinValue); 
+        .joinPromise(uidInputValue, joinValue);
     await txResponse.wait();
 }
 
@@ -121,7 +118,7 @@ export async function joinPromiseJS(uidInputValue, joinValue) {
 /////////////////////////////////////////////////////////////////////////////////////////
 
 export async function signFullfilledPromiseJS(promiseUID) {
-    await connect ();
+    await connect();
     const txResponse = await smartPromiseContract.connect(signer)
         .signFullfilledPromise(promiseUID);
     return await txResponse;
@@ -160,11 +157,11 @@ export async function searchPromiseJS(_promiseUID) {
 //////////////////////////////////// Check Connection ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-export async function checkConnection () {
-    let accounts = await ethereum.request({method: 'eth_accounts'});
+export async function checkConnection() {
+    let accounts = await ethereum.request({ method: 'eth_accounts' });
     if (accounts.length) {
         return true;
-    } 
+    }
     else {
         return false;
     }
