@@ -31,24 +31,22 @@ export const listenToEvent = async (successfulPromiseUID) => {
                     let identifier = {
                         promiseIdentifier: promiseIdentifier
                             .toString()
-
-
                     };
 
-                    /*                     let countdownTimer = document.getElementById("countdownTimer");
-                                        let countdown = new Date(data[3] * 1000);
-                                        console.log(data[3]);
-                                        let timer = setInterval(() => {
-                                            countdown -= 1000;
-                                            let minutes = Math.floor(countdown / (60 * 1000));
-                                            let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
-                                            countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds;`
-                                            if (countdown <= 0) {
-                                                clearInterval(timer);
-                                                countdownTimer.innerHTML = `Deadline has passed!;`
-                                            }
-                    
-                                        }, 1000); */
+                    let countdownTimer = document.getElementById("countdownTimer");
+                    let countdown = new Date(data[3] * 1000);
+                    console.log(data[3]);
+                    let timer = setInterval(() => {
+                        countdown -= 1000;
+                        let minutes = Math.floor(countdown / (60 * 1000));
+                        let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
+                        countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds;`
+                        if (countdown <= 0) {
+                            clearInterval(timer);
+                            countdownTimer.innerHTML = `Deadline has passed!;`
+                        }
+
+                    }, 1000);
                     successfulPromiseUID.style.display = "block"
                     successfulPromiseUID.innerHTML =
                         `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants`
