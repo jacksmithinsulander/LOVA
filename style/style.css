@@ -447,8 +447,8 @@ body {
 }
 
 .sectionOneSmallText {
-  font-size: 1.125rem;
-  line-height: 1.375rem;
+  font-size: 0.925rem;
+  line-height: 1.175rem;
   color: #FFCF7E;
   font-family: "Roboto", sans-serif;
 }
@@ -456,7 +456,7 @@ body {
 .sectionBottomPage {
   display: flex;
   position: relative;
-  width: 79rem;
+  width: 80rem;
   height: 31rem;
   flex-wrap: nowrap;
   align-items: flex-start;
@@ -518,30 +518,32 @@ body {
 
 .menuTitles {
   color: #AC8DCC;
-  font-size: 1.9rem;
+  font-size: 1.3rem;
   list-style-type: none;
   font-family: "Lato", sans-serif;
   padding: 0rem 1rem;
 }
 
 #interfaceSection {
-  display: flex;
-  flex-direction: column;
   position: relative;
   border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
   border-radius: 1rem;
   background-color: rgba(13, 1, 29, 0.6901960784);
   margin-left: 8.9rem;
-  height: 5rem;
-  justify-content: center;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
   flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 .bottomInterface {
   position: absolute;
   height: 35rem;
   width: 41rem;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   left: 0;
   top: 7rem;
   display: flex;
@@ -647,32 +649,95 @@ input[type=number] {
 }
 
 .interfaceIcon {
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   margin-right: 0.2rem;
+  position: relative;
+  left: -0.5rem;
+  bottom: 0.2rem;
+}
+
+#joinSymbol {
+  position: relative;
+  top: 0.1rem;
+}
+
+summary {
+  height: 3rem;
+  margin-top: 0, 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 summary:hover {
   outline: 0.08rem solid #170333;
   border-radius: 1rem;
   background-color: rgba(109, 4, 144, 0.2549019608);
-  box-shadow: 1px 2px 55px -27px #A13E8E;
+  height: 3rem;
 }
 
 details[open] {
-  outline: 0.08rem solid #170333;
+  outline: 0.08rem solid rgba(172, 141, 204, 0.1607843137);
   border-radius: 1rem;
   background-color: rgba(109, 4, 144, 0.2549019608);
   box-shadow: 1px 2px 55px -27px #A13E8E;
+  height: 3rem;
 }
 details[open] .inputStyling,
 details[open] .interfaceBtns,
 details[open] .interfaceTxt {
   -webkit-animation: fadeIn 1.6s;
           animation: fadeIn 1.6s;
-  margin-top: 0.4rem;
+  margin-top: 0.2rem;
 }
 
+/*----CARDS----*/
+.guideWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.guideWrapperTitle {
+  font-size: 1.625rem;
+  color: #AC8DCC;
+  font-family: "Lato", sans-serif;
+}
+
+.guideWrapperSmallText {
+  text-align: start;
+}
+
+.card {
+  width: 15rem;
+  height: 30rem;
+  padding: 0.5rem;
+  background-color: rgba(172, 141, 204, 0.168627451);
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-bottom: 3px 1px solid rgba(137, 24, 207, 0.1529411765);
+  border-left: 2px 1px solid rgba(137, 24, 207, 0.1529411765) outset;
+  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.28);
+  transition: 0.4s;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.card h1 {
+  text-align: center;
+  margin: 1.3rem;
+  color: rgb(218, 244, 237);
+  text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+}
+
+/*---CARDS END----*/
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
@@ -681,7 +746,6 @@ details[open] .interfaceTxt {
     opacity: 1;
   }
 }
-
 @keyframes fadeIn {
   0% {
     opacity: 0;

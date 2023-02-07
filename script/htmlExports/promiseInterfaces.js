@@ -13,7 +13,7 @@ export const createPromiseHtml = `
 
 export const joinPromiseHtml = `
 <summary class="menuTitles fontTitle">
-<img class="interfaceIcon" src="../imgs/joinIcon.png">Join</summary>
+<img class="interfaceIcon" id="joinSymbol" src="../imgs/joinIcon.png" >Join</summary>
 
 <form id="joinSmartPromiseInterface" class="bottomInterface">
 
