@@ -238,6 +238,17 @@ function dappButtons() {
                 alert("Please select an option from the dropdown list");
         }
     });
+    const endPromiseP = document.getElementById("endP");
+    
+    const signPromiseOption = document.getElementById("signPromiseOption"); 
+    signPromiseOption.addEventListener('click', () => {
+        endPromiseP.innerHTML = "Sign Promise"
+    });
+
+    const endPromiseOption = document.getElementById("endPromiseOption");
+    endPromiseOption.addEventListener('click', () => {
+        endPromiseP.innerHTML = "End Promise"
+    });
 
     //----------SEARCH PROMISE-----------//
     const searchPromiseBtn = document.getElementById("searchPromiseBtn");
@@ -260,13 +271,13 @@ function dappButtons() {
             searchOutput.appendChild(participator);
         }
     }
-
+    const joinPromiseP = document.getElementById("joinP");
     function displayJoinSearchData(promiseUID, data) {
         joinPromiseSearchOutput.innerHTML = `
         <p class="interfaceTXT">Promise Title: ${data[1]} </p>
         <p class="interfaceTXT">Promise Collateral: ${data[2]/1000000000000000000}ETH</p>
         `;
-        joinPromiseBtn.innerHTML = "Join Promise"
+        joinPromiseP.innerHTML = "Join Promise"
         joinPromiseBtn.removeEventListener;
         joinPromiseBtn.addEventListener('click', async () => {
             joinPromiseJS(promiseUID, await data[2]);

@@ -119,6 +119,7 @@ body {
     height: 6.5rem;
     padding: 0 0 2.875rem;
     vertical-align: baseline;
+    z-index: 0;
 }
 
 #footerInfo {
@@ -270,6 +271,7 @@ body {
     background-color: rgba(13, 1, 29, 0.6901960784);
     border-radius: 2rem;
     border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
+    z-index: 1;
 }
 
 .inputStyling {
@@ -315,6 +317,13 @@ input[type=number] {
     font-family: $font-body;
     font-size: 2em;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    p {
+        margin-left: 6rem;
+    }
 
     &:hover {
         border: 2px #3C5C85 inset;
@@ -336,16 +345,15 @@ input[type=number] {
 }
 
 .interfaceSelect {
-    margin-top: 1rem;
-    height: 3rem;
+    height: 3.5rem;
     width: 13rem;
     font-family: $font-body;
     font-size: 1.5em;
-    color: $color-section-title;
-    border: 2px #3C5C85 outset;
+    color: #ac8dcc;
+    border: 2px $color-8 inset;
     border-radius: 5rem;
     padding-left: 1.5rem;
-    background-color: #3C1B6A;
+    background-color: $color-9;
 }
 
 .interfaceSelectDiv {
@@ -357,6 +365,13 @@ input[type=number] {
         margin-right: 2rem;
     }
 }
+ 
+.interfaceIcon {
+    margin-left: 3rem;
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
 
 summary:hover {
     outline: 0.08rem solid $color-9;

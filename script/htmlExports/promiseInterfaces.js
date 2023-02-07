@@ -4,7 +4,7 @@ export const createPromiseHtml = `
 
     <input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
     <input type="number" id="promiseCollateral" name="promiseCollateral" class="inputStyling" placeholder="Promise collateral" step="0.000000000000000001"></input>
-    <button id="createPromiseBtn" class="interfaceBtns" type="button">Create Promise </button>
+    <button id="createPromiseBtn" class="interfaceBtns" type="button"><p>Create Promise</p><img class="interfaceIcon" src="../imgs/createIcon.png"> </button>
     <p id="successfulPromiseUID"  class="sectionOneSmallText" >
 
 </form>`
@@ -16,7 +16,7 @@ export const joinPromiseHtml = `
 
     <input type="text" id="promiseID" class="inputStyling" placeholder="ID of active Promise"></input>
     <p class="interfaceTxt" id="joinPromiseSearchOutput">Promise Details Will Be Displayed here</p>
-    <button id="joinPromiseBtn" class="interfaceBtns" type="button">Search Promise</button>
+    <button id="joinPromiseBtn" class="interfaceBtns" type="button"><p id="joinP">Search Promise</p><img class="interfaceIcon" src="../imgs/joinIcon.png"></button>
 
 </form>`
 
@@ -29,11 +29,11 @@ export const endPromiseHtml = `
     <div class="interfaceSelectDiv">
         <p class="interfaceTxt">Select desired action</p>
         <select class="interfaceSelect" id="endSelect"> 
-            <option value="sign">Sign Promise</option>
-            <option value="end">End Promise</option>
+            <option value="sign" id="signPromiseOption">Sign Promise</option>
+            <option value="end" id="endPromiseOption">End Promise</option>
         </select>
     </div>
-    <button id="endPromiseBtn" class="interfaceBtns" type="button">End Promise </button>
+    <button id="endPromiseBtn" class="interfaceBtns" type="button"><p id="endP">Sign Promise</p><img class="interfaceIcon" src="../imgs/endIcon.png"></button>
 
 </form>`
 
@@ -44,6 +44,6 @@ export const searchPromiseHtml = `
 
 	<input type="text" id="promiseId" name="promiseTitle" class="inputStyling" placeholder="Promise ID"></input>
     <p class="interfaceTxt" id="searchOutput">Promise participants and Promise Title Displayed here</p>
-	<button id="searchPromiseBtn" class="interfaceBtns" type="button">Search </button>
+	<button id="searchPromiseBtn" class="interfaceBtns" type="button"><p>Search</p><img class="interfaceIcon" src="../imgs/searchIcon.png"></button>
 
 </form>`
