@@ -1,5 +1,3 @@
-
-
 export function createFooter(footer) {
     footer = document.createElement("footer");
     footer.id = "footer";

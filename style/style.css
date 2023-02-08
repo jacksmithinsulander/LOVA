@@ -72,7 +72,8 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -347,7 +348,7 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0.5em;
   padding: 1em 2em;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 #dappLaunchBtn:hover, #dappLaunchBtn:focus,
 #connectWalletBtn:hover,
@@ -359,7 +360,8 @@ body {
 }
 
 #header {
-  backdrop-filter: blur(0.9375rem);
+  -webkit-backdrop-filter: blur(0.9375rem);
+          backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -379,7 +381,7 @@ body {
 .imgImg {
   border-style: none;
   width: 15rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
 #main {
@@ -398,6 +400,7 @@ body {
   height: 6.5rem;
   padding: 0 0 2.875rem;
   vertical-align: baseline;
+  z-index: 0;
 }
 
 #footerInfo {
@@ -444,8 +447,8 @@ body {
 }
 
 .sectionOneSmallText {
-  font-size: 1.125rem;
-  line-height: 1.375rem;
+  font-size: 0.925rem;
+  line-height: 1.175rem;
   color: #FFCF7E;
   font-family: "Roboto", sans-serif;
 }
@@ -453,13 +456,13 @@ body {
 .sectionBottomPage {
   display: flex;
   position: relative;
-  width: 79rem;
+  width: 80rem;
   height: 31rem;
   flex-wrap: nowrap;
   align-items: flex-start;
   background-color: rgba(172, 141, 204, 0.168627451);
   border: 1px solid rgba(137, 24, 207, 0.1529411765);
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   margin-top: 7rem;
   margin-left: -14rem;
 }
@@ -515,29 +518,32 @@ body {
 
 .menuTitles {
   color: #AC8DCC;
-  font-size: 2.5rem;
+  font-size: 1.3rem;
   list-style-type: none;
   font-family: "Lato", sans-serif;
   padding: 0rem 1rem;
 }
 
 #interfaceSection {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   position: relative;
   border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
-  justify-content: space-evenly;
-  border-radius: 2rem;
+  border-radius: 1rem;
   background-color: rgba(13, 1, 29, 0.6901960784);
   margin-left: 8.9rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 .bottomInterface {
   position: absolute;
   height: 35rem;
   width: 41rem;
-  padding-top: 2rem;
+  padding-top: 0.5rem;
   left: 0;
   top: 7rem;
   display: flex;
@@ -545,18 +551,24 @@ body {
   justify-content: space-between;
   flex-direction: column;
   background-color: rgba(13, 1, 29, 0.6901960784);
-  border-radius: 2rem;
+  border-radius: 1rem;
   border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
+  z-index: 1;
+}
+
+#successfulPromiseUID {
+  display: none;
 }
 
 .inputStyling {
   width: 39rem;
   max-width: 41rem;
   height: 10.5rem;
-  border-radius: 2rem;
-  background-color: #170333;
+  border-radius: 1rem;
+  border: 0.08rem solid rgba(172, 141, 204, 0.1);
   border-color: #3c1b6a;
-  font-size: 2rem;
+  background-color: rgba(23, 3, 51, 0);
+  font-size: 1.5rem;
   font-family: "Roboto", sans-serif;
   color: #AC8DCC;
   resize: none;
@@ -585,13 +597,17 @@ input[type=number] {
 .interfaceBtns {
   width: 39rem;
   height: 6rem;
-  border: 2px #3C5C85 outset;
-  border-radius: 20px;
+  border: 0.1rem rgba(60, 92, 133, 0.5490196078) outset;
+  border-radius: 1rem;
   background-color: #3C1B6A;
   color: #AC8DCC;
   font-family: "Roboto", sans-serif;
-  font-size: 2em;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .interfaceBtns:hover {
   border: 2px #3C5C85 inset;
@@ -608,33 +624,142 @@ input[type=number] {
   padding-left: 1rem;
   color: #AC8DCC;
   font-family: "Roboto", sans-serif;
-  font-size: 2em;
+  font-size: 1.5rem;
+}
+
+.interfaceSelect {
+  height: 3.5rem;
+  width: 13rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+  color: #ac8dcc;
+  border: 2px #3c1b6a inset;
+  border-radius: 1rem;
+  padding-left: 1.5rem;
+  background-color: #170333;
+}
+
+.interfaceSelectDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.interfaceSelectDiv :first-child {
+  margin-right: 2rem;
+}
+
+.interfaceIcon {
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 0.2rem;
+  position: relative;
+  left: -0.5rem;
+  bottom: 0.2rem;
+}
+
+#joinSymbol {
+  position: relative;
+  top: 0.1rem;
+}
+
+summary {
+  height: 3rem;
+  margin-top: 0, 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 summary:hover {
   outline: 0.08rem solid #170333;
-  border-radius: 2rem;
+  border-radius: 1rem;
   background-color: rgba(109, 4, 144, 0.2549019608);
-  box-shadow: 1px 2px 55px -27px #A13E8E;
+  height: 3rem;
 }
 
 details[open] {
-  outline: 0.08rem solid #170333;
-  border-radius: 2rem;
+  outline: 0.08rem solid rgba(172, 141, 204, 0.1607843137);
+  border-radius: 1rem;
   background-color: rgba(109, 4, 144, 0.2549019608);
   box-shadow: 1px 2px 55px -27px #A13E8E;
+  height: 3rem;
 }
 details[open] .inputStyling,
 details[open] .interfaceBtns,
 details[open] .interfaceTxt {
-  animation: fadeIn 1.6s;
+  -webkit-animation: fadeIn 1.6s;
+          animation: fadeIn 1.6s;
+  margin-top: 0.2rem;
 }
 
+/*----CARDS----*/
+.guideWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.guideWrapperTitle {
+  font-size: 1.625rem;
+  color: #AC8DCC;
+  font-family: "Lato", sans-serif;
+}
+
+.guideWrapperSmallText {
+  text-align: start;
+}
+
+.card {
+  width: 15rem;
+  height: 30rem;
+  padding: 0.5rem;
+  background-color: rgba(172, 141, 204, 0.168627451);
+  border-radius: 1rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-bottom: 3px 1px solid rgba(137, 24, 207, 0.1529411765);
+  border-left: 2px 1px solid rgba(137, 24, 207, 0.1529411765) outset;
+  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.28);
+  transition: 0.4s;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.card h1 {
+  text-align: center;
+  margin: 1.3rem;
+  color: rgb(218, 244, 237);
+  text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+}
+
+/*---CARDS END----*/
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  100% {
+    opacity: 0;
+  }
+  0% {
     opacity: 1;
   }
 }
@@ -645,6 +770,4 @@ details[open] .interfaceTxt {
   0% {
     opacity: 1;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
