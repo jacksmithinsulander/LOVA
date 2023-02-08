@@ -166,8 +166,8 @@ body {
 }
 
 .sectionOneSmallText {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
+    font-size: 0.925rem;
+    line-height: 1.175rem;
     color: $color-section-text;
     font-family: $font-body;
 }
@@ -175,7 +175,7 @@ body {
 .sectionBottomPage {
     display: flex;
     position: relative;
-    width: 79rem;
+    width: 80rem;
     height: 31rem;
     flex-wrap: nowrap;
     align-items: flex-start;
@@ -239,30 +239,32 @@ body {
 
 .menuTitles {
     color: #AC8DCC;
-    font-size: 1.9rem;
+    font-size: 1.3rem;
     list-style-type: none;
     font-family: $font-header;
     padding: 0rem 1rem;
 }
 
 #interfaceSection {
-    display: flex;
-    flex-direction: column;
     position: relative;
     border: 0.3rem solid rgba(103, 60, 147, 0.0549019608);
-    border-radius: $radius;
+    border-radius: 1rem;
     background-color: rgba(13, 1, 29, 0.6901960784);
     margin-left: 8.9rem;
-    height: 5rem;
-    justify-content: center;
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
     flex-wrap: wrap;
+    align-items: flex-end;
 }
 
 .bottomInterface {
     position: absolute;
     height: 35rem;
     width: 41rem;
-    padding-top: 2rem;
+    padding-top: 0.5rem;
     left: 0;
     top: 7rem;
     display: flex;
@@ -283,12 +285,13 @@ body {
     width: 39rem;
     max-width: 41rem;
     height: 10.5rem;
-    border-radius: $radius;
-    background-color: $color-9;
-    border-color: $color-8;
-    font-size: 2rem;
-    font-family: $font-body;
-    color: $color-footer;
+    border-radius: 1rem;
+    border: 0.08rem solid rgb(172 141 204 / 10%);
+    border-color: #3c1b6a;
+    background-color: #17033300;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+    color: #AC8DCC;
     resize: none;
     text-align: center;
 }
@@ -315,12 +318,12 @@ input[type=number] {
 .interfaceBtns {
     width: 39rem;
     height: 6rem;
-    border: 2px #3C5C85 outset;
-    border-radius: $radius;
+    border: 0.1rem #3c5c858c outset;
+    border-radius: 1rem;
     background-color: #3C1B6A;
-    color: $color-section-title;
-    font-family: $font-body;
-    font-size: 2em;
+    color: #AC8DCC;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: row;
@@ -344,7 +347,7 @@ input[type=number] {
     padding-left: 1rem;
     color: $color-section-title;
     font-family: $font-body;
-    font-size: 2em;
+    font-size: 1.5rem;
 }
 
 .interfaceSelect {
@@ -372,33 +375,111 @@ input[type=number] {
 
 .interfaceIcon {
     // margin-left: 3rem;
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     margin-right: 0.2rem;
+    position: relative;
+    left: -0.5rem;
+    bottom: 0.2rem;
 }
 
+#joinSymbol {
+    position: relative;
+    top: 0.1rem;
+}
+
+summary {
+    //outline: 1px solid red;
+    height: 3rem;
+    margin-top: 0,2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
 summary:hover {
+    
     outline: 0.08rem solid $color-9;
     border-radius: $radius;
     background-color: #6d049041;
-    box-shadow: 1px 2px 55px -27px $color-hover;
-
+    //box-shadow: 1px 2px 55px -27px $color-hover;
+    height: 3rem;
 }
 
+
 details[open] {
-    outline: 0.08rem solid $color-9;
+    outline: 0.08rem solid #ac8dcc29;
     border-radius: $radius;
     background-color: #6d049041;
     box-shadow: 1px 2px 55px -27px $color-hover;
+    height: 3rem;
+   
+
+
+
 
     .inputStyling,
     .interfaceBtns,
     .interfaceTxt {
         animation: fadeIn 1.6s;
-        margin-top: 0.4rem;
+        margin-top: 0.2rem;
     }
 }
+
+/*----CARDS----*/
+
+.guideWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.guideWrapperTitle {
+    font-size: 1.625rem;
+    color: #AC8DCC;
+    font-family: "Lato", sans-serif;
+  
+}
+
+.guideWrapperSmallText {
+    text-align: start;
+}
+
+.card {
+    width: 15rem;
+    height: 30rem;
+    padding: 0.5rem;
+    background-color: rgba(172, 141, 204, 0.168627451);
+    border-radius: 1rem;
+    backdrop-filter: blur(5px);
+    border-bottom: 3px 1px solid rgba(137, 24, 207, 0.1529411765);
+    border-left: 2px 1px solid rgba(137, 24, 207, 0.1529411765)outset;
+    box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
+    transition: .4s;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  
+  .card:hover {
+    
+  }
+  
+  .card h1 {
+    text-align: center;
+    margin: 1.3rem;
+    color: rgb(218, 244, 237);
+    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+  }
+    
+
+
+/*---CARDS END----*/
+
 
 
 
