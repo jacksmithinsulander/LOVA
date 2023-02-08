@@ -49,7 +49,6 @@ export const listenToEvent = async (successfulPromiseUID) => {
                             clearInterval(timer);
                             countdownTimer.innerHTML = `Deadline has passed!;`
                         }
-
                     }, 1000); */
                     function timePart(val,text,color="black"){
                         return `<h1 class="timer" style="color:${color};">${val}<div>${text}</div></h1>`
@@ -84,6 +83,7 @@ var x = setInterval(function() {
             })
     });
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
