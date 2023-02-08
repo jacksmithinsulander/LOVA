@@ -33,24 +33,49 @@ export const listenToEvent = async (successfulPromiseUID) => {
                             .toString()
                     };
 
-                    let countdownTimer = document.getElementById("countdownTimer");
-                    let countdown = new Date(data[3] * 1000);
+                    /*let countdownTimer = document.getElementById("countdownTimer");
+                    //let countdown = new Date(data[3] * 1000);
+                    let date = new Date(data[3] * 1000);
                     console.log(data[3]);
                     let timer = setInterval(() => {
-                        countdown -= 1000;
-                        let minutes = Math.floor(countdown / (60 * 1000));
-                        let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
-                        countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds;`
-                        if (countdown <= 0) {
+                        let minutes = "0" + date.getMinutes();
+                        let seconds = "0" + date.getSeconds();
+                        //countdown -= 1000;
+                        //let minutes = Math.floor(countdown / (60 * 1000));
+                        //let seconds = Math.floor((countdown - (minutes * 60 * 1000)) / 1000);
+                        
+			countdownTimer.innerHTML = `Participation deadline: ${minutes} minutes ${seconds} seconds;`
+                        if (date <= 0) {
                             clearInterval(timer);
                             countdownTimer.innerHTML = `Deadline has passed!;`
                         }
+                    }, 1000); */
+                    function timePart(val,text,color="black"){
+                        return `<h1 class="timer" style="color:${color};">${val}<div>${text}</div></h1>`
+                    }
+
+           // Update the count down every 1 second
+var x = setInterval(function() {
+                    let countdownTimer = document.getElementById("countdownTimer");
+                    const date = data[3] * 1000; //new Date(data[3] * 1000);
+                    //const countdownTime = date - Date.now();
+                    const dateNow = new Date().getTime();//new Date(Date.now());
+                    const dateDiff = date - dateNow;
+                    console.log(date, "date now is", dateNow, "difference is ", dateDiff); 
+                    var minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+                    let res = timePart(minutes,'Mins')  + timePart(seconds,'Seconds', 'red');
+
+                    // If the count down is finished, write some text 
+                    if (dateDiff < 0) {
+                        clearInterval(x);
+                        successfulPromiseUID.innerHTML = 
+                            `Your promise ID is. ${identifier.promiseIdentifier} <br><br> Please send this to promise participants}`;
+                    }
+                    successfulPromiseUID.innerHTML =
+                        `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants. Remaining time is ${res}`
 
                     }, 1000);
-                    successfulPromiseUID.style.display = "block"
-                    successfulPromiseUID.innerHTML =
-                        `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants`
-
                 }
                 else {
                     console.log("user is not signer");
@@ -58,6 +83,7 @@ export const listenToEvent = async (successfulPromiseUID) => {
             })
     });
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
