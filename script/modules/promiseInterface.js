@@ -9,12 +9,14 @@ const network = "goerli"
 const apiKey = "839f70b5cbfc4b13a4f4ba5a1f24423a"
 const provider = new ethers.providers.InfuraProvider(network, apiKey);
 const smartPromiseContract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, provider);
-let signer = new ethers.providers.JsonRpcProvider()
-.getSigner; //(new ethers.providers.Web3Provider(window.ethereum)).getSigner();
+let signer; 
+//let signer = new ethers.providers.JsonRpcProvider().getSigneri(); 
+//(new ethers.providers.Web3Provider(window.ethereum)).getSigner();
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// EVENT LISTENER //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 export const listenToEvent = async (successfulPromiseUID) => {
+    signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
     const contract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, signer);
     contract.on("SmartPromiseCreated", async (promiseIdentifier) => {
         await searchPromiseJS(promiseIdentifier).then(async (data) => {
