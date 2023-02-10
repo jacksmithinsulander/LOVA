@@ -1,5 +1,5 @@
 export const createPromiseHtml = `
-<summary class="menuTitles fontTitle" ><img class="interfaceIcon" src="../imgs/createIcon.png">Create</summary>
+<summary class="menuTitles fontTitle" ><img class="interfaceIcon" src="imgs/createIcon.webp">Create</summary>
 <form id="createSmartPromiseInterface" class="bottomInterface">
 
     <input type="text" id="promiseTitle" name="promiseTitle" class="inputStyling" placeholder="Title for your promise"></input>
@@ -13,7 +13,7 @@ export const createPromiseHtml = `
 
 export const joinPromiseHtml = `
 <summary class="menuTitles fontTitle">
-<img class="interfaceIcon" id="joinSymbol" src="../imgs/joinIcon.png" >Join</summary>
+<img class="interfaceIcon" id="joinSymbol" src="imgs/joinIcon.webp">Join</summary>
 
 <form id="joinSmartPromiseInterface" class="bottomInterface">
 
@@ -24,7 +24,7 @@ export const joinPromiseHtml = `
 </form>`
 
 export const endPromiseHtml = `
-<summary class="menuTitles fontTitle"><img class="interfaceIcon" src="../imgs/endIcon.png">End</summary>
+<summary class="menuTitles fontTitle"><img class="interfaceIcon" src="imgs/endIcon.webp">End</summary>
 
 <form id="endSmartPromiseInterface" class="bottomInterface">
 
@@ -41,7 +41,7 @@ export const endPromiseHtml = `
 </form>`
 
 export const searchPromiseHtml = `
-<summary class="menuTitles fontTitle" ><img class="interfaceIcon" src="../imgs/searchIcon.png">Search</summary>
+<summary class="menuTitles fontTitle" ><img class="interfaceIcon" src="imgs/searchIcon.webp">Search</summary>
 
 <form id="searchSmartPromiseInterface" class="bottomInterface">
 

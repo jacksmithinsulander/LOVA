@@ -68,7 +68,6 @@ body {
     margin: 0.5em;
     padding: 1em 2em;
     border-radius: $radius;
-
     &:hover,
     &:focus {
         border-color: $color-focus;
@@ -92,8 +91,8 @@ body {
 }
 
 #homeBtnImg {
-    width: 3.125rem;
-    height: 3.125rem;
+    width: 3.325rem;
+    height: 3.325rem;
 }
 
 .imgImg {
@@ -329,8 +328,6 @@ input[type=number] {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
-
     &:hover {
         border: 2px #3C5C85 inset;
     }
@@ -367,14 +364,12 @@ input[type=number] {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-
     :first-child {
         margin-right: 2rem;
     }
 }
 
 .interfaceIcon {
-    // margin-left: 3rem;
     height: 2.5rem;
     width: 2.5rem;
     margin-right: 0.2rem;
@@ -389,7 +384,6 @@ input[type=number] {
 }
 
 summary {
-    //outline: 1px solid red;
     height: 3rem;
     margin-top: 0,2rem;
     display: flex;
@@ -398,11 +392,9 @@ summary {
 }
 
 summary:hover {
-    
     outline: 0.08rem solid $color-9;
     border-radius: $radius;
     background-color: #6d049041;
-    //box-shadow: 1px 2px 55px -27px $color-hover;
     height: 3rem;
 }
 
@@ -413,11 +405,6 @@ details[open] {
     background-color: #6d049041;
     box-shadow: 1px 2px 55px -27px $color-hover;
     height: 3rem;
-   
-
-
-
-
     .inputStyling,
     .interfaceBtns,
     .interfaceTxt {
@@ -476,12 +463,7 @@ details[open] {
     text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
   }
     
-
-
 /*---CARDS END----*/
-
-
-
 
 @keyframes fadeIn {
     0% {

@@ -72,8 +72,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -360,8 +359,7 @@ body {
 }
 
 #header {
-  -webkit-backdrop-filter: blur(0.9375rem);
-          backdrop-filter: blur(0.9375rem);
+  backdrop-filter: blur(0.9375rem);
   display: flex;
   position: fixed;
   transition: all 0.3s ease-in-out;
@@ -374,8 +372,8 @@ body {
 }
 
 #homeBtnImg {
-  width: 3.125rem;
-  height: 3.125rem;
+  width: 3.325rem;
+  height: 3.325rem;
 }
 
 .imgImg {
@@ -688,8 +686,7 @@ details[open] {
 details[open] .inputStyling,
 details[open] .interfaceBtns,
 details[open] .interfaceTxt {
-  -webkit-animation: fadeIn 1.6s;
-          animation: fadeIn 1.6s;
+  animation: fadeIn 1.6s;
   margin-top: 0.2rem;
 }
 
@@ -718,8 +715,7 @@ details[open] .interfaceTxt {
   padding: 0.5rem;
   background-color: rgba(172, 141, 204, 0.168627451);
   border-radius: 1rem;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   border-bottom: 3px 1px solid rgba(137, 24, 207, 0.1529411765);
   border-left: 2px 1px solid rgba(137, 24, 207, 0.1529411765) outset;
   box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.28);
@@ -739,27 +735,11 @@ details[open] .interfaceTxt {
 }
 
 /*---CARDS END----*/
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadeOut {
-  100% {
-    opacity: 0;
-  }
-  0% {
     opacity: 1;
   }
 }
@@ -770,4 +750,6 @@ details[open] .interfaceTxt {
   0% {
     opacity: 1;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
