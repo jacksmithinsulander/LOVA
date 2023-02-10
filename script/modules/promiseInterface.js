@@ -41,6 +41,8 @@ export const listenToEvent = async (successfulPromiseUID) => {
                     let res = timePart(minutes, 'Mins') + timePart(
                         seconds, 'Seconds', 'red');
                     // If the count down is finished, write some text 
+                    successfulPromiseUID = document.getElementById("successfulPromiseUID");
+                    successfulPromiseUID.style.display = "block"
                     if (dateDiff < 0) {
                         clearInterval(x);
                         successfulPromiseUID.innerHTML =
@@ -153,6 +155,7 @@ export async function endPromiseJS(endValueID) {
 export async function searchPromiseJS(_promiseUID) {
     await connect();
     const txResponse = await smartPromiseContract.connect(signer).showPromiseInfo(_promiseUID);
+    //console.log(await txResponse);
     return await txResponse;
 };
 ///////////////////////////////////////////////////////////////////////////////////////////
