@@ -64,6 +64,7 @@ export const connect = async () => {
         await window.ethereum.request({
             method: "eth_requestAccounts",
         });
+        checkConnection();
         signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
         smartPromiseContract.connect(signer);
         const successfulPromiseUID = document.getElementById("successfulPromiseUID");
@@ -74,6 +75,33 @@ export const connect = async () => {
         return false;
     };
 };
+
+///////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////Request network swap ////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+async function requestNetworkSwap() {
+    try {
+        await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: '0x5'}],
+        });
+    } catch (error) {
+        if (error.code == 4902) {
+            try {
+                window.ethereum.request({
+                    method: 'wallet_addEthereumChain',
+                    params: [{chainId: '0x5', rpcUrl: 'https://goerli.blockpi.network/v1/rpc/public/'}]
+                })
+            } catch(addError) {
+                console.error(addError);
+            }
+        }
+        console.error(error);
+    }
+}
+        
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// CREATE PROMISE //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -134,7 +162,17 @@ export async function checkConnection() {
     let accounts = await ethereum.request({
         method: 'eth_accounts'
     });
+    signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
     if (accounts.length) {
+        await signer.getChainId()
+        .then((chainId) => {
+            if(chainId != 5) {
+                requestNetworkSwap();
+            }
+            else {
+                // Wallet is connected to goerli
+            }
+        })
         return true;
     } else {
         return false;
