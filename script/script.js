@@ -278,10 +278,6 @@ function dappButtons() {
 
 
     function displaySearchData(data) {
-
-        console.log(Date.now());
-        console.log(data[2]._hex);
-        console.log(data);
         let date = new Date(parseInt(data[2] * 1000));
         // We can work with this!
         // Log below gives out remaining time in unix time
