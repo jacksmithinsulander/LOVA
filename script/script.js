@@ -214,10 +214,16 @@ function dappButtons() {
     const joinPromiseSearchOutput = document.getElementById("joinPromiseSearchOutput");
     const promiseIDInput = document.getElementById("promiseID");
     joinPromiseBtn.addEventListener("click", async () => {
-        await searchPromiseJS(promiseIDInput.value)
+        try {
+            await searchPromiseJS(promiseIDInput.value)
             .then((data) => {
                 displayJoinSearchData(promiseIDInput.value, data)
             });
+        } catch(err) {
+            if(err.code == "UNPREDICTABLE_GAS_LIMIT") {
+                alert("execution reverted: Promise not found");
+            }
+        }
     });
 
     //----------END PROMISE-----------//
@@ -257,15 +263,22 @@ function dappButtons() {
     const searchPromiseBtn = document.getElementById("searchPromiseBtn");
     const searchOutput = document.getElementById("searchOutput")
     searchPromiseBtn.addEventListener('click', async () => {
-        await searchPromiseJS(promiseId.value)
-            .then((data) => { displaySearchData(data) });
+        console.log("searching");
+        try {
+            await searchPromiseJS(promiseId.value).then((data) => {
+                displaySearchData(data)
+            })
+        } catch(err) {
+            if(err.code == "UNPREDICTABLE_GAS_LIMIT") {
+                alert("execution reverted: Promise not found");
+            }
+        }
+        
     });
 
 
     function displaySearchData(data) {
-
-        console.log(Date.now());
-        let date = new Date(data[3] * 1000);
+        let date = new Date(parseInt(data[2] * 1000));
         // We can work with this!
         // Log below gives out remaining time in unix time
         console.log((data[3] * 1000) - Date.now());
