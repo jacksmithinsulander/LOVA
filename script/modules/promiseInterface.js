@@ -71,6 +71,7 @@ export const listenToEvent = async (successfulPromiseUID) => {
 
     }, 1000);
   });
+
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////
@@ -177,9 +178,15 @@ export async function searchPromiseJS(_promiseUID) {
 //////////////////////////////////// Check Connection ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 export async function checkConnection() {
-    let accounts = await ethereum.request({
+    try {
+        let accounts = await ethereum.request({
         method: 'eth_accounts'
-    });
+        });
+    }
+    catch(err) {
+        alert("Please install the MetaMask wallet to use our service!");
+    }
+    
     signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
     if (accounts.length) {
         await signer.getChainId()
