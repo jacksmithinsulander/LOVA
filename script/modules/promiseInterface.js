@@ -34,8 +34,8 @@ export const listenToEvent = async (successfulPromiseUID) => {
                     const date = data[3] * 1000;
                     const dateNow = new Date().getTime();
                     const dateDiff = date - dateNow;
-                    console.log(date, "date now is", dateNow,
-                        "difference is ", dateDiff);
+                    //console.log(date, "date now is", dateNow,
+                        //"difference is ", dateDiff);
                     var minutes = Math.floor(dateDiff / (1000 * 60)) % 60;
                     var seconds = Math.floor(dateDiff / 1000) % 60;
                     let res = timePart(minutes, 'Mins') + timePart(
@@ -162,9 +162,15 @@ export async function searchPromiseJS(_promiseUID) {
 //////////////////////////////////// Check Connection ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 export async function checkConnection() {
-    let accounts = await ethereum.request({
+    try {
+        let accounts = await ethereum.request({
         method: 'eth_accounts'
-    });
+        });
+    }
+    catch(err) {
+        alert("Please install the MetaMask wallet to use our service!");
+    }
+    
     signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
     if (accounts.length) {
         await signer.getChainId()
