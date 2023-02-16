@@ -26,18 +26,11 @@ import { sectionTwoHtml as sectionTwoHtml } from "./htmlExports/sectionTwo.js";
 import { sectionThreeHtml as sectionThreeHtml } from "./htmlExports/sectionThree.js";
 import { createFooter } from "./htmlExports/createFooter.js";
 import { createHeaderHome, createHeaderApp } from "./htmlExports/createHeader.js";
-import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml } from "./htmlExports/promiseInterfaces.js";
+import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml, searchOutputHtml } from "./htmlExports/promiseInterfaces.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// GLOBAL VARIABLES ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
-
-/*let header;
-let main;
-let homeBtn;
-let footer;
-let connectWalletBtn;
-let dappLaunchBtn;*/
 
 let header, main, homeBtn, footer, connectWalletBtn, dappLaunchBtn;
 
@@ -141,7 +134,6 @@ function launchApp() {
     footer = createFooter(footer);
 
     //---------- APPENDING CONTENT -----------//
-
     interfaceSection.append(
         createSmartPromiseInterface,
         joinPromiseInterface,
@@ -234,14 +226,14 @@ function dappButtons() {
             case "sign":
                 try {
                    await signFullfilledPromiseJS(promiseIDToEnd.value)
-                        .then((data) => {
-                            alert("sign successful, please end promise once all participants have signed");
-                        }); 
+                    .then((data) => {
+                        alert("sign successful, please end promise once all participants have signed");
+                    }); 
                 }
                 catch(err) {
-                        if(err.message = "execution reverted: You have already signed this promise") {
-                            alert("you have already signed this promise")
-                        }
+                    if(err.message = "execution reverted: You have already signed this promise") {
+                        alert("you have already signed this promise")
+                    }
                 }
                 
 
@@ -259,6 +251,7 @@ function dappButtons() {
                 }
         }
     });
+
     const endPromiseP = document.getElementById("endP");
     
     const signPromiseOption = document.getElementById("signPromiseOption"); 
@@ -288,7 +281,7 @@ function dappButtons() {
         
     });
 
-
+    //----------DISPLAY REGULAR SEARCH RESULT-----------//
     function displaySearchData(data) {
         let deadline = new Date(data[3] * 1000);
         // We can work with this!
@@ -306,15 +299,15 @@ function dappButtons() {
             searchOutput.appendChild(participator);
         }
     }
+
+    //----------GET PROMISE DEADLINE-----------//
     function getDeadline (data) {
         let deadline = data[3]
         deadline = new Date(deadline * 1000);
         return deadline;
     } 
 
-
-
-
+    //-----------DISPLAY JOIN SEARCH RESULT-----------//
     const joinPromiseP = document.getElementById("joinP");
     async function displayJoinSearchData(promiseUID, data) {
         let deadline = getDeadline(data);
@@ -329,8 +322,7 @@ function dappButtons() {
             }
         }
 
-        if (deadline < date) 
-        {
+        if (deadline < date) {
             joinPromiseSearchOutput.innerHTML = `
             <p class="interfaceTXT">Promise Title: ${data[1]} </p>
             <p class="interfaceTXT">Promise Collateral: ${data[2] / 1000000000000000000}ETH</p>
@@ -342,6 +334,7 @@ function dappButtons() {
                 joinPromiseJS(promiseUID, await data[2]);
             });
         }    
+
         else if (joined === true) {
             joinPromiseSearchOutput.innerHTML = `
             <p class="interfaceTXT">Promise Title: ${data[1]} </p>
@@ -353,6 +346,7 @@ function dappButtons() {
                 alert("You have already joined this promise");
             });
         }
+        
         else {
             joinPromiseSearchOutput.innerHTML = `
             <p class="interfaceTXT">Promise Title: ${data[1]} </p>
@@ -370,4 +364,3 @@ function dappButtons() {
         });
     }
 }
-
