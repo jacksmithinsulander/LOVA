@@ -26,7 +26,7 @@ import { sectionTwoHtml as sectionTwoHtml } from "./htmlExports/sectionTwo.js";
 import { sectionThreeHtml as sectionThreeHtml } from "./htmlExports/sectionThree.js";
 import { createFooter } from "./htmlExports/createFooter.js";
 import { createHeaderHome, createHeaderApp } from "./htmlExports/createHeader.js";
-import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml, searchOutputHtml } from "./htmlExports/promiseInterfaces.js";
+import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml} from "./htmlExports/promiseInterfaces.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// GLOBAL VARIABLES ///////////////////////////////////
@@ -315,7 +315,7 @@ function dappButtons() {
         const signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
         const address = signer.getAddress();
         let joined = false;
-        console.log(await address);
+
         for (let i = 0; i < data[0].length; i++) {
             if (data[0][i] === await address) {
                 joined = true;
@@ -346,7 +346,7 @@ function dappButtons() {
                 alert("You have already joined this promise");
             });
         }
-        
+
         else {
             joinPromiseSearchOutput.innerHTML = `
             <p class="interfaceTXT">Promise Title: ${data[1]} </p>
@@ -359,8 +359,5 @@ function dappButtons() {
                 alert("You may not join this promise: Deadline Has Passed")
             });
         }
-        joinPromiseBtn.addEventListener('click', async () => {
-            joinPromiseJS(promiseUID, await data[2]);
-        });
     }
 }

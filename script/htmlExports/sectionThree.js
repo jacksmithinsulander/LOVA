@@ -13,27 +13,27 @@ Join us on this journey and be a part of shaping the future of finance.</p>
     <figure class="teamImg">
         <img class="imgImg" src="./imgs/jackS.webp"></img>
         <p class="imgCardName"><b>Jack Smith Insulander</b></p>
-        <p class="imgCardText">Lead Developer<br><b>
+        <p class="imgCardText">Lead Developer/Founder<br><b>
         <a href="https://github.com/jacksmithinsulander" class="personalLinks">Github</a><br>
         <a href="https://www.linkedin.com/in/jack-smith-insulander-903220251/" class="personalLinks">LinkedIn</a></b></p>
     </figure>
     <figure class="teamImg">
         <img class="imgImg" src="./imgs/felipeS.webp"></img>
         <p class="imgCardName"><b>Felipe Stiernhoff</b></p>
-        <p class="imgCardText">Developer<br><b>
+        <p class="imgCardText">Developer/Founder<br><b>
         <a href="https://github.com/felipestiernhoff" class="personalLinks">Github</a><br>
         <a href="https://www.linkedin.com/in/felipe-stiernhoff-558515123/" class="personalLinks">LinkedIn</a></b></p>
     </figure>
     <figure class="teamImg">
         <img class="imgImg" src="./imgs/maxC.webp"></img>
         <p class="imgCardName"><b>Max Cid</b></p>
-        <p class="imgCardText">Developer<br><b>
+        <p class="imgCardText">Developer/Founder<br><b>
         <a href="https://github.com/MaxCid" class="personalLinks">Github</a><br>
         <a href="https://www.linkedin.com/in/maxcid/" class="personalLinks">LinkedIn</a></b></p>
     </figure>
     <figure class="teamImg">
         <p class="imgCardName"><b>Philip Andelic</b></p>
-        <p class="imgCardText">Developer<br><b>
+        <p class="imgCardText">Developer/Founder<br><b>
         <a href="https://github.com/Gitmazter" class="personalLinks">Github</a><br>
         <a href="https://www.linkedin.com/in/philip-andelic-9ba890123/" class="personalLinks">LinkedIn</a></b></p>
         <img class="imgImg" src="./imgs/philipA.webp"></img>
