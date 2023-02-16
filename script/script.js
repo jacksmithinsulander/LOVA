@@ -223,32 +223,32 @@ function dappButtons() {
     endPromiseBtn.addEventListener("click", async () => {
         const endSelect = document.getElementById("endSelect");
         switch (endSelect.value) {
-            case "sign":
-                try {
-                   await signFullfilledPromiseJS(promiseIDToEnd.value)
+            
+        case "sign":
+            try {
+               await signFullfilledPromiseJS(promiseIDToEnd.value)
+                .then((data) => {
+                    alert("sign successful, please end promise once all participants have signed");
+                }); 
+            }
+            catch(err) {
+                if(err.message = "execution reverted: You have already signed this promise") {
+                    alert("you have already signed this promise")
+                }
+            }
+            
+        case "end":
+            try {
+                await endPromiseJS(promiseIDToEnd.value)
                     .then((data) => {
-                        alert("sign successful, please end promise once all participants have signed");
-                    }); 
+                        alert("Promise is now complete and funds have been released");
+                    });
+            }
+            catch (err) {
+                if(err.message = "execution reverted: All participants have not signed the promise") {
+                    alert("All participants have not signed this promise");
                 }
-                catch(err) {
-                    if(err.message = "execution reverted: You have already signed this promise") {
-                        alert("you have already signed this promise")
-                    }
-                }
-                
-
-            case "end":
-                try {
-                    await endPromiseJS(promiseIDToEnd.value)
-                        .then((data) => {
-                            alert("Promise is now complete and funds have been released");
-                        });
-                }
-                catch (err) {
-                    if(err.message = "execution reverted: All participants have not signed the promise") {
-                        alert("All participants have not signed this promise");
-                    }
-                }
+            }
         }
     });
 
