@@ -15,49 +15,65 @@ let signer;
 ///////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// EVENT LISTENER //////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
+let isSuccessfulPromiseMsgPrinted = false;
+let eventListenerAdded = false;
+
 export const listenToEvent = async (successfulPromiseUID) => {
-    signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
-    const contract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, signer);
-    contract.on("SmartPromiseCreated", async (promiseIdentifier) => {
-        await searchPromiseJS(promiseIdentifier).then(async (data) => {
-            if (data[0][0] === await signer.getAddress()) {
-                let identifier = {
-                    promiseIdentifier: promiseIdentifier.toString()
-                };
+  if (eventListenerAdded) {
+    return;
+  }
 
-                function timePart(val, text, color = "black") {
-                    return `<h1 class="timer" style="color:${color};">${val}<p>${text}</p></h1>`;
-                }
+  eventListenerAdded = true;
 
-                // Update the count down every 1 second
-                var x = setInterval(function() {
-                    const date = data[3] * 1000;
-                    const dateNow = new Date().getTime();
-                    const dateDiff = date - dateNow;
-                    //console.log(date, "date now is", dateNow,
-                        //"difference is ", dateDiff);
-                    var minutes = Math.floor(dateDiff / (1000 * 60)) % 60;
-                    var seconds = Math.floor(dateDiff / 1000) % 60;
-                    let res = timePart(minutes, 'Mins') + timePart(
-                        seconds, 'Seconds', 'red');
-                    // If the count down is finished, write some text 
-                    successfulPromiseUID = document.getElementById("successfulPromiseUID");
-                    successfulPromiseUID.style.display = "block"
-                    if (dateDiff < 0) {
-                        clearInterval(x);
-                        successfulPromiseUID.innerHTML =
-                            `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants.`;
-                    } else {
-                        successfulPromiseUID.innerHTML =
-                            `Your promise ID is: ${identifier.promiseIdentifier} <br><br> Please send this to promise participants. Remaining time is ${res}`;
-                    }
-                }, 1000);
-            } else {
-                console.log("user is not signer");
-            }
-        });
-    });
+  const signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
+  const contract = new ethers.Contract(smartPromiseAddress, smartPromiseAbi, signer);
+
+  contract.on("SmartPromiseCreated", async (promiseIdentifier) => {
+    const data = await searchPromiseJS(promiseIdentifier);
+    if (data[0][0] !== await signer.getAddress()) {
+      console.log("user is not signer");
+      return;
+    }
+
+    const identifier = { promiseIdentifier: promiseIdentifier.toString() };
+    const successfulPromiseMsg = document.createElement("p");
+    successfulPromiseUID.style.display = "block";
+    successfulPromiseUID.appendChild(successfulPromiseMsg);
+
+    const countdownTimer = document.createElement("div"); 
+    countdownTimer.id = "countdown-timer"; 
+    successfulPromiseUID.appendChild(countdownTimer); 
+
+    let intervalId = setInterval(() => {
+      const date = data[3] * 1000;
+      const dateNow = new Date().getTime();
+      const dateDiff = date - dateNow;
+
+      switch (true) {
+        case !isSuccessfulPromiseMsgPrinted:
+          //successfulPromiseUID.innerHTML = `Your promise ID is: ${identifier.promiseIdentifier}<br><br>`;
+          successfulPromiseMsg.innerHTML = `Your promise ID is: ${identifier.promiseIdentifier}<br><br>Please send this to promise participants. Remaining time is calculating...`;
+          isSuccessfulPromiseMsgPrinted = true;
+          break;
+
+        case isSuccessfulPromiseMsgPrinted && dateDiff >= 0:
+          const minutes = Math.floor(dateDiff / (1000 * 60)) % 60;
+          const seconds = Math.floor(dateDiff / 1000) % 60;
+          const res = `<h1 class="timer" style="color:red;">${minutes}<p>Mins</p></h1><h1 class="timer" style="color:red;">${seconds}<p>Seconds</p></h1>`;
+          countdownTimer.innerHTML = `Remaining time: ${res}`; // Update the innerHTML of the countdownTimer element to display the countdown timer
+          break;
+
+        case isSuccessfulPromiseMsgPrinted && dateDiff < 0:
+          clearInterval(intervalId);
+          successfulPromiseMsg.innerHTML = "Deadline has passed!";
+          break;
+      }
+
+    }, 1000);
+  });
+
 };
+
 ///////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// CONNECT() ////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
