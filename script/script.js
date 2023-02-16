@@ -1,8 +1,9 @@
 ///////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// FUNCTIONS IMPORTS /////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
-
-import { connect } from "./modules/promiseInterface.js";
+import {
+    connect
+} from "./modules/promiseInterface.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// PROMISE INTERFACE IMPORTS //////////////////////////////////
@@ -21,12 +22,28 @@ import {
 ///////////////////////////////// INNER HTML VARIABLES ///////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 
-import { sectionOneHtml as sectionOneHtml } from "./htmlExports/sectionOne.js";
-import { sectionTwoHtml as sectionTwoHtml } from "./htmlExports/sectionTwo.js";
-import { sectionThreeHtml as sectionThreeHtml } from "./htmlExports/sectionThree.js";
-import { createFooter } from "./htmlExports/createFooter.js";
-import { createHeaderHome, createHeaderApp } from "./htmlExports/createHeader.js";
-import { createPromiseHtml, joinPromiseHtml, endPromiseHtml, searchPromiseHtml} from "./htmlExports/promiseInterfaces.js";
+import {
+    sectionOneHtml as sectionOneHtml
+} from "./htmlExports/sectionOne.js";
+import {
+    sectionTwoHtml as sectionTwoHtml
+} from "./htmlExports/sectionTwo.js";
+import {
+    sectionThreeHtml as sectionThreeHtml
+} from "./htmlExports/sectionThree.js";
+import {
+    createFooter
+} from "./htmlExports/createFooter.js";
+import {
+    createHeaderHome,
+    createHeaderApp
+} from "./htmlExports/createHeader.js";
+import {
+    createPromiseHtml,
+    joinPromiseHtml,
+    endPromiseHtml,
+    searchPromiseHtml
+} from "./htmlExports/promiseInterfaces.js";
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////// GLOBAL VARIABLES ///////////////////////////////////
@@ -161,8 +178,7 @@ function launchApp() {
                     alert("Connection to Metamask failed!");
                 }
             });
-        }
-        else {
+        } else {
             connectWalletBtn.innerText = "Wallet Connected";
         }
     }
@@ -195,8 +211,7 @@ function dappButtons() {
     createPromiseBtn.addEventListener("click", () => {
         if (promiseCollateral.value < 0.001) {
             alert("Please input a minimum collateral of 0.001 ETH to continue")
-        }
-        else {
+        } else {
             createSmartPromiseJS(promiseTitle.value, promiseCollateral.value);
         }
     });
@@ -208,11 +223,11 @@ function dappButtons() {
     joinPromiseBtn.addEventListener("click", async () => {
         try {
             await searchPromiseJS(promiseIDInput.value)
-            .then((data) => {
-                displayJoinSearchData(promiseIDInput.value, data)
-            });
-        } catch(err) {
-            if(err.code == "UNPREDICTABLE_GAS_LIMIT") {
+                .then((data) => {
+                    displayJoinSearchData(promiseIDInput.value, data)
+                });
+        } catch (err) {
+            if (err.code == "UNPREDICTABLE_GAS_LIMIT") {
                 alert("execution reverted: Promise not found");
             }
         }
@@ -224,37 +239,35 @@ function dappButtons() {
         const endSelect = document.getElementById("endSelect");
         switch (endSelect.value) {
 
-        case "sign":
-            try {
-               await signFullfilledPromiseJS(promiseIDToEnd.value)
-                .then((data) => {
-                    alert("sign successful, please end promise once all participants have signed");
-                }); 
-            }
-            catch(err) {
-                if(err.message = "execution reverted: You have already signed this promise") {
-                    alert("you have already signed this promise")
+            case "sign":
+                try {
+                    await signFullfilledPromiseJS(promiseIDToEnd.value)
+                        .then((data) => {
+                            alert("sign successful, please end promise once all participants have signed");
+                        });
+                } catch (err) {
+                    if (err.message = "execution reverted: You have already signed this promise") {
+                        alert("you have already signed this promise")
+                    }
                 }
-            }
-            
-        case "end":
-            try {
-                await endPromiseJS(promiseIDToEnd.value)
-                    .then((data) => {
-                        alert("Promise is now complete and funds have been released");
-                    });
-            }
-            catch (err) {
-                if(err.message = "execution reverted: All participants have not signed the promise") {
-                    alert("All participants have not signed this promise");
+
+            case "end":
+                try {
+                    await endPromiseJS(promiseIDToEnd.value)
+                        .then((data) => {
+                            alert("Promise is now complete and funds have been released");
+                        });
+                } catch (err) {
+                    if (err.message = "execution reverted: All participants have not signed the promise") {
+                        alert("All participants have not signed this promise");
+                    }
                 }
-            }
         }
     });
 
     const endPromiseP = document.getElementById("endP");
-    
-    const signPromiseOption = document.getElementById("signPromiseOption"); 
+
+    const signPromiseOption = document.getElementById("signPromiseOption");
     signPromiseOption.addEventListener('click', () => {
         endPromiseP.innerHTML = "Sign Promise"
     });
@@ -273,12 +286,12 @@ function dappButtons() {
             await searchPromiseJS(promiseId.value).then((data) => {
                 displaySearchData(data)
             })
-        } catch(err) {
-            if(err.code == "UNPREDICTABLE_GAS_LIMIT") {
+        } catch (err) {
+            if (err.code == "UNPREDICTABLE_GAS_LIMIT") {
                 alert("execution reverted: Promise not found");
             }
         }
-        
+
     });
 
     //----------DISPLAY REGULAR SEARCH RESULT-----------//
@@ -300,11 +313,11 @@ function dappButtons() {
     }
 
     //----------GET PROMISE DEADLINE-----------//
-    function getDeadline (data) {
+    function getDeadline(data) {
         let deadline = data[3]
         deadline = new Date(deadline * 1000);
         return deadline;
-    } 
+    }
 
     //-----------DISPLAY JOIN SEARCH RESULT-----------//
     const joinPromiseP = document.getElementById("joinP");
@@ -332,9 +345,7 @@ function dappButtons() {
             joinPromiseBtn.addEventListener('click', async () => {
                 joinPromiseJS(promiseUID, await data[2]);
             });
-        }    
-
-        else if (joined === true) {
+        } else if (joined === true) {
             joinPromiseSearchOutput.innerHTML = `
             <p class="interfaceTXT">Promise Title: ${data[1]} </p>
             <p class="interfaceTXT">Promise Collateral: ${data[2] / 1000000000000000000}ETH</p>
@@ -344,9 +355,7 @@ function dappButtons() {
             joinPromiseBtn.addEventListener('click', async () => {
                 alert("You have already joined this promise");
             });
-        }
-
-        else {
+        } else {
             joinPromiseSearchOutput.innerHTML = `
             <p class="interfaceTXT">Promise Title: ${data[1]} </p>
             <p class="interfaceTXT">Promise Collateral: ${data[2] / 1000000000000000000}ETH</p>
