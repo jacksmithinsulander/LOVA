@@ -223,7 +223,7 @@ function dappButtons() {
     endPromiseBtn.addEventListener("click", async () => {
         const endSelect = document.getElementById("endSelect");
         switch (endSelect.value) {
-            
+
         case "sign":
             try {
                await signFullfilledPromiseJS(promiseIDToEnd.value)
@@ -284,8 +284,7 @@ function dappButtons() {
     //----------DISPLAY REGULAR SEARCH RESULT-----------//
     function displaySearchData(data) {
         let deadline = new Date(data[3] * 1000);
-        // We can work with this!
-        // Log below gives out remaining time in unix time
+
         searchOutput.innerHTML = `
         <p class="interfaceTXT">Promise Title: ${data[1]} </p>
         <p class="interfaceTXT">Promise Collateral: ${data[2] / 1000000000000000000}ETH</p>
