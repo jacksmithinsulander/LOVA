@@ -178,28 +178,23 @@ export async function searchPromiseJS(_promiseUID) {
 //////////////////////////////////// Check Connection ////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 export async function checkConnection() {
+    let accounts;
     try {
-        let accounts = await ethereum.request({
-        method: 'eth_accounts'
+        accounts = await ethereum.request({
+            method: 'eth_accounts'
         });
-    }
-    catch(err) {
+    } catch (err) {
         alert("Please install the MetaMask wallet to use our service!");
     }
-    
+
     signer = (new ethers.providers.Web3Provider(window.ethereum)).getSigner();
     if (accounts.length) {
-        await signer.getChainId()
-        .then((chainId) => {
-            if(chainId != 5) {
-                requestNetworkSwap();
-            }
-            else {
-                // Wallet is connected to goerli
-            }
-        })
+        const chainId = await signer.getChainId();
+        if (chainId !== 5) {
+            requestNetworkSwap();
+        }
         return true;
     } else {
         return false;
-    };
-};
+    }
+}
